@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
     <meta name="robots" content="noindex, nofollow">
-    <title>Login</title>
+    <title>@yield("title")</title>
     <link rel="stylesheet" href="{{ URL::to('assets/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/font-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/line-awesome.min.css') }}">
