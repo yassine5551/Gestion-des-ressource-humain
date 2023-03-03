@@ -13,7 +13,13 @@ class AdminController extends Controller
     }
     public function index()
     {
-        $viewData["title"] = "Admin - Dashboard";
-        return view("admin.index",compact("viewData"));
+        $title = "Admin - Dashboard";
+        return view("admin.index",compact("title"));
+    }
+    public function employes()
+    {
+
+        $title =  "Admin - Employes";
+        return view("admin.employes",compact("title"));
     }
 }

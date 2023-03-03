@@ -21,6 +21,9 @@ Route::get('/', function () {
 Route::get("/register",[\App\Http\Controllers\Auth\RegisterController::class,"register"])->name("register");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::post("/register",[\App\Http\Controllers\Auth\RegisterController::class,"create"]);
+
+
 Route::controller(App\Http\Controllers\Admin\AdminController::class)->group(function () {
     Route::get('/admin', 'index')->name("admin.index");
+    Route::get('/admin/employes',"employes")->name("admin.employes");
 });
