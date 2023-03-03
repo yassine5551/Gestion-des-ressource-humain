@@ -27,12 +27,13 @@
         class="z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
-          <a
+        <!--   <a
             class="ml-6 bg-white shadow-md dark:bg-gray-8000"
             href="#"
           >
-            <img width='500' class="text-gray-500 dark:text-gray-100 mt-5 text-base font-medium tracking-tight" src={{asset('assets/imgs/logo.png')}} alt="">
-          </a>
+            <img width='500' class="text-gray-500 dark:text-gray-100 mt-5 text-base font-medium tracking-tight" src={{asset('assets/imgs/logo.svg')}} alt="">
+
+          </a> -->
           <ul class="mt-6">
             <li class="relative px-6 py-3">
               <a
@@ -194,7 +195,7 @@
               </a>
             </li>
             <li class="relative px-6 py-3">
-             
+
             </li>
           </ul>
           <div class="px-6 my-6">
@@ -719,9 +720,13 @@
                       </a>
                     </li>
                     <li class="flex">
+                        <form action="{{route('logout')}}" id="lg-out" method="POST">
+                            @csrf
+                        </form>
                       <a
                         class="inline-flex items-center w-full px-2 py-1 text-sm font-semibold transition-colors duration-150 rounded-md hover:bg-gray-100 hover:text-gray-800 dark:hover:bg-gray-800 dark:hover:text-gray-200"
                         href="#"
+                        onclick="document.getElementById('lg-out').submit()"
                       >
                         <svg
                           class="w-4 h-4 mr-3"
