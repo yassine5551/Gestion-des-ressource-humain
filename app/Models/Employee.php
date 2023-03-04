@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 
-class Employee extends User
-{
+class Employee extends model{
     use HasFactory;
     protected $fillable =
         [
@@ -40,20 +40,10 @@ class Employee extends User
     }
     public function user()
     {
-        return $this->belongsTo(User::class,"social_number");
+        return $this->belongsTo(User::class,);
     }
-    public function  getName()
-    {
-        return parent::getName();
-    }
-    public function getEmail()
-    {
-        return parent::getEmail();
-    }
-    public function setName($name)
-    {
-        parent::setName($name);
-    }
+
+
     public function getSalary()
     {
         return $this->attributes["salary"];
@@ -106,5 +96,6 @@ class Employee extends User
     {
         return $this->hasOne(Post::class);
     }
+
 
 }

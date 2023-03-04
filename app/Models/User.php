@@ -82,7 +82,7 @@ class User extends Authenticatable
     }
     public function employee()
     {
-        return $this->hasOne(Employee::class,"social_number");
+        return $this->hasOne(Employee::class,);
     }
     public static function validate(Request $request)
     {

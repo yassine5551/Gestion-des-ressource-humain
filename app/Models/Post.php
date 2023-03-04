@@ -19,6 +19,6 @@ class Post extends Model
     }
     public function employees()
     {
-        return $this->hasMany(Employee::class,"social_number");
+        return $this->hasMany(Employee::class,);
     }
 }
