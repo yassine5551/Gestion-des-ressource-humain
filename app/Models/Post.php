@@ -13,6 +13,10 @@ class Post extends Model
     {
         return $this->attributes["name"];
     }
+    public function getId()
+    {
+        return $this->attributes["id"];
+    }
     public function employees()
     {
         return $this->hasMany(Employee::class,"social_number");

@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers\Admi;
+namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Post;
 use Illuminate\Http\Request;
 
 class AdminPostController extends Controller
@@ -14,7 +15,9 @@ class AdminPostController extends Controller
      */
     public function index()
     {
-        //
+        $title = "Admin - Posts";
+        $posts = Post::all();
+        return view("post.index",compact("title","posts"));
     }
 
     /**
@@ -24,7 +27,8 @@ class AdminPostController extends Controller
      */
     public function create()
     {
-        //
+        $title = "Admin - crier Une Post" ;
+        return view('post.create');
     }
 
     /**

@@ -29,5 +29,6 @@ Route::controller(App\Http\Controllers\Admin\AdminController::class)->group(func
 Route::controller(App\Http\Controllers\Admin\AdminEmployeeController::class)->group(function () {
     Route::get('/admin/employes/',"index")->name("admin.employee.index");
     Route::get("admin/employee/create","create")->name("admin.employee.create");
+    Route::post("admin/employee/create","store")->name("admin.employee.store");
 });
 

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->text("adress");
             $table->string("phone");
             $table->date("born_date");
-            $table->string("post");
             $table->date("hiring_date")->default(now());
             $table->timestamps();
         });

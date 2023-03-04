@@ -19,6 +19,7 @@
   </head>
   <body>
     <div
+        style="height:100%"
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen}"
     >
@@ -28,7 +29,7 @@
       >
         <div class="py-4 text-gray-500 dark:text-gray-400">
         <!--   <a
-            class="ml-6 bg-white shadow-md dark:bg-gray-8000"
+            class="ml-6 bg-white shadow-md dark:bg-gray-8000"²²²
             href="#"
           >
             <img width='500' class="text-gray-500 dark:text-gray-100 mt-5 text-base font-medium tracking-tight" src={{asset('assets/imgs/logo.svg')}} alt="">
@@ -559,7 +560,7 @@
             </ul>
           </div>
         </header>
-        <section class="p-4 text-gray-500 dark:text-gray-400">
+        <section class="bg-gray-50 dark:bg-gray-900 p-4 text-gray-500 dark:text-gray-400">
         @yield("content")
         </section>
               </div>

@@ -24,7 +24,7 @@ return new class extends Migration
                 "name"=>"Developper"
             ],
             [
-                "name"=>"Product Manager"
+                "name"=>"Project Manager"
             ]
         ]);
     }
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        \App\Models\Post::whereIn("name",["Product Owner","Scrum Master","Developper","Product Manager"])->delete();
+        \App\Models\Post::whereIn("name",["Product Owner","Scrum Master","Developper","Project Manager"])->delete();
     }
 };

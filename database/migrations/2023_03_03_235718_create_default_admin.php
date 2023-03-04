@@ -16,7 +16,8 @@ return new class extends Migration
     {
         $admin = new \App\Models\Admin();
         \App\Models\User::create([
-            'name'=>"admin",
+            'first_name'=>"admin",
+            'last_name'=>"admin",
             'email'=>"admin@mail.com",
             'password'=>Hash::make("adminadmin"),
         ])->admin()->save($admin);

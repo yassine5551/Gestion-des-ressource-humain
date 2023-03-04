@@ -9,5 +9,6 @@ class Admin extends User
 {
     use HasFactory;
     protected $table = 'admins';
+    protected $fillable = ["user_id"];
 
 }

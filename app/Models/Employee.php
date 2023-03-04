@@ -3,16 +3,40 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Http\Request;
 
 class Employee extends User
 {
     use HasFactory;
-
+    protected $fillable =
+        [
+        "social_number",
+        "user_id",
+        "post_id",
+        "salary",
+        "adress",
+        "phone",
+        "born_date",
+        "hiring_date"
+    ];
     protected $table = 'employees';
     protected  $primaryKey = "social_number";
     public function getSocialNumber()
     {
         return $this->attributes["social_number"];
+    }
+    public static function validation(Request $request)
+    {
+        $request->validate([
+            "social_number"=>["required","unique:employees,social_number"],
+            "post_id"=>["required"],
+            "salary"=>["required","regex:/^\d{1,5}(\.\d{1,4})?$/"],
+            "adress"=>["required"],
+            "phone"=>["required"],
+            "born_date"=>["required","before:tomorrow"],
+            "hiring_date"=>["required"]
+        ]);
+
     }
     public function user()
     {

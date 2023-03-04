@@ -5,7 +5,9 @@ namespace App\Models;
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
@@ -18,7 +20,8 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'name',
+        'first_name',
+        "last_name",
         'email',
         'password',
 
@@ -45,17 +48,33 @@ class User extends Authenticatable
     public function getId(){
         return $this->attributes['id'];
     }
-    public function getName()
+    public function getFirstName()
     {
-        return $this->attributes['name'];
+        return $this->attributes['first_name'];
     }
-    public function setName($name)
+    public function setFirstName($name)
     {
-        $this->attributes['name'] = $name;
+        $this->attributes['first_name'] = $name;
+    }
+    public function getLastName()
+    {
+        return $this->attributes['last_name'];
+    }
+    public function setLastName($name)
+    {
+        $this->attributes['last_name'] = $name;
     }
     public function getEmail()
     {
         return $this->attributes["email"];
+    }
+    public function setEmail($email){
+        $this->attributes["email"] = $email;
+
+    }
+    public function setPassword($password)
+    {
+        $this->attributes["password"] = Hash::make($password);
     }
     public function admin()
     {
@@ -64,6 +83,14 @@ class User extends Authenticatable
     public function employee()
     {
         return $this->hasOne(Employee::class,"social_number");
+    }
+    public static function validate(Request $request)
+    {
+        $request->validate([
+            "email"=>["required","unique:users,email"],
+            "first_name"=>["required"],
+            "last_name"=>["required"]
+        ]);
     }
 
 }
