@@ -21,7 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        "role_id"
+
     ];
 
     /**
@@ -57,8 +57,13 @@ class User extends Authenticatable
     {
         return $this->attributes["email"];
     }
-    public function getRoleId()
+    public function admin()
     {
-        return $this->attributes['role_id'];
+        return $this->hasOne(Admin::class);
     }
+    public function employee()
+    {
+        return $this->hasOne(Employee::class,"social_number");
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
@@ -40,7 +41,8 @@ class LoginController extends Controller
     }
     public function redirectTo()
     {
-        if(Auth::check() &&Auth::user()->getRoleId()==1){
+
+        if(Auth::check() && Admin::where("id",Auth::id())){
             return route('admin.index');
         }
     return route("home");
