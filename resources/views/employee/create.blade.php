@@ -1,5 +1,5 @@
 @extends("layouts.admin")
-
+@section("title",$title)
 @section("content")
         <div class="w-full lg:w-8/12 px-4 mx-auto mt-6">
             <div class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">

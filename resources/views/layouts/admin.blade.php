@@ -8,7 +8,9 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
-    @vite('resources/css/app.css')
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+      @vite('resources/css/app.css')
 
     <link rel="stylesheet" href="{{asset("./assets/css/tailwind.output.css")}}" />
     <script
@@ -19,7 +21,7 @@
   </head>
   <body>
     <div
-        style="height:100%"
+        style="height:100%;min-height: 900px"
       class="flex h-screen bg-gray-50 dark:bg-gray-900"
       :class="{ 'overflow-hidden': isSideMenuOpen}"
     >
@@ -121,23 +123,7 @@
                                   Ajouter Un Employer
                               </a>
                           </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">
-                                  Forgot password
-                              </a>
-                          </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">404</a>
-                          </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">Blank</a>
-                          </li>
+
                       </ul>
                   </template>
               </li>
@@ -257,48 +243,24 @@
                           <li
                               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                           >
-                              <a class="w-full" href="#">Login</a>
+                              <a class="w-full" href="{{route("admin.employee.index")}}">Liste Des Employer</a>
                           </li>
                           <li
                               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                           >
-                              <a class="w-full" href="#">
-                                  Create account
+                              <a class="w-full" href="{{route("admin.employee.create")}}">
+                                  Ajouter Un Employer
                               </a>
                           </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">
-                                  Forgot password
-                              </a>
-                          </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">404</a>
-                          </li>
-                          <li
-                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                          >
-                              <a class="w-full" href="#">Blank</a>
-                          </li>
+
                       </ul>
                   </template>
               </li>
-
           </ul>
-          <div class="px-6 my-6">
-            <button
-              class="flex items-center justify-between px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-lg active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple"
-            >
-              Create account
-              <span class="ml-2" aria-hidden="true">+</span>
-            </button>
-          </div>
+
         </div>
       </aside>
-      <div class="flex flex-col flex-1">
+      <div  class="flex flex-col flex-1">
         <header class="z-10 py-4 bg-white shadow-md dark:bg-gray-800">
           <div
             class="container flex items-center justify-between h-full px-6 mx-auto text-purple-600 dark:text-purple-300"
@@ -560,10 +522,12 @@
             </ul>
           </div>
         </header>
-        <section class="bg-gray-50 dark:bg-gray-900 p-4 text-gray-500 dark:text-gray-400">
+        <section style="width: 100%;height:100%" class="bg-gray-50 dark:bg-gray-900 p-4 text-gray-500 dark:text-gray-400">
         @yield("content")
         </section>
               </div>
     </div>
+
+  @yield('script')
   </body>
 </html>

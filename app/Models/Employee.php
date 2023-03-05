@@ -84,17 +84,10 @@ class Employee extends model{
     {
         $this->attributes["phone"] = $phone;
     }
-    public function getPost()
-    {
-        return $this->attributes["post"];
-    }
-    public function setPost($post)
-    {
-        $this->attributes["post"] = $post;
-    }
+
     public function post()
     {
-        return $this->hasOne(Post::class);
+        return $this->belongsTo(Post::class);
     }
 
 

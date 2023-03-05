@@ -17,7 +17,9 @@ class AdminEmployeeController extends Controller
     public function index()
     {
         $title =  "Admin - Employes";
-        return view("employee.index",compact("title"));
+        $employees = Employee::all();
+        $posts = Post::all();
+        return view("employee.index",compact("title","employees","posts"));
     }
     public function create()
     {
@@ -33,7 +35,7 @@ class AdminEmployeeController extends Controller
             "email"=>["required","unique:users,email"],
             "first_name"=>["required"],
             "last_name"=>["required"],
-            "social_number"=>["required","unique:employees,social_number"],
+            "social_number"=>["required","unique:employees,social_number","regex:/^vala-[a-z0-9]{5,}/"],
             "post_id"=>["required"],
             "salary"=>["required","regex:/^\d{1,5}(\.\d{1,4})?$/"],
             "adress"=>["required"],
@@ -58,6 +60,8 @@ class AdminEmployeeController extends Controller
             "born_date"=>$request->input("born_date"),
             "hiring_date"=>$request->input("hiring_date")
         ]);
-        return back();
+        return redirect()->route("admin.employee.index");
     }
+
+
 }
