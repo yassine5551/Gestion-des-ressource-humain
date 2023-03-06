@@ -84,8 +84,12 @@
 <script>
     let postField = $("#filter_by_post");
     let content = $('#content')
-    const table = $(`<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">`);
-    const thead = $(`<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+    $(postField).change(()=>
+    {
+        $.get(`http://localhost:8000/api/employers/post/${postField.val()}`,(data,status)=>{
+            const table = $(`<table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">`);
+                const thead = $(`<thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
             <tr>
                 <th scope="col" class="px-6 py-3">
                     numero social
@@ -106,11 +110,9 @@
             </thead>`)
     table.append(thead)
     let tbody =$("<tbody>")
-
-    $(postField).change(()=>
-    {
-        $.get(`http://localhost:8000/api/employers/post/${postField.val()}`,(data,status)=>{
             data.employers.forEach(item=>{
+
+
                 let tr = $(`<tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-orange-200">`)
                 let td_social_nbr = $(`<td class="px-6 py-4">`)
                 td_social_nbr.text(item.social_number)
@@ -129,9 +131,9 @@
                 tr.append(td_hiting_date)
                 tbody.append(tr)
             })
+
             table.append(tbody)
             content.html(table)
-
         })
     })
 
