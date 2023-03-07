@@ -318,6 +318,7 @@
                   class="rounded-md focus:outline-none focus:shadow-outline-purple"
                   @click="toggleTheme"
                   aria-label="Toggle color mode"
+                  id="dark_toggle_btn"
                 >
                   <template x-if="!dark">
                     <svg
