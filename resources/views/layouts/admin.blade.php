@@ -9,6 +9,8 @@
       rel="stylesheet"
     />
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
 
       @vite('resources/css/app.css')
 

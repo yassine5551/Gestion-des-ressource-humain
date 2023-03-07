@@ -1,10 +1,17 @@
 @extends("layouts.admin")
 @section('title',$title)
 @section("content")
-    <h1 class="text-center text-sky-900	">Dashboard</h1>
+    <div class="rounded-t  mb-0 px-6 py-6">
+        <div class="text-center flex justify-between">
+            <h6 class="text-blueGray-700 text-xl font-bold">
+                Dashboard
+            </h6>
+
+        </div>
+    </div>
+
     <div class="flex-column">
         <div id="chartContainer" class="md:w-1/2 bg-white"></div>
-
 
     </div>
 
@@ -12,7 +19,6 @@
 
 @endsection
 @section("script")
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
 
     <script>
         const chart_data =  {{\Illuminate\Support\Js::from($chartData)}}
@@ -57,9 +63,12 @@
                 }]
             });
 
-
             chart.render();
 
-        }    </script>
+
+
+        }
+
+    </script>
 
 @endsection

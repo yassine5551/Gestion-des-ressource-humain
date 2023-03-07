@@ -22,3 +22,7 @@
 }
 @tailwind components;
 @tailwind utilities;
+
+.canvasjs-chart-credit{
+    display: none;
+}
