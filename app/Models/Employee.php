@@ -90,5 +90,7 @@ class Employee extends model{
         return $this->belongsTo(Post::class);
     }
 
-
+    public function absences(){
+        return $this->hasMany(Absence::class,"employee_number","social_number");
+    }
 }
