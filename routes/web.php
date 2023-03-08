@@ -31,4 +31,8 @@ Route::controller(App\Http\Controllers\Admin\AdminEmployeeController::class)->gr
     Route::get("admin/employee/create","create")->name("admin.employee.create");
     Route::post("admin/employee/create","store")->name("admin.employee.store");
 });
+Route::controller(App\Http\Controllers\Admin\AdminAbsenceController::class)->group(function(){
+Route::get("admin/absence","index")->name("admin.absence.index");
+Route::get("admin/absence/create","create")->name("admin.absence.create");
+});
 

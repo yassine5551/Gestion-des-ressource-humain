@@ -19,6 +19,7 @@ class AdminController extends Controller
             ->leftJoin("employees","posts.id","=","employees.post_id")
             ->groupBy("employees.post_id","posts.name")
             ->select("posts.name",DB::raw("count(employees.social_number) as count"))
+            ->having("count",">",0)
             ->get();
         return view("admin.index",compact("title","chartData"));
     }

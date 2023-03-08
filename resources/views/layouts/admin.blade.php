@@ -116,19 +116,33 @@
                           <li
                               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                           >
-                              <a class="w-full" href="{{route("admin.employee.index")}}">Liste Des Employer</a>
+                              <a class="w-full" href="{{route("admin.absence.index")}}">Liste Des Employer</a>
+                          </li>
+                          <li
+                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                          >
+                              <a class="w-full" href="{{route("admin.absence.create")}}">
+                                  Ajouter Un Employer
+                              </a>
+                          </li>
+                          <li
+                              class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                          >
+                              <a class="w-full" href="{{route("admin.employee.index")}}">Les Absence</a>
                           </li>
                           <li
                               class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
                           >
                               <a class="w-full" href="{{route("admin.employee.create")}}">
-                                  Ajouter Un Employer
+                                  Valider une absence
                               </a>
                           </li>
+
 
                       </ul>
                   </template>
               </li>
+
 
 
 
@@ -254,6 +268,18 @@
                                   Ajouter Un Employer
                               </a>
                           </li>
+                          <li
+                          class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                      >
+                          <a class="w-full" href="{{route("admin.employee.index")}}">Les Absence</a>
+                      </li>
+                      <li
+                          class="px-2 py-1 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                      >
+                          <a class="w-full" href="{{route("admin.employee.create")}}">
+                              Valider une absence
+                          </a>
+                      </li>
 
                       </ul>
                   </template>
