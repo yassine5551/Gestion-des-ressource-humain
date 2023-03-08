@@ -10,7 +10,7 @@ use PhpParser\Node\Expr\Empty_;
 class Absence extends Model
 {
     use HasFactory;
-    protected $fillable=["employee_number","date_start","date_end","raison"];
+    protected $fillable=["employee_number","date_start","date_end","raison","description"];
 
     public function getEmployeeNumber(){
         return $this ->attributes["employee_number"];
