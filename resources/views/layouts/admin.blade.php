@@ -19,7 +19,9 @@
       src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
       defer
     ></script>
-    <script src="{{asset("./assets/js/init-alpine.js")}}"></script>
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <script src="{{asset("./assets/js/init-alpine.js")}}"></script>
   </head>
   <body>
     <div

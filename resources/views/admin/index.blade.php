@@ -10,8 +10,9 @@
         </div>
     </div>
 
-    <div class="flex-column">
-        <div id="chartContainer" class="md:w-1/2 bg-white"></div>
+    <div class="flex">
+        <div  id="chart_div"></div>
+        <div class="w-1/2" id="piechart" style="width: 400px; height: 200px;"></div>
 
     </div>
 
@@ -22,51 +23,28 @@
 
     <script>
         const chart_data =  {{\Illuminate\Support\Js::from($chartData)}}
-            dark =  localStorage.getItem('dark');
-        console.log(dark)
-        $("#dark_toggle_btn").click((ez)=>{
-            dark2 =  localStorage.getItem('dark');
-            console.log(dark2)
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                theme: dark2!=="true"?"dark2":"light2",
-                title: {
-                    text: "Les Employees"
-                },
-                axisY: {
-                    title: "nombre des employee",
-                },
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
+        function drawChart() {
+            maindata = [['Task', 'Hours per Day']]
+            chart_data.forEach(item=>maindata.push([item.name,item.count]))
+            var data = google.visualization.arrayToDataTable(maindata  );
 
-                data: [{
-                    type: "column",
-                    dataPoints:chart_data.map(item=>{return {label: item.name, y: item.count }} )
-                }]
-            });
-            chart.render()
-        })
-        window.onload = function () {
-            var chart = new CanvasJS.Chart("chartContainer", {
-                animationEnabled: true,
-                theme: dark=="true"?"dark2":"light2",
-                title: {
-                    text: "Les Employees"
-                },
-                axisY: {
-                    title: "nombre des employee",
-                },
+            var options = {
+                title: 'My Daily Activities',
+                theme: 'material',
+                width: 400,
+                backgroundColor:"",
+                height: 240,
+                colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
+                is3D: true
 
+            };
 
-                data: [{
-                    type: "column",
-                    dataPoints:chart_data.map(item=>{return {label: item.name, y: item.count }} )
-                }]
-            });
+            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
-            chart.render();
-
-
-
+            chart.draw(data, options);
         }
 
     </script>
