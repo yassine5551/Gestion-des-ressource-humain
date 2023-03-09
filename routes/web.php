@@ -38,4 +38,8 @@ Route::post("admin/absence/create","store")->name("admin.absence.store");
 
 });
 
+Route::controller(App\Http\Controllers\Admin\AdminDocumentController::class)->group(function(){
+    Route::get('/admin/employees/download',"employeeListe")->name("admin.document.employees");
+});
+
 
