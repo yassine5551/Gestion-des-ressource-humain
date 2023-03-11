@@ -17,7 +17,7 @@ var chartColors = {
     danger: '#FF3860'
   }
 };
-var ctx = document.getElementById('big-line-chart').getContext('2d');
+var ctx = document.getElementById('big-line-chart').getContext('3d');
 new Chart(ctx, {
   type: 'line',
   data: {
