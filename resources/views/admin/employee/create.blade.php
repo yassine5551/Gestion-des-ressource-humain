@@ -15,10 +15,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         numéro de sécurité sociale
                                     </label>
-                                    <input type="text" id="disabled-input-2" name="social_number" aria-label="disabled input 2" class="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 cursor-not-allowed dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-gray-400 dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{old("society_number",$society_number) }}" readonly>
+                                    <input type="text" name="social_number" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("society_number",$society_number) }}" readonly>
                                     @error('social_number')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 mb-4 text-sm text-red-500 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -29,10 +29,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         address Email
                                     </label>
-                                    <input name="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value="{{old("email")}}" placeholder="email@example.com">
+                                    <input name="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("email")}}" placeholder="email@example.com">
                                     @error('email')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -43,10 +43,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Nom
                                     </label>
-                                    <input value="{{old("first_name")}}" type="text" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                    <input value="{{old("first_name")}}" type="text" name="first_name" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600">
                                     @error('first_name')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -57,10 +57,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Prenom
                                     </label>
-                                    <input value="{{old("last_name")}}" name="last_name" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                    <input value="{{old("last_name")}}" name="last_name" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600">
                                     @error('last_name')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -71,10 +71,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Date De Naissance
                                     </label>
-                                    <input name="born_date" value="{{old("born_date")}}" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                    <input name="born_date" value="{{old("born_date")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600">
                                     @error('born_date')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -84,14 +84,14 @@
                                 <div class="relative w-full mb-3">
 
                                     <label for="countries"  class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Sélectionnez le poste</label>
-                                    <select name="post_id" id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                    <select name="post_id" id="countries" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
                                         @foreach($posts as $post)
                                             <option {{old("post_id")==$post->getId()?"selected":''}} value="{{$post->getId()}}">{{$post->getName()}}</option>
                                         @endforeach
                                     </select>
                                     @error('post_id')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -104,10 +104,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Date D'embauche
                                     </label>
-                                    <input name="hiring_date" value="{{old("hiring_date")}}" type="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                    <input name="hiring_date" value="{{old("hiring_date")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
                                     @error('hiring_date')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -118,10 +118,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Salaire
                                     </label>
-                                    <input name="salary" value="{{old("salary")}}" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" >
+                                    <input name="salary" value="{{old("salary")}}" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
                                     @error('salary')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror
@@ -141,12 +141,11 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Address
                                     </label>
-                                    <textarea name="adress" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                                    {{old("adress")}}</textarea>
+                                    <textarea name="adress" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-5 text-gray-600 resize-none">{{old("adress")}}</textarea>
                                 </div>
                                 @error('adress')
 
-                                <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                     <span class="font-medium">{{$message}}</span>
                                 </div>
                                 @enderror
@@ -157,10 +156,10 @@
                                     <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                                         Telephone
                                     </label>
-                                    <input value="{{old("phone")}}" name="phone" type="text" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 text-gray-600 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+212 XXX XXX XXX">
+                                    <input value="{{old("phone")}}" name="phone" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" placeholder="+212 XXX XXX XXX">
                                     @error('phone')
 
-                                    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
+                                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                                         <span class="font-medium">{{$message}}</span>
                                     </div>
                                     @enderror

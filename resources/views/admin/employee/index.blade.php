@@ -4,7 +4,15 @@
 
 
 
+    <section class="is-title-bar">
+        <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
+            <ul>
+                <li>Admin</li>
+                <li>Employees</li>
+            </ul>
 
+        </div>
+    </section>
 
     <div class="card has-table">
         <header class="card-header">
@@ -29,12 +37,12 @@
                 <div class="w-1/3">
 
                 </div>
-                <div class="w-1/3">
-                    <button id="download_list" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">
-                        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>
-                        <span>Download</span>
-                    </button>
-                </div>
+{{--                <div class="w-1/3">--}}
+{{--                    <button id="download_list" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center">--}}
+{{--                        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg>--}}
+{{--                        <span>Download</span>--}}
+{{--                    </button>--}}
+{{--                </div>--}}
               </div>
 
 
@@ -58,7 +66,7 @@
                         <tr>
                         <td class="image-cell">
                             <div class="image">
-                                <img src={{"https://avatars.dicebear.com/v2/initials/{$employer->user->getFirstName()}-{$employer->user->getLastName()}.svg"}} class="rounded-full">
+                                <img src={{"https://avatars.dicebear.com/v2/initials/{$employer->user->getFirstName()[0]}-{$employer->user->getLastName()[0]}.svg"}} class="rounded-full">
                             </div>
                         </td>
                             <td data-label="social number">{{$employer->getSocialNumber()}}</td>
@@ -112,7 +120,7 @@
     let tbody =$("<tbody>")
             data.employers.forEach(item=>{
                 let tr = $(`<tr>`)
-                tr.append(`<td class="image-cell"><div class="image"><img src="https://avatars.dicebear.com/v2/initials/${item.first_name}-${item.last_name}.svg" class="rounded-full"></div></td>
+                tr.append(`<td class="image-cell"><div class="image"><img src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg" class="rounded-full"></div></td>
           `)
                 tr.append(`<td data-label="social number">${item.social_number}</td>`)
                 tr.append(`<td data-label="nom">${item.first_name} ${item.last_name}</td>`)

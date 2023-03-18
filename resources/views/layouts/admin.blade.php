@@ -68,14 +68,14 @@
     <aside class="aside is-placed-left is-expanded">
         <div class="aside-tools">
             <div>
-                Admin <b class="font-black">One</b>
+                Vala <b class="font-black">Administration</b>
             </div>
         </div>
         <div class="menu is-menu-main">
             <p class="menu-label">General</p>
             <ul class="menu-list">
                 <li class="">
-                    <a href="index.html">
+                    <a href="{{route("admin.index")}}">
                         <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
                         <span class="menu-item-label">Dashboard</span>
                     </a>
@@ -131,15 +131,7 @@
         </div>
     </aside>
 
-    <section class="is-title-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
-            <ul>
-                <li>Admin</li>
-                <li>Dashboard</li>
-            </ul>
 
-        </div>
-    </section>
 
 
         @yield("content")

@@ -1,20 +1,26 @@
 @extends("layouts.admin")
 @section('title',$title)
 @section("content")
-    <section class="is-hero-bar">
-        <div class="flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-            <h1 class="title">
-                Dashboard
-            </h1>
-            <button class="button light">Button</button>
+    <section class="is-title-bar">
+        <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
+            <ul>
+                <li>Admin</li>
+                <li>Dashboard</li>
+            </ul>
+
         </div>
     </section>
+    <div class="card has-table">
+        <header class="card-header">
+            <p class="card-header-title">
+                <span class="icon"><i class="mdi mdi-monitor-dashboard"></i></span>
+                Dashboard
+            </p>
 
-    <div class="flex">
-        <div  id="chart_div"></div>
-        <div class="w-1/2" id="piechart" style="width: 400px; height: 200px;"></div>
-
+        </header>
     </div>
+
+
 
 
 
@@ -24,47 +30,47 @@
                 <div class="flex items-center justify-between">
                     <div class="widget-label">
                         <h3>
-                            Clients
+                            Employees
                         </h3>
                         <h1>
-                            512
+                            {{$employees_count}}
                         </h1>
                     </div>
                     <span class="icon widget-icon text-green-500"><i class="mdi mdi-account-multiple mdi-48px"></i></span>
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-content">
-                <div class="flex items-center justify-between">
-                    <div class="widget-label">
-                        <h3>
-                            Sales
-                        </h3>
-                        <h1>
-                            $7,770
-                        </h1>
-                    </div>
-                    <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>
-                </div>
-            </div>
-        </div>
+{{--        <div class="card">--}}
+{{--            <div class="card-content">--}}
+{{--                <div class="flex items-center justify-between">--}}
+{{--                    <div class="widget-label">--}}
+{{--                        <h3>--}}
+{{--                            Sales--}}
+{{--                        </h3>--}}
+{{--                        <h1>--}}
+{{--                            $7,770--}}
+{{--                        </h1>--}}
+{{--                    </div>--}}
+{{--                    <span class="icon widget-icon text-blue-500"><i class="mdi mdi-cart-outline mdi-48px"></i></span>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 
-        <div class="card">
-            <div class="card-content">
-                <div class="flex items-center justify-between">
-                    <div class="widget-label">
-                        <h3>
-                            Performance
-                        </h3>
-                        <h1>
-                            256%
-                        </h1>
-                    </div>
-                    <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>
-                </div>
-            </div>
-        </div>
+{{--        <div class="card">--}}
+{{--            <div class="card-content">--}}
+{{--                <div class="flex items-center justify-between">--}}
+{{--                    <div class="widget-label">--}}
+{{--                        <h3>--}}
+{{--                            Performance--}}
+{{--                        </h3>--}}
+{{--                        <h1>--}}
+{{--                            256%--}}
+{{--                        </h1>--}}
+{{--                    </div>--}}
+{{--                    <span class="icon widget-icon text-red-500"><i class="mdi mdi-finance mdi-48px"></i></span>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
     </div>
 
     <div class="card mb-6">
@@ -102,6 +108,7 @@
 
     <script>
         const chart_data =  {{\Illuminate\Support\Js::from($chartData)}}
+            console.log(chart_data)
         google.charts.load('current', {'packages':['corechart']});
         google.charts.setOnLoadCallback(drawChart);
 
@@ -116,7 +123,6 @@
                 width: 400,
                 backgroundColor:"",
                 height: 240,
-                colors: ['#e0440e', '#e6693e', '#ec8f6e', '#f3b49f', '#f6c7b6'],
                 is3D: true
 
             };

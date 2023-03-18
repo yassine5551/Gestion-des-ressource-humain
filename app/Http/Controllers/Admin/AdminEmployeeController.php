@@ -19,14 +19,14 @@ class AdminEmployeeController extends Controller
         $title =  "Admin - Employes";
         $employees = Employee::all();
         $posts = Post::all();
-        return view("employee.index",compact("title","employees","posts"));
+        return view("admin.employee.index",compact("title","employees","posts"));
     }
     public function create()
     {
         $society_number = uniqid("vala-");
         $title = "Admin - Ajouter un Employes";
         $posts = Post::all();
-        return view("employee.create",compact("title","society_number", "posts"));
+        return view("admin.employee.create",compact("title","society_number", "posts"));
     }
     public  function store(Request $request)
     {
