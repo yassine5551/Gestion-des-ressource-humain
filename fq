@@ -1,0 +1,23 @@
+[33m3435eb2[m[33m ([m[1;36mHEAD -> [m[1;32mfeature_admin_employees[m[33m)[m update view employees index
+[33m9ce5b46[m update admin template
+[33m67fde88[m new template
+[33m9e32be1[m[33m ([m[1;31morigin/project_new_template[m[33m, [m[1;32mproject_new_template[m[33m)[m ajouter la fontionnalité de télecharger la liste des employees
+[33m86e801a[m Merge branch 'feature_admin_employees' of https://gitlab.com/cmd-tata/gestion-des-stage into feature_admin_employees
+[33me68c3e2[m change dashboard chart
+[33md782d3e[m fix model absence
+[33m0636d76[m sauvgarder une absence
+[33m28f43bb[m création de vue ajouter l'absence
+[33m1054d0d[m création des lien vers les page d'absence
+[33m8849904[m update dashboard style
+[33m65a6877[m ajouter un graphe qui affiche le nombre des employees pour chaque post
+[33madc7546[m fix filter
+[33m33e53ee[m add filter employes by posts in admin employees list
+[33mfa86c53[m[33m ([m[1;31morigin/master[m[33m, [m[1;32mmaster[m[33m)[m fix models relationship bug
+[33mfd4943f[m finish store new Employee view+controller
+[33m6462088[m update models and Employee views
+[33m815ca7e[m create adminEmployeeController
+[33mba941a1[m fix dark mode bug
+[33m0bead9e[m create middlware ISAdminMiddleware and function redirect to dashboard
+[33m31ed232[m  create admin dashboard
+[33m3fd0c5a[m add role_id to users table
+[33m8d34913[m Initial project
