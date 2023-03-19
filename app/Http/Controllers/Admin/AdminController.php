@@ -22,6 +22,7 @@ class AdminController extends Controller
             ->groupBy("employees.post_id","posts.name")
             ->select("posts.name",DB::raw("count(employees.social_number) as count"))
             ->having("count",">",0)
+            ->orderBy("count")
             ->get();
         return view("admin.index",compact("title","chartData","employees_count"));
     }

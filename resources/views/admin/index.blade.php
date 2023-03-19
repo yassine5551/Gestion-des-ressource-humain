@@ -72,7 +72,7 @@
                             <div></div>
                         </div>
                     </div>
-                    <canvas id="big-line-chart" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
+                    <canvas id="column-chart" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
                 </div>
             </div>
         </div>
@@ -87,28 +87,62 @@
     <script>
         const chart_data =  {{\Illuminate\Support\Js::from($chartData)}}
             console.log(chart_data)
-        google.charts.load('current', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(drawChart);
-
-        function drawChart() {
-            maindata = [['Task', 'Hours per Day']]
-            chart_data.forEach(item=>maindata.push([item.name,item.count]))
-            var data = google.visualization.arrayToDataTable(maindata  );
-
-            var options = {
-                title: 'My Daily Activities',
-                theme: 'material',
-                width: 400,
-                backgroundColor:"",
-                height: 240,
-                is3D: true
-
-            };
-
-            var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-            chart.draw(data, options);
+        "use strict";
+const bgs = []
+        for (var i = 0; i < 50; i++) {
+            bgs.push('rgba(' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',' + Math.floor(Math.random() * 256) + ',0.7)');
         }
+        // Data
+        var chartData = {
+            labels: chart_data.map(item=>item.name),
+            datasets: [
+
+                {
+                    label: "Persons",
+                    backgroundColor: bgs,
+                    borderColor: "black",
+                    borderWidth: 1,
+                    data: chart_data.map(item=>item.count),
+                },
+            ],
+        };
+
+        // Chart options
+        var chartOptions = {
+            responsive: true,
+            maintainAspectRatio: true,
+            legend: {
+                display: false,
+            },
+            scales: {
+                xAxes: [
+                    {
+                        stacked: true,
+                        gridLines: {
+                            display: false,
+                        },
+                    },
+                ],
+                yAxes: [
+                    {
+                        stacked: true,
+                        gridLines: {
+                            display: false,
+                        },
+                    },
+                ],
+            },
+        };
+
+        // Get chart canvas
+        var ctx = document.getElementById("column-chart").getContext("2d");
+
+        // Create chart
+        new Chart(ctx, {
+            type: "bar",
+            data: chartData,
+            options: chartOptions,
+        });
 
     </script>
 
