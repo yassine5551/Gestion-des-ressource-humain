@@ -10,20 +10,6 @@
 
         </div>
     </section>
-    <div class="card has-table">
-        <header class="card-header">
-            <p class="card-header-title">
-                <span class="icon"><i class="mdi mdi-monitor-dashboard"></i></span>
-                Dashboard
-            </p>
-
-        </header>
-    </div>
-
-
-
-
-
     <div class="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
         <div class="card">
             <div class="card-content">
@@ -74,15 +60,7 @@
     </div>
 
     <div class="card mb-6">
-        <header class="card-header">
-            <p class="card-header-title">
-                <span class="icon"><i class="mdi mdi-finance"></i></span>
-                Performance
-            </p>
-            <a href="#" class="card-header-icon">
-                <span class="icon"><i class="mdi mdi-reload"></i></span>
-            </a>
-        </header>
+
         <div class="card-content">
             <div class="chart-area">
                 <div class="h-full">
