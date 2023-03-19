@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="{{asset("./assets/css/main.css?v=1628755089081")}}">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     <meta name="description" content="Admin One - free Tailwind dashboard">
+    <script defer    src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>
@@ -73,6 +74,12 @@
                         <span class="menu-item-label">Ajouter Emplyees</span>
                     </a>
                 </li>
+                <li class="">
+                    <a href="{{route("admin.leave.index")}}">
+                        <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+                        <span class="menu-item-label">Congee</span>
+                    </a>
+                </li>
                 <li class="--set-active-profile-html">
                     <a href="profile.html">
                         <span class="icon"><i class="mdi mdi-account-circle"></i></span>
@@ -112,7 +119,7 @@
 
 
 
-        @yield("content")
+    @yield("content")
 
 
 

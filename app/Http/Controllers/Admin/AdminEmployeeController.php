@@ -60,7 +60,7 @@ class AdminEmployeeController extends Controller
             "born_date"=>$request->input("born_date"),
             "hiring_date"=>$request->input("hiring_date")
         ]);
-        return redirect()->route("admin.employee.index");
+        return back()->with("success_msg","l'employee ajoute avec success");
     }
 
 

@@ -2,7 +2,9 @@
 
 namespace App\Http;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
+use Illuminate\Support\Facades\DB;
 
 class Kernel extends HttpKernel
 {
@@ -65,4 +67,16 @@ class Kernel extends HttpKernel
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'admin'=> \App\Http\Middleware\IsAdminMiddeleware::class
     ];
+    protected function schedule(Schedule $schedule)
+    {
+        $schedule->call(function () {
+            DB::table('leaves')->where('end_at', '<', now())->delete();
+        })->daily();
+    }
+
+
+
+
+
+
 }
