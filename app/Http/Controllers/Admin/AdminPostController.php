@@ -25,11 +25,7 @@ class AdminPostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        $title = "Admin - crier Une Post" ;
-        return view('admin.post.index',compact('title',));
-    }
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,7 +35,11 @@ class AdminPostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Post::validate($request);
+        Post::create([
+            'name' => $request->input('name'),
+        ]);
+        return back()->with("success_msg","le post est ajoute avec success");
     }
 
     /**

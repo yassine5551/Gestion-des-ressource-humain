@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Http\Request;
 
 class Post extends Model
 {
@@ -20,5 +21,11 @@ class Post extends Model
     public function employees()
     {
         return $this->hasMany(Employee::class,);
+    }
+    public static function validate(Request  $request)
+    {
+        $request->validate([
+            "name" =>'required'
+        ]);
     }
 }
