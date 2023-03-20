@@ -17,16 +17,24 @@ class FilterController extends Controller
             $employers = DB::table("users")
                 ->rightJoin("employees","users.id","=","employees.user_id")
                 ->rightJoin("posts","employees.post_id","=","posts.id")
+                ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
                 ->where("employees.post_id",$id)
+                ->groupBy('employees.social_number')
                 ->select("employees.social_number","posts.name as post_name"
-                   ,"users.first_name","users.last_name","employees.salary","employees.hiring_date")->get();
+                   ,"users.first_name","users.last_name","employees.salary","employees.hiring_date",
+                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
+                ->get();
         }
         else{
             $employers = DB::table("users")
             ->rightJoin("employees","users.id","=","employees.user_id")
             ->rightJoin("posts","employees.post_id","=","posts.id")
-            ->select("employees.social_number","posts.name as post_name",
-               "users.first_name","users.last_name","employees.salary","employees.hiring_date")->get();
+            ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
+                ->groupBy('employees.social_number','posts.name')
+                ->select("employees.social_number","posts.name as post_name",
+               "users.first_name","users.last_name","employees.salary","employees.hiring_date",
+                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
+                ->get();
         }
         return response()->json(["employers"=>$employers]);
         }

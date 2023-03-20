@@ -76,7 +76,7 @@
                 </li>
                 <li class="">
                     <a href="{{route("admin.leave.index")}}">
-                        <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+                        <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
                         <span class="menu-item-label">Congee</span>
                     </a>
                 </li>
@@ -164,7 +164,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
-<script type="text/javascript" src={{asset("assets/js/chart.sample.min.js")}}></script>
 
 
 <script>

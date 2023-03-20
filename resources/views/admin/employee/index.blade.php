@@ -49,48 +49,75 @@
 
 
             <div class="card-content" id="content">
-                <table>
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Social number</th>
-                        <th>nom</th>
-                        <th>post</th>
-                        <th>salaire</th>
-                        <th>date d'embauch</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    @foreach($employees as $employer)
-                        <tr>
-                        <td class="image-cell">
-                            <div class="image">
-                                <img src={{"https://avatars.dicebear.com/v2/initials/{$employer->user->getFirstName()[0]}-{$employer->user->getLastName()[0]}.svg"}} class="rounded-full">
-                            </div>
-                        </td>
-                            <td data-label="social number">{{$employer->getSocialNumber()}}</td>
-                            <td data-label="nom">{{$employer->user->getFirstName()}} {{$employer->user->getLastName()}} </td>
-                            <td data-label="post">{{$employer->post->getName()}}</td>
-                            <td data-label="Progress" class="progress-cell">{{$employer->getSalary()."  DH"}}</td>
-                        <td data-label="Created">
-                            <small class="text-gray-500" title="Oct 25, 2021">{{$employer->getHiringDate()}}</small>
-                        </td>
-                        <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>
-                    </tr>
-                    @endforeach
 
-                    </tbody>
-                </table>
+
+                <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+
+                    <div class="p-3">
+                        <div class="overflow-x-auto" id="content">
+                            <table class="table-auto w-full">
+                                <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                <tr>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Name</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Post</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Status</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-center">Salaire</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-center">Date D'embauch</div>
+                                    </th>
+                                </tr>
+                                </thead>
+                                <tbody class="text-sm divide-y divide-gray-100">
+                                @foreach($employees as $employer)
+
+
+                                    <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src={{"https://avatars.dicebear.com/v2/initials/{$employer->user->getFirstName()[0]}-{$employer->user->getLastName()[0]}.svg"}}></div>
+                                                <div class="font-medium text-gray-800">{{$employer->user->getFirstName()}} {{$employer->user->getLastName()}}</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left">{{$employer->post->getName()}}</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-green-500">
+                                                @if($employer->inHoliday())
+                                                    <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Congée</span>
+                                                @else
+                                                    <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Disponible</span>
+
+
+                                                @endif
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">{{$employer->getSalary()."  DH"}} </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">{{$employer->getHiringDate()}}</div>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
                 <div class="table-pagination">
                     <div class="flex items-center justify-between">
                         <div class="buttons">
@@ -114,34 +141,86 @@
     {
         $.get(`http://localhost:8000/api/employers/post/${postField.val()}`,(data,status)=>{
             console.log(data)
-            const table = $(`<table>`);
-            const thead = $(`<thead><tr><th></th><th>Social number</th><th>nom</th><th>post</th><th>salaire</th><th>date d'embauch</th><th></th></tr></thead>`)
+            const table = $(`<table class="table-auto w-full">`);
+            // language=HTML
+            const thead = $(`<thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
+                                <tr>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Name</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Post</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-left">Status</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-center">Salaire</div>
+                                    </th>
+                                    <th class="p-2 whitespace-nowrap">
+                                        <div class="font-semibold text-center">Date D'embauch</div>
+                                    </th>
+                                </tr>
+                                </thead>`)
     table.append(thead)
     let tbody =$("<tbody>")
             data.employers.forEach(item=>{
-                let tr = $(`<tr>`)
-                tr.append(`<td class="image-cell"><div class="image"><img src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg" class="rounded-full"></div></td>
-          `)
-                tr.append(`<td data-label="social number">${item.social_number}</td>`)
-                tr.append(`<td data-label="nom">${item.first_name} ${item.last_name}</td>`)
-                tr.append(`<td data-label="post">${item.post_name}</td>`)
-                tr.append(`<td data-label="Progress" class="progress-cell">${item.salary} DH</td>`)
-                tr.append(`
-                  <td data-label="Created">
-                            <small class="text-gray-500" title="Oct 25, 2021">${item.hiring_date}</small>
-                        </td>
-                `)
-                tr.append(`
-                          <td class="actions-cell">
-                            <div class="buttons right nowrap">
-                                <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-                                    <span class="icon"><i class="mdi mdi-eye"></i></span>
-                                </button>
-                                <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-                                    <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-                                </button>
-                            </div>
-                        </td>`)
+          //       let tr = $(`<tr>`)
+          //       tr.append(`<td class="image-cell"><div class="image"><img src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg" class="rounded-full"></div></td>
+          // `)
+          //       tr.append(`<td data-label="social number">${item.social_number}</td>`)
+          //       tr.append(`<td data-label="nom">${item.first_name} ${item.last_name}</td>`)
+          //       tr.append(`<td data-label="post">${item.post_name}</td>`)
+          //       tr.append(`<td data-label="Progress" class="progress-cell">${item.salary} DH</td>`)
+          //       tr.append(`
+          //         <td data-label="Created">
+          //                   <small class="text-gray-500" title="Oct 25, 2021">${item.hiring_date}</small>
+          //               </td>
+          //       `)
+          //       tr.append(`
+          //                 <td class="actions-cell">
+          //                   <div class="buttons right nowrap">
+          //                       <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
+          //                           <span class="icon"><i class="mdi mdi-eye"></i></span>
+          //                       </button>
+          //                       <button class="button small red --jb-modal" data-target="sample-modal" type="button">
+          //                           <span class="icon"><i class="mdi mdi-trash-can"></i></span>
+          //                       </button>
+          //                   </div>
+          //               </td>`)
+
+                let tr = $(`
+ <tr>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="flex items-center">
+                                                <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg"></div>
+                                                <div class="font-medium text-gray-800">${item.first_name} ${item.last_name}</div>
+                                            </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left">${item.post_name}</div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-left font-medium text-green-500">
+${item.inHoliday?'<span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Congée</span>':'<span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Disponible</span>'}
+
+
+
+
+
+
+                </div>
+            </td>
+            <td class="p-2 whitespace-nowrap">
+                <div class="text-lg text-center">${item.salary} </div>
+                                        </td>
+                                        <td class="p-2 whitespace-nowrap">
+                                            <div class="text-lg text-center">${item.hiring_date}</div>
+                                        </td>
+                                    </tr>
+`)
+
+
                 tbody.append(tr)
             })
 

@@ -89,8 +89,18 @@ class Employee extends model{
     {
         return $this->belongsTo(Post::class);
     }
+public function leave()
+{
+    return $this->hasMany(Leave::class,"social_number");
+}
+ public function inHoliday()
+ {
+     $leave = Leave::where('social_number',$this->getSocialNumber())->first();
+     if($leave)
+     {
+         return true;
+     }
+     return false;
+ }
 
-    public function absences(){
-        return $this->hasMany(Absence::class,"employee_number","social_number");
-    }
 }
