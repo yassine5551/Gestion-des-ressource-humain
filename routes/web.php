@@ -45,5 +45,9 @@ Route::controller(App\Http\Controllers\Admin\AdminLeaveController::class)->group
     Route::get("admin/leave","index")->name("admin.leave.index");
     Route::post('admin/leave',"store")->name("admin.leave.store");
 });
+Route::controller(App\Http\Controllers\Admin\AdminPostController::class)->group(function (){
+    Route::get("admin/posts","index")->name("admin.post.index");
+    Route::post('admin/post',"store")->name("admin.post.store");
+});
 
 

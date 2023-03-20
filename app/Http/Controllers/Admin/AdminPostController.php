@@ -17,7 +17,7 @@ class AdminPostController extends Controller
     {
         $title = "Admin - Posts";
         $posts = Post::all();
-        return view("post.index",compact("title","posts"));
+        return view("admin.post.index",compact("title","posts"));
     }
 
     /**
@@ -28,7 +28,7 @@ class AdminPostController extends Controller
     public function create()
     {
         $title = "Admin - crier Une Post" ;
-        return view('post.create');
+        return view('admin.post.index',compact('title',));
     }
 
     /**

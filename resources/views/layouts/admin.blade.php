@@ -77,7 +77,13 @@
                 <li class="">
                     <a href="{{route("admin.leave.index")}}">
                         <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
-                        <span class="menu-item-label">Congee</span>
+                        <span class="menu-item-label">Congees</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{route("admin.post.index")}}">
+                        <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
+                        <span class="menu-item-label">Posts</span>
                     </a>
                 </li>
                 <li class="--set-active-profile-html">
