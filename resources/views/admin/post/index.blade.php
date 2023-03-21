@@ -14,7 +14,7 @@
     </button>
 </div>
 @endif
-<section class="is-title-bar">
+<section class="is-title-bar relative">
     <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
         <ul>
             <li>Admin</li>
@@ -25,14 +25,14 @@
         </button>
     </div>
         <!-- Main modal -->
-        <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  sticky h-modal md:h-full left-0 right-0 md:inset-0 z-50 justify-center items-center">
+        <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute h-modal md:h-full   left-0 right-0 md:inset-0 z-50 justify-center items-center">
             <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
                 <!-- Modal content -->
                 <form id="add_post" method="post" action="{{route("admin.post.store")}}">
                     @csrf
                 <div class="p-6 bg-gray-200 rounded-lg shadow relative">
                     <!-- Modal header -->
-                        
+
                     <div class="mb-6">
                         <label for="name" class="block mb-2 text-sm font-medium text-gray-900 ">Nom</label>
                         <input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
@@ -62,20 +62,25 @@
                     <th class="p-2 whitespace-nowrap">
                         <div class="font-semibold text-left">Nom de post</div>
                     </th>
-                  
+                    <th class="p-2 whitespace-nowrap">
+                        <div class="font-semibold text-left">Nombre des employer</div>
+                    </th>
+
                 </tr>
                 </thead>
                 <tbody class="text-sm divide-y divide-gray-100">
                 @foreach($posts as $key => $post)
                 <tr>
-                    
+
                     <td class="p-2 whitespace-nowrap">
                         <div class="text-left">{{$key+1 }}</div>
                     </td>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left font-medium text-green-500">{{$post->getName()}}</div>
+                        <div class="text-left font-medium">{{$post->name}}</div>
                     </td>
-                    
+                    <td class="p-2 whitespace-nowrap">
+                        <div class="text-left font-medium">{{$post->nbr_employees}}</div>
+                    </td>
                 </tr>
                 @endforeach
                 </tbody>
