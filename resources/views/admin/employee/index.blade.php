@@ -54,7 +54,7 @@
                 <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 
                     <div class="p-3">
-                        <div class="overflow-x-auto" id="content">
+                        <div class="overflow-x-auto" id="container">
                             <table class="table-auto w-full">
                                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                 <tr>
@@ -135,7 +135,7 @@
 @section("script")
 <script>
     let postField = $("#filter_by_post");
-    let content = $('#content')
+    let content = $('#container')
 
     $(postField).change(()=>
     {
@@ -165,30 +165,6 @@
     table.append(thead)
     let tbody =$("<tbody>")
             data.employers.forEach(item=>{
-          //       let tr = $(`<tr>`)
-          //       tr.append(`<td class="image-cell"><div class="image"><img src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg" class="rounded-full"></div></td>
-          // `)
-          //       tr.append(`<td data-label="social number">${item.social_number}</td>`)
-          //       tr.append(`<td data-label="nom">${item.first_name} ${item.last_name}</td>`)
-          //       tr.append(`<td data-label="post">${item.post_name}</td>`)
-          //       tr.append(`<td data-label="Progress" class="progress-cell">${item.salary} DH</td>`)
-          //       tr.append(`
-          //         <td data-label="Created">
-          //                   <small class="text-gray-500" title="Oct 25, 2021">${item.hiring_date}</small>
-          //               </td>
-          //       `)
-          //       tr.append(`
-          //                 <td class="actions-cell">
-          //                   <div class="buttons right nowrap">
-          //                       <button class="button small green --jb-modal"  data-target="sample-modal-2" type="button">
-          //                           <span class="icon"><i class="mdi mdi-eye"></i></span>
-          //                       </button>
-          //                       <button class="button small red --jb-modal" data-target="sample-modal" type="button">
-          //                           <span class="icon"><i class="mdi mdi-trash-can"></i></span>
-          //                       </button>
-          //                   </div>
-          //               </td>`)
-
                 let tr = $(`
  <tr>
                                         <td class="p-2 whitespace-nowrap">
