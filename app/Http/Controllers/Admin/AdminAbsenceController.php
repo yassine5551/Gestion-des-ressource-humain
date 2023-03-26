@@ -21,7 +21,10 @@ class AdminAbsenceController extends Controller
         $title = "Admin - Absence";
         $daysInCurrentMonth = Carbon::now()->daysInMonth;
         $employees = Employee::all();
-        return view("admin.absence.index",compact("title","employees","daysInCurrentMonth"));
+        $current_month = Carbon::today()->month;
+        $current_year = Carbon::today()->year;
+        $createDate = fn($date)=>\Carbon\Carbon::createFromFormat("Y-m-d",$date);
+        return view("admin.absence.index",compact("title","employees","daysInCurrentMonth","current_month","current_year","createDate"));
     }
     public function create()
     {

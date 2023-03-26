@@ -102,5 +102,19 @@ public function leave()
      }
      return false;
  }
+ public function absences()
+ {return $this->hasMany(Absence::class,"employee_number");
+ }
+ public function isAbsentInThisDay(string $date):bool
+ {
+     $absence = Absence::where("employee_number",$this->getSocialNumber())
+         ->where("date",$date)->first();
+     if($absence)
+     {
+         return true;
+
+     }
+     return  false;
+ }
 
 }

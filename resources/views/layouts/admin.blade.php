@@ -88,7 +88,7 @@
                 </li>
                 <li class="--set-active-profile-html">
                     <a href="{{route("admin.absence.index")}}">
-                        <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                        <span class="icon"><i class="mdi mdi-seat-flat-angled"></i></span>
                         <span class="menu-item-label">Absences</span>
                     </a>
                 </li>
