@@ -79,7 +79,7 @@
                         <div class="text-left font-medium">{{$post->name}}</div>
                     </td>
                     <td class="p-2 whitespace-nowrap">
-                        <div class="text-left font-medium">{{$post->nbr_employees}}</div>
+                        <div class="text-left font-medium">{{$post->employees->count()}}</div>
                     </td>
                 </tr>
                 @endforeach

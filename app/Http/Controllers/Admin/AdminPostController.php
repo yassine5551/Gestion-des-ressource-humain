@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\PostResource;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -17,13 +18,10 @@ class AdminPostController extends Controller
     public function index()
     {
         $title = "Admin - Posts";
-        $posts =
-            DB::table('posts')
-            ->leftJoin("employees",'posts.id',"=","employees.post_id")
-            ->groupBy('posts.id')
-            ->select('posts.name',DB::raw("count(employees.social_number) as nbr_employees"))
-            ->get();
+        $posts = Post::all();
+
         return view("admin.post.index",compact("title","posts"));
+
     }
 
     /**

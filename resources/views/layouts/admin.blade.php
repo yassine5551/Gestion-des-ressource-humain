@@ -82,8 +82,14 @@
                 </li>
                 <li class="">
                     <a href="{{route("admin.post.index")}}">
-                        <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
+                        <span class="icon"><i  class="mdi mdi-briefcase"></i></span>
                         <span class="menu-item-label">Posts</span>
+                    </a>
+                </li>
+                <li class="--set-active-profile-html">
+                    <a href="{{route("admin.absence.index")}}">
+                        <span class="icon"><i class="mdi mdi-account-circle"></i></span>
+                        <span class="menu-item-label">Absences</span>
                     </a>
                 </li>
                 <li class="--set-active-profile-html">
