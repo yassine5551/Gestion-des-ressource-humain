@@ -28,13 +28,18 @@
                             </select>
                         </div>
                         <div class="mb-6">
-                            <label for="start_at" class="block mb-2 text-sm font-medium text-gray-900 ">Debut</label>
-                            <input type="date"  name="start_at"  id="start_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
+                            <label for="start_at" class="block mb-2 text-sm font-medium text-gray-900 ">date</label>
+                            <input type="date"  name="date"  id="start_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
                         </div>
-                    <div class="mb-6">
-                        <label for="end_at" class="block mb-2 text-sm font-medium text-gray-900 ">Fin</label>
-                        <input type="date" name="end_at" id="end_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
-                    </div>
+                        <div class="mb-6">
+                            <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
+                            <select  id="raison" name="raison" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
+                           @foreach ($raisons as $raison )
+                           <option value=""></option>
+                           @endforeach
+                            </div>
+                        
+                    
 
                     <!-- Modal footer -->
                     <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
