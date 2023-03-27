@@ -49,8 +49,13 @@ class AdminAbsenceController extends Controller
     }
 
     public function store(Request $request){
-        Absence::validation($request);
-        Absence::create($request->all());
+        Absence::Validate($request);
+        Absence::create([
+            "employee_number"=>$request->employee_number,
+            "date"=>$request->date,
+            "raison"=>$request->raison,
+            "description"=>$request->description
+        ]);
         return back();
     }
 }

@@ -20,8 +20,8 @@
                         <!-- Modal header -->
 
                             <div class="mb-6">
-                                <label for="social_number" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                                <select id="social_number" name="social_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
+                                <label for="employee_number" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                                <select id="employee_number" name="employee_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
                                     @foreach($employees as $emp)
                                         <option {{$emp->inHoliday()?'disabled':''}} value="{{$emp->getSocialNumber()}}">{{$emp->user->getFirstName()}} {{$emp->user->getLastName()}}</option>
                                     @endforeach
@@ -32,14 +32,17 @@
                                 <input type="date"  name="date"  id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
                             </div>
                         <div class="mb-6">
-                            <label for="end_at" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-                            <select name="" id=""  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
+                            <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
+                            <select name="raison" id="raison"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
                                 @foreach ($raisons as $raison)
                                 <option value="{{$raison}}">{{$raison}}</option>
-                                    
                                 @endforeach
                             </select>
                             </div>
+                            <div class="mb-6">
+                                <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Commentaire</label>
+                            <textarea name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  id="" cols="30" rows="10"></textarea>
+                                    </div>
 
                         <!-- Modal footer -->
                         <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
