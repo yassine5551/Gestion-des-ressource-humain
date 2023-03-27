@@ -11,46 +11,46 @@
                 declarer une absence
             </button>
         </div>
-        <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute  h-modal md:h-full left-0 right-0 md:inset-0 z-50 justify-center items-center">
-            <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
-                <!-- Modal content -->
-                <form id="add_leave" method="post" action="{{route("admin.leave.store")}}">
-                    @csrf
-                <div class="p-6 bg-gray-200 rounded-lg shadow relative">
-                    <!-- Modal header -->
+                    <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute  h-modal md:h-full left-0 right-0 md:inset-0 z-50 justify-center items-center">
+                <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
+                    <!-- Modal content -->
+                    <form id="add_leave" method="post" action="{{route("admin.absence.store")}}">
+                        @csrf
+                    <div class="p-6 bg-gray-200 rounded-lg shadow relative">
+                        <!-- Modal header -->
 
+                            <div class="mb-6">
+                                <label for="social_number" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
+                                <select id="social_number" name="social_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
+                                    @foreach($employees as $emp)
+                                        <option {{$emp->inHoliday()?'disabled':''}} value="{{$emp->getSocialNumber()}}">{{$emp->user->getFirstName()}} {{$emp->user->getLastName()}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+                            <div class="mb-6">
+                                <label for="date" class="block mb-2 text-sm font-medium text-gray-900 ">date</label>
+                                <input type="date"  name="date"  id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
+                            </div>
                         <div class="mb-6">
-                            <label for="social_number" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                            <select id="social_number" name="social_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
-                                @foreach($employees as $emp)
-                                    <option {{$emp->inHoliday()?'disabled':''}} value="{{$emp->getSocialNumber()}}">{{$emp->user->getFirstName()}} {{$emp->user->getLastName()}}</option>
+                            <label for="end_at" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
+                            <select name="" id=""  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
+                                @foreach ($raisons as $raison)
+                                <option value="{{$raison}}">{{$raison}}</option>
+                                    
                                 @endforeach
                             </select>
-                        </div>
-                        <div class="mb-6">
-                            <label for="start_at" class="block mb-2 text-sm font-medium text-gray-900 ">date</label>
-                            <input type="date"  name="date"  id="start_at" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
-                        </div>
-                        <div class="mb-6">
-                            <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-                            <select  id="raison" name="raison" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
-                           @foreach ($raisons as $raison )
-                           <option value=""></option>
-                           @endforeach
                             </div>
-                        
-                    
 
-                    <!-- Modal footer -->
-                    <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
-                        <button id="submit_form" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
-                        <button data-modal-toggle="default-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Decline</button>
+                        <!-- Modal footer -->
+                        <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
+                            <button id="submit_form" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
+                            <button data-modal-toggle="default-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Decline</button>
+                        </div>
+                    </div>
+                        </form>
                     </div>
                 </div>
-                    </form>
-                </div>
             </div>
-        </div>
     </section>
     <div class="my-2 flex sm:flex-row flex-col">
         <div class="flex flex-row mb-1 sm:mb-0">
