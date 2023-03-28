@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Employee extends model{
     use HasFactory;
@@ -116,5 +117,17 @@ public function leave()
      }
      return  false;
  }
-
+    public function hasLeaveInThisDay(string $date)
+    {
+        $leave =
+            DB::table("leaves")->where("social_number",$this->attributes["social_number"])
+                ->where("start_at","<=",$date)
+                ->where("end_at",">=",$date)
+            ->first();
+        if($leave)
+        {
+            return  true;
+        }
+        return  false;
+    }
 }

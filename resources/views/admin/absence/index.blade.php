@@ -88,8 +88,8 @@
         </div>
 
     </div>
-    <section id="container " class="m-2">
-        <table class="table-auto w-full" style="border: 2px black solid">
+    <section  class="m-2">
+        <table class="table-auto overflow-scroll"  style="border: 2px black solid;width: 200px!important;">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
             <th class="border border-gray-400 px-4 py-2">Employee</th>
@@ -107,15 +107,19 @@
                     <th class="{{$i==\Carbon\Carbon::today()->day?"bg-sky-200":""}} {{$i>\Carbon\Carbon::today()->day?"bg-sky-400":""}}
                         {{$employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)? "bg-gray-300":""}}
                         border border-gray-400 px-4 py-2">
-                        @if($createDate(now()->format("Y-m-d"))<=$createDate($current_year."-".$current_month."-".$i))
+                        @if($employee->hasLeaveInThisDay($current_year."-".$current_month."-".$i))
+                            <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Congée</span>
                         @else
-                            @if($employee->isAbsentInThisDay($current_year."-".$current_month."-".$i))
+                        @if($createDate(now()->format("Y-m-d"))<$createDate($current_year."-".$current_month."-".$i))
+                        @else
+
+                            @if($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i))
+                            @elseif($employee->isAbsentInThisDay($current_year."-".$current_month."-".$i))
                                 <div class="w-6 h-6 rounded-full flex justify-center items-center bg-red-500 text-white">
                                     <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
                                         <path d="M10 0a10 10 0 1 0 10 10A10 10 0 0 0 10 0zm5.7 12.3l-.7.7L10 10.7l-4.3 4.3-.7-.7L9.3 10 4.7 5.4l.7-.7L10 9.3l4.3-4.3.7.7L10.7 10l4.6 4.6z"/>
                                     </svg>
                                 </div>
-                            @elseif($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i))
                             @else
                                 <div class="w-6 h-6 rounded-full flex justify-center items-center bg-green-500 text-white">
                                     <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20">
@@ -123,8 +127,8 @@
                                     </svg>
                                 </div>
                             @endif
-                       @endif
-
+                            @endif
+                        @endif
                     </th>
                 @endfor
         </tr>
@@ -138,10 +142,3 @@
 @endsection
 
 
- @section("script")
-     <script>
-         $('#container').css({
-             overflowY:scroll
-         })
-     </script>
- @endsection
