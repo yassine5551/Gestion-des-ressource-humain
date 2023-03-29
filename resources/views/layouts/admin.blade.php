@@ -92,6 +92,20 @@
                         <span class="menu-item-label">Absences</span>
                     </a>
                 </li>
+                <p class="menu-label">Stagiaires</p>
+            <ul class="menu-list">
+                <li class="">
+                    <a href="{{route("admin.employee.index")}}">
+                        <span class="icon"><i class="mdi mdi-table"></i></span>
+                        <span class="menu-item-label">List Stagiaire</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{route("admin.employee.create")}}">
+                        <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
+                        <span class="menu-item-label">Ajouter Stagiaire</span>
+                    </a>
+                </li>
                 <li class="--set-active-profile-html">
                     <a href="profile.html">
                         <span class="icon"><i class="mdi mdi-account-circle"></i></span>
