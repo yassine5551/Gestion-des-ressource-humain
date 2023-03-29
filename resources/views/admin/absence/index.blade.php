@@ -88,8 +88,8 @@
         </div>
 
     </div>
-    <section  class="m-2">
-        <table class="table-auto overflow-scroll"  style="border: 2px black solid;width: 200px!important;">
+    <section  class="m-2 overflow-x-auto" style="width: 98%;height: 380px;border: 2px black solid">
+        <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
             <th class="border border-gray-400 px-4 py-2">Employee</th>
@@ -105,10 +105,12 @@
             <td class="border border-gray-400 px-4 py-2">{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</td>
                 @for($i=1;$i<=$daysInCurrentMonth;$i++)
                     <th class="{{$i==\Carbon\Carbon::today()->day?"bg-sky-200":""}} {{$i>\Carbon\Carbon::today()->day?"bg-sky-400":""}}
-                        {{$employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)? "bg-gray-300":""}}
+                        {{($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)||\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")? "bg-gray-300":""}}
                         border border-gray-400 px-4 py-2">
-                        @if($employee->hasLeaveInThisDay($current_year."-".$current_month."-".$i))
-                            <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Congée</span>
+                        @if(\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")
+                        @elseif($employee->hasLeaveInThisDay($current_year."-".$current_month."-".$i))
+                            <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">C</span>
+
                         @else
                         @if($createDate(now()->format("Y-m-d"))<$createDate($current_year."-".$current_month."-".$i))
                         @else
