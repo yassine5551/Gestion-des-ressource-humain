@@ -49,4 +49,10 @@ Route::controller(App\Http\Controllers\Admin\AdminPostController::class)->group(
     Route::post('admin/post',"store")->name("admin.post.store");
 });
 
+Route::controller(App\Http\Controllers\Admin\AdminStagiaireController::class)->group(function () {
+    Route::get('/admin/stagiaires/',"index")->name("admin.stagiaire.index");
+    Route::get("admin/stagiaire/create","create")->name("admin.stagiaire.create");
+    Route::post("admin/stagiaire/create","store")->name("admin.stagiaire.store");
+});
+
 

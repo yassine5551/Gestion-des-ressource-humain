@@ -13,6 +13,7 @@ class Stagiaire extends Model
         [
         "first_name",
         "last_name",
+        "email",
         "project",
         "date_debut",
         "date_fin",
@@ -31,6 +32,7 @@ class Stagiaire extends Model
         $request->validate([
             "first_name"=>["required"],
             "last_name"=>["required"],
+            "email"=>["required","email"],
             "project"=>["required"],
             "date_debut"=>["required","date"],
             "date_fin"=>["required","date","after:date_debut"],
@@ -59,10 +61,17 @@ class Stagiaire extends Model
     }
     public function setLastName($lname)
     {
-        $this->attributes["last_name"] = $date;
+        $this->attributes["last_name"] = $lname;
     }
 
+    public function getEmail()
+    {
+        return $this->attributes["email"];
+    }
+    public function setEmail($email){
+        $this->attributes["email"] = $email;
 
+    }
 
     public function getProject()
     {

@@ -29,6 +29,7 @@ class AdminStagiaireController extends Controller
         Stagiaire::create([
             "first_name"=>$request->input("first_name"),
             "last_name"=>$request->input("last_name"),
+            "email"=>$request->input("email"),
             "project"=>$request->input("project"),
             "date_debut"=>$request->input("date_debut"),
             "date_fin"=>$request->input("date_fin"),

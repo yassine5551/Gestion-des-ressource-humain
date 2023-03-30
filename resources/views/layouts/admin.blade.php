@@ -95,13 +95,13 @@
                 <p class="menu-label">Stagiaires</p>
             <ul class="menu-list">
                 <li class="">
-                    <a href="{{route("admin.employee.index")}}">
+                    <a href="{{route("admin.stagiaire.index")}}">
                         <span class="icon"><i class="mdi mdi-table"></i></span>
                         <span class="menu-item-label">List Stagiaire</span>
                     </a>
                 </li>
                 <li class="">
-                    <a href="{{route("admin.employee.create")}}">
+                    <a href="{{route("admin.stagiaire.create")}}">
                         <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
                         <span class="menu-item-label">Ajouter Stagiaire</span>
                     </a>
