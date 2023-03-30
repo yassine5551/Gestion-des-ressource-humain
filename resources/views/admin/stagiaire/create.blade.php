@@ -29,37 +29,11 @@
             @csrf
             <hr class="border-b-1 border-blueGray-300">
             <h6 class="text-blueGray-400 text-sm  mb-6 font-bold uppercase">
-                Information d'employee
+                Information de stagiaire
             </h6>
             <div class="flex flex-wrap">
-                <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
-                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            numéro de sécurité sociale
-                        </label>
-                        <input type="text" name="social_number" class="cursor-not-allowed border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("society_number",$society_number) }}" readonly>
-                        @error('social_number')
 
-                        <div class="p-4 mb-4 text-sm text-red-500 rounded-lg bg-red-50 bg-inherit dark:text-red-400" role="alert">
-                            <span class="font-medium">{{$message}}</span>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
-                <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
-                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            address Email
-                        </label>
-                        <input name="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("email")}}" placeholder="email@example.com">
-                        @error('email')
 
-                        <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
-                            <span class="font-medium">{{$message}}</span>
-                        </div>
-                        @enderror
-                    </div>
-                </div>
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
@@ -102,32 +76,21 @@
                         @enderror
                     </div>
                 </div>
-                <div class="w-full lg:w-6/12 px-4">
-                    <div class="relative w-full mb-3">
 
-                        <label for="countries"  class="block uppercase text-blueGray-600 text-xs font-bold mb-2">Sélectionnez le poste</label>
-                        <select name="post_id" id="countries" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
-                            @foreach($posts as $post)
-                                <option {{old("post_id")==$post->getId()?"selected":''}} value="{{$post->getId()}}">{{$post->getName()}}</option>
-                            @endforeach
-                        </select>
-                        @error('post_id')
+            </div>
+            <hr class="mt-6 border-b-1 border-blueGray-300">
 
-                        <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
-                            <span class="font-medium">{{$message}}</span>
-                        </div>
-                        @enderror
-
-                    </div>
-
-                </div>
+            <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
+                Project Information
+            </h6>
+                <div class="flex flex-wrap">
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Date D'embauche
+                            Date debut
                         </label>
-                        <input name="hiring_date" value="{{old("hiring_date")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
-                        @error('hiring_date')
+                        <input name="date_debut" value="{{old("date_debut")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
+                        @error('date_debut')
 
                         <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                             <span class="font-medium">{{$message}}</span>
@@ -135,13 +98,14 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Salaire
+                            Date fin
                         </label>
-                        <input name="salary" value="{{old("salary")}}" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
-                        @error('salary')
+                        <input name="date_fin" value="{{old("date_fin")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
+                        @error('date_fin')
 
                         <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                             <span class="font-medium">{{$message}}</span>
@@ -151,6 +115,25 @@
                 </div>
 
             </div>
+
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="relative w-full mb-3">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                        Sujet de Project
+                    </label>
+                    <input name="project" value="{{old("project")}}" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
+                    @error('project')
+
+                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
+                        <span class="font-medium">{{$message}}</span>
+                    </div>
+                    @enderror
+                </div>
+            </div>
+
+
+
+
 
             <hr class="mt-6 border-b-1 border-blueGray-300">
 
@@ -173,13 +156,27 @@
                     @enderror
                 </div>
 
-                <div class="w-full lg:w-4/12 px-4">
+                <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
                             Telephone
                         </label>
                         <input value="{{old("phone")}}" name="phone" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" placeholder="+212 XXX XXX XXX">
                         @error('phone')
+
+                        <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
+                            <span class="font-medium">{{$message}}</span>
+                        </div>
+                        @enderror
+                    </div>
+                </div>
+                <div class="w-full lg:w-6/12 px-4">
+                    <div class="relative w-full mb-3">
+                        <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                            address Email
+                        </label>
+                        <input name="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("email")}}" placeholder="email@example.com">
+                        @error('email')
 
                         <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                             <span class="font-medium">{{$message}}</span>

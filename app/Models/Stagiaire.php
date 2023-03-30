@@ -36,7 +36,6 @@ class Stagiaire extends Model
             "project"=>["required"],
             "date_debut"=>["required","date"],
             "date_fin"=>["required","date","after:date_debut"],
-            "status"=>["required"],
             "adress"=>["required"],
             "phone"=>["required"],
             "born_date"=>["required","before:today"],
