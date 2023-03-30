@@ -55,7 +55,7 @@
 
                     <div class="p-3">
                         <div class="overflow-x-auto resp" id="container">
-                            <table class="table-auto w-full">
+                            <table id="myTable" class="table-auto w-full">
                                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                 <tr>
                                     <th class="p-2 whitespace-nowrap">
@@ -108,26 +108,30 @@
                                 @endforeach
                                 </tbody>
                             </table>
+                            <div class="table-pagination">
+                                <div class="buttons">
+                                    <div id="pagination">
+                                        <div class="flex justify-center items-center">
+                                        <button id="prev" class="mr-6 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg font-bold text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M10.293 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 111.414 1.414L5.414 9H17a1 1 0 010 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+
+                                        <span id="page"></span>
+                                        <button id="next"  class=" ml-6 flex items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg font-bold text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out mr-2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 20 20" fill="currentColor">
+                                                <path fill-rule="evenodd" d="M9.707 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 010-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            </svg>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-
-
-
-
-
-                <div class="table-pagination">
-                    <div class="flex items-center justify-between">
-                        <div class="buttons">
-                            <button type="button" class="button active">1</button>
-                            <button type="button" class="button">2</button>
-                            <button type="button" class="button">3</button>
-                        </div>
-                        <small>Page 1 of 3</small>
-                    </div>
-                </div>
-            </div>
-
 @endsection
 
 @section("script")
@@ -206,7 +210,55 @@ ${item.inHoliday?'<span style="width: 250px!important;" class="bg-red-100 text-r
     downloadButton.click((e)=>{
         window.location.replace("employees/download")
     })
+    const table = document.getElementById('myTable');
+    const prevBtn = document.getElementById('prev');
+    const nextBtn = document.getElementById('next');
+    const pageSpan = document.getElementById('page');
 
+    let currentPage = 1;
+    const rowsPerPage = 10;
+    const numRows = table.rows.length - 1;
+
+    // Calculate total number of pages
+    const numPages = Math.ceil(numRows / rowsPerPage);
+
+    // Function to display rows for the current page
+    function displayRows() {
+        // Calculate start and end indices for current page
+        const start = (currentPage - 1) * rowsPerPage + 1;
+        const end = Math.min(start + rowsPerPage - 1, numRows);
+
+        // Loop through all rows in table and hide/show based on page
+        for (let i = 1; i <= numRows; i++) {
+            if (i >= start && i <= end) {
+                table.rows[i].style.display = '';
+            } else {
+                table.rows[i].style.display = 'none';
+            }
+        }
+
+        // Update page number display
+        pageSpan.innerHTML = `<span class="flex items-center"> <i class="flex items-center mr-5 justify-center w-10 h-10 bg-white rounded-full shadow-lg font-bold text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out mr-2"> ${currentPage}</i> of <i class="flex ml-5 items-center justify-center w-10 h-10 bg-white rounded-full shadow-lg font-bold text-gray-700 hover:bg-gray-200 transition duration-300 ease-in-out mr-2"> ${numPages}</i></span>
+`;
+    }
+
+    // Initial display of rows
+    displayRows();
+
+    // Event listeners for previous/next buttons
+    prevBtn.addEventListener('click', () => {
+        if (currentPage > 1) {
+            currentPage--;
+            displayRows();
+        }
+    });
+
+    nextBtn.addEventListener('click', () => {
+        if (currentPage < numPages) {
+            currentPage++;
+            displayRows();
+        }
+    });
 
 </script>
 
