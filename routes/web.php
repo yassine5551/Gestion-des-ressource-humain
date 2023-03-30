@@ -53,6 +53,8 @@ Route::controller(App\Http\Controllers\Admin\AdminStagiaireController::class)->g
     Route::get('/admin/stagiaires/',"index")->name("admin.stagiaire.index");
     Route::get("admin/stagiaire/create","create")->name("admin.stagiaire.create");
     Route::post("admin/stagiaire/create","store")->name("admin.stagiaire.store");
+    Route::delete("admin/stagiaire/{id}","delete")->name("admin.stagiaire.delete");
+
 });
 
 
