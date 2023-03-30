@@ -110,7 +110,7 @@
                 <p class="menu-label">Projects</p>
                 <ul class="menu-list">
                     <li class="">
-                        <a href="{{route("admin.stagiaire.index")}}">
+                        <a href="{{route("admin.project.index")}}">
                             <span class="icon"><i class="mdi mdi-table"></i></span>
                             <span class="menu-item-label">Project</span>
                         </a>

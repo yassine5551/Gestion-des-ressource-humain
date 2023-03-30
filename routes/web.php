@@ -57,4 +57,9 @@ Route::controller(App\Http\Controllers\Admin\AdminStagiaireController::class)->g
 
 });
 
+Route::controller(App\Http\Controllers\Admin\AdminProjectController::class)->group(function () {
+    Route::get('/admin/projects/',"index")->name("admin.project.index");
+    Route::post("admin/project/create","store")->name("admin.project.store");
+
+});
 

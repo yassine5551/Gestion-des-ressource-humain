@@ -92,7 +92,7 @@
                                     <div class="text-lg text-center">{{$stagiaire->getDateFin()}}</div>
                                 </td>
                                 <td class="p-2 whitespace-nowrap">
-                                    <div class="text-lg text-center">{{$stagiaire->getProject()}}</div>
+                                    <div class="text-lg text-center">{{$stagiaire->project->getName()}}</div>
                                 </td>
                                 <td class="p-2 whitespace-nowrap ">
                                     <form method="post" action="{{route("admin.stagiaire.delete",$stagiaire->getId())}}" >
