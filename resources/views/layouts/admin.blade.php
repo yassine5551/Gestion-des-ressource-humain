@@ -115,43 +115,18 @@
                             <span class="menu-item-label">Project</span>
                         </a>
                     </li>
-
-                <li class="--set-active-profile-html">
-                    <a href="profile.html">
-                        <span class="icon"><i class="mdi mdi-account-circle"></i></span>
-                        <span class="menu-item-label">Profile</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="login.html">
-                        <span class="icon"><i class="mdi mdi-lock"></i></span>
-                        <span class="menu-item-label">Login</span>
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown">
-                        <span class="icon"><i class="mdi mdi-view-list"></i></span>
-                        <span class="menu-item-label">Submenus</span>
-                        <span class="icon"><i class="mdi mdi-plus"></i></span>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="#void">
-                                <span>Sub-item One</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#void">
-                                <span>Sub-item Two</span>
-                            </a>
-                        </li>
+                </ul>
+{{--                <li class="--set-active-profile-html">--}}
+{{--                    <a href="profile.html">--}}
+{{--                        <span class="icon"><i class="mdi mdi-account-circle"></i></span>--}}
+{{--                        <span class="menu-item-label">Profile</span>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
                     </ul>
-                </li>
             </ul>
-
         </div>
-    </aside>
 
+    </aside>
 
 
 
@@ -160,39 +135,6 @@
 
 
 
-    <div id="sample-modal" class="modal">
-        <div class="modal-background --jb-modal-close"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Sample modal</p>
-            </header>
-            <section class="modal-card-body">
-                <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-                <p>This is sample modal</p>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button --jb-modal-close" aria-label="close">Cancel</button>
-                <button class="button red modal-close">Confirm</button>
-            </footer>
-        </div>
-    </div>
-
-    <div id="sample-modal-2" class="modal">
-        <div class="modal-background --jb-modal-close"></div>
-        <div class="modal-card">
-            <header class="modal-card-head">
-                <p class="modal-card-title">Sample modal</p>
-            </header>
-            <section class="modal-card-body">
-                <p>Lorem ipsum dolor sit amet <b>adipiscing elit</b></p>
-                <p>This is sample modal</p>
-            </section>
-            <footer class="modal-card-foot">
-                <button class="button --jb-modal-close">Cancel</button>
-                <button class="button blue --jb-modal-close">Confirm</button>
-            </footer>
-        </div>
-    </div>
 </div>
 
 <!-- Scripts below are for demo only -->
@@ -203,6 +145,24 @@
 
 
 <script>
+    // Open the modal when the trigger button is clicked
+    const modalTrigger = document.querySelector('[data-modal-target="#modal"]');
+    const modal = document.querySelector('#modal');
+    const close = document.getElementById("close")
+    modalTrigger.addEventListener('click', () => {
+        modal.classList.remove('hidden');
+    });
+
+    // Close the modal when the user clicks outside of it
+    close.addEventListener('click', event => {
+        modal.classList.add('hidden');
+    });
+    document.getElementById("close-alert").addEventListener("click", function() {
+        document.getElementById("success-alert").style.display = "none";
+    });
+    document.getElementById("close-alert").addEventListener("click", function() {
+        document.getElementById("fail-alert").style.display = "none";
+    });
 
 </script>
 @yield("script")

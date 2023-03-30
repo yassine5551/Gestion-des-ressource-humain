@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Project extends Model
 {
     use HasFactory;
-    protected $fillable = ["name"];
+    protected $fillable = ["name","description"];
     public function getName()
     {
         return $this->attributes["name"];
@@ -29,7 +29,7 @@ class Project extends Model
     public static function validate(Request  $request)
     {
         $request->validate([
-            "name" =>'required' 
+            "name" =>'required'
         ]);
     }
 }

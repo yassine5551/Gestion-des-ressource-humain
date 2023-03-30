@@ -54,18 +54,18 @@
                 <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 
                     <div class="p-3">
-                        <div class="overflow-x-auto" id="container">
+                        <div class="overflow-x-auto resp" id="container">
                             <table class="table-auto w-full">
                                 <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                                 <tr>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Name</div>
+                                        <div class="font-semibold text-left">Name Complete</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Post</div>
+                                        <div class="font-semibold text-left">Le POST</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Status</div>
+                                        <div class="font-semibold text-left">ETAT</div>
                                     </th>
                                     <th class="p-2 whitespace-nowrap">
                                         <div class="font-semibold text-center">Salaire</div>
@@ -80,30 +80,28 @@
 
 
                                     <tr>
-                                        <td class="p-2 whitespace-nowrap">
+                                        <td data-label="NOM COMPLETE" class="p-2 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src={{"https://avatars.dicebear.com/v2/initials/{$employer->user->getFirstName()[0]}-{$employer->user->getLastName()[0]}.svg"}}></div>
                                                 <div class="font-medium text-gray-800">{{$employer->user->getFirstName()}} {{$employer->user->getLastName()}}</div>
                                             </div>
                                         </td>
-                                        <td class="p-2 whitespace-nowrap">
+                                        <td data-label="le post" class="p-2 whitespace-nowrap">
                                             <div class="text-left">{{$employer->post->getName()}}</div>
                                         </td>
-                                        <td class="p-2 whitespace-nowrap">
+                                        <td data-label="etat" class="p-2 whitespace-nowrap">
                                             <div class="text-left font-medium text-green-500">
                                                 @if($employer->inHoliday())
                                                     <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Congée</span>
                                                 @else
                                                     <span class="bg-green-100 text-green-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">Disponible</span>
-
-
                                                 @endif
                                             </div>
                                         </td>
-                                        <td class="p-2 whitespace-nowrap">
+                                        <td data-label="SALAIRE" class="p-2 whitespace-nowrap">
                                             <div class="text-lg text-center">{{$employer->getSalary()."  DH"}} </div>
                                         </td>
-                                        <td class="p-2 whitespace-nowrap">
+                                        <td data-label="DATE D'EMBAUCH" class="p-2 whitespace-nowrap">
                                             <div class="text-lg text-center">{{$employer->getHiringDate()}}</div>
                                         </td>
                                     </tr>

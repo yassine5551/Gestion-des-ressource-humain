@@ -20,6 +20,7 @@ class Stagiaire extends Model
         "adress",
         "phone",
         "born_date",
+            "link"
     ];
 
     public function getId()
@@ -38,6 +39,7 @@ class Stagiaire extends Model
             "adress"=>["required"],
             "phone"=>["required"],
             "born_date"=>["required","before:today"],
+            "link"=>[""]
 
         ]);
 

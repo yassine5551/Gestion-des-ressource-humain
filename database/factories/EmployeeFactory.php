@@ -27,7 +27,7 @@ class EmployeeFactory extends Factory
             "adress"=>fake()->address,
             "phone"=>fake()->phoneNumber,
             "born_date"=>fake()->date,
-            "hiring_date"=>Carbon::yesterday()
+            "hiring_date"=>"2023-03-01"
         ];
     }
 }

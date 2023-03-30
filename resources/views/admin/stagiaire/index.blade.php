@@ -43,7 +43,7 @@
         <div class=" bg-white shadow-lg rounded-sm border border-gray-200">
 
             <div class="p-3">
-                <div class="overflow-x-auto" id="container">
+                <div class="overflow-x-auto resp" id="container">
                     <table class="table-auto w-full">
                         <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
@@ -74,7 +74,7 @@
 
 
                             <tr>
-                                <td>
+                                <td data-label="#" class="p-2 whitespace-nowrap">
                                     {{$key+1}}
                                 </td>
                                 <td data-label="NOM COMPLET" class="p-2 whitespace-nowrap">
@@ -88,35 +88,36 @@
                                     <div class="text-lg text-center">
                                         @if($stagiaire->getStatus())
                                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-500 text-white">
-  Terminé
-</span>
+                                                    Terminé
+                                                </span>
 
                                         @else
                                             <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-500 text-white">
-  En cours
-</span>
+                                                 En cours
+                                            </span>
 
                                         @endif
                                     </div>
                                 </td>
 
-                                <td class="p-2 whitespace-nowrap">
+                                <td data-label="Date debut" class="p-2 whitespace-nowrap">
                                     <div class="text-lg text-center">{{$stagiaire->getDateDebut()}}</div>
                                 </td>
 
-                                <td class="p-2 whitespace-nowrap">
+                                <td data-label="date fin" class="p-2 whitespace-nowrap">
                                     <div class="text-lg text-center">{{$stagiaire->getDateFin()}}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap">
+                                <td data-label="projet" class="p-2 whitespace-nowrap">
                                     <div class="text-lg text-center">{{$stagiaire->project->getName()}}</div>
                                 </td>
-                                <td class="p-2 whitespace-nowrap ">
+                                <td data-label="actions" class="p-2 whitespace-nowrap ">
+                                    <div class="flex items-center text-center">
+
                                     <form id="del_stg" method="post" action="{{route("admin.stagiaire.delete",$stagiaire->getId())}}" >
                                         @csrf
                                         @method('delete')
                                     </form>
 
-                                        <div class="flex items-center text-center w-full">
 
                                         <button onclick="document.getElementById('del_stg').submit()" type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-center m-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

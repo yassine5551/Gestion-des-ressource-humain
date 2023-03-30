@@ -7,90 +7,124 @@
                 <li>Admin</li>
                 <li>Absences</li>
             </ul>
-            <button class="sm:my-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="button" data-modal-toggle="default-modal">
+            <button
+                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
+                data-modal-target="#modal"
+            >
                 declarer une absence
             </button>
         </div>
-        <div class=" md:w-full">
-            <!-- Main modal -->
-            <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute h-modal md:h-full  w-full  left-0 right-0 md:inset-0 z-50 justify-center items-center scale-90">
-                <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
-                    <!-- Modal content -->
-                    <form id="add_leave" method="post" action="{{route("admin.absence.store")}}">
-                        @csrf
-                    <div class="p-6 bg-gray-200 rounded-lg shadow relative">
-                        <!-- Modal header -->
-
-                            <div class="mb-6">
-                                <label for="employee_number" class="block mb-2 text-sm font-medium text-gray-900">Your email</label>
-                                <select id="employee_number" name="employee_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
-                                    @foreach($employees as $emp)
-                                        <option {{$emp->inHoliday()?'disabled':''}} value="{{$emp->getSocialNumber()}}">{{$emp->user->getFirstName()}} {{$emp->user->getLastName()}}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-                            <div class="mb-6">
-                                <label for="date" class="block mb-2 text-sm font-medium text-gray-900 ">date</label>
-                                <input type="date"  name="date"  id="date" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 " >
-                            </div>
-                        <div class="mb-6">
-                            <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Motif</label>
-                            <select name="raison" id="raison"  class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  required>
-                                @foreach ($raisons as $raison)
-                                <option value="{{$raison}}">{{$raison}}</option>
-                                @endforeach
-                            </select>
-                            </div>
-                            <div class="mb-6">
-                                <label for="raison" class="block mb-2 text-sm font-medium text-gray-900 ">Commentaire</label>
-                            <textarea name="description" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"  id="" cols="30" rows="10"></textarea>
-                                    </div>
-
-                        <!-- Modal footer -->
-                        <div class="flex space-x-2 items-center p-6 border-t border-gray-200 rounded-b">
-                            <button id="submit_form" type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">I accept</button>
-                            <button data-modal-toggle="default-modal" type="button" class="text-gray-500 bg-white hover:bg-gray-100 focus:ring-4 focus:ring-gray-300 rounded-lg border border-gray-200 text-sm font-medium px-5 py-2.5 hover:text-gray-900 focus:z-10">Decline</button>
-                        </div>
-                    </div>
-                        </form>
-                    </div>
-            </div>
-                </div>
-            </div>
     </section>
-    <div class="my-2 flex sm:flex-row flex-col">
-        <div class="flex flex-row mb-1 sm:mb-0">
-            <div class="relative">
-                <select
-                    class="appearance-none h-full rounded-l border block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:bg-white focus:border-gray-500">
-                    <option>5</option>
-                    <option>10</option>
-                    <option>20</option>
-                </select>
-                <div
-                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+    @if(session('success_msg'))
+        <div class="fixed bottom-0 right-0 m-4 z-50">
+            <div id="success-alert" class="bg-green-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+                <span>{{session('success_msg')}}</span>
+                <button id="close-alert" class="text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                     </svg>
-                </div>
-            </div>
-            <div class="relative">
-                <select
-                    class="appearance-none h-full rounded-r border-t sm:rounded-r-none sm:border-r-0 border-r border-b block appearance-none w-full bg-white border-gray-400 text-gray-700 py-2 px-4 pr-8 leading-tight focus:outline-none focus:border-l focus:border-r focus:bg-white focus:border-gray-500">
-                    <option value="{{$current_year}}" selected>{{$current_year}}</option>
-                    <option value="{{$current_year-1}}" >{{$current_year-1}}</option>
-                    <option value="{{$current_year-2}}" >{{$current_year-2}}</option>
-                </select>
-                <div
-                    class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
-                    <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
-                    </svg>
-                </div>
+                </button>
             </div>
         </div>
+    @endif
+    @if($errors->any())
+        <div class="fixed bottom-0 right-0 m-4 ">
+            <div id="fail-alert" class=" relative bg-red-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+                <div class="flex flex-col p-3 ">
 
+                    @foreach($errors->all() as $err)
+                        <span>{{$err}}</span>
+                    @endforeach
+                </div>
+
+                <button id="close-alert" class=" absolute top-0 right-0 text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    @endif
+    <div
+        class="fixed z-10 inset-0 m-6 overflow-y-auto hidden"
+        aria-labelledby="modal-title"
+        role="dialog"
+        aria-modal="true"
+        id="modal"
+    >
+
+        <div class="flex items-center justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <!-- Modal overlay -->
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true"></div>
+
+            <!-- Modal content -->
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <form  id="add_leave" method="post" action="{{route("admin.absence.store")}}" class="px-4 py-6">
+                    @csrf
+                    <!-- Form title -->
+                    <div class="mb-6">
+                        <button
+                            id="close"
+                            type="button"
+                            class=" absolute  top-0 right-0 text-gray-500 hover:text-gray-800 hover:bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center focus:outline-none"
+                            aria-label="Close modal"
+                            data-modal-close
+                        >
+                            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M15.707 4.293a1 1 0 0 0-1.414-1.414L10 8.586 5.707 4.293A1 1 0 1 0 4.293 5.707L8.586 10l-4.293 4.293a1 1 0 1 0 1.414 1.414L10 11.414l4.293 4.293a1 1 0 0 0 1.414-1.414L11.414 10l4.293-4.293z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+
+
+                    </div>
+
+                    <!-- Form inputs -->
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="employee_number">
+                            Employee
+                        </label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="employee_number" name="employee_number">
+                            @foreach($employees as $emp)
+                                <option {{$emp->inHoliday()?'disabled':''}} value="{{$emp->getSocialNumber()}}">{{$emp->user->getFirstName()}} {{$emp->user->getLastName()}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="date">
+                            Date
+                        </label>
+                        <input type="date"  name="date"  id="date" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="raison">
+                            Motif
+                        </label>
+                        <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="raison" name="raison">
+                            @foreach ($raisons as $raison)
+                                <option value="{{$raison}}">{{$raison}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="description">
+                            Description
+                        </label>
+                        <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="description" name="description" placeholder="Enter your la description "></textarea>
+                    </div>
+
+                    <!-- Form actions -->
+                    <div class="flex justify-end">
+                        <button class="m-4 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit">
+                            Enregister
+                        </button>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
+
     <section  class="m-2 overflow-x-auto" style="width: 98%;height: 380px;border: 2px black solid">
         <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">

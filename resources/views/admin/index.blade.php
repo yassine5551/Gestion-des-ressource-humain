@@ -59,24 +59,24 @@
 {{--        </div>--}}
     </div>
 
-    <div class="card mb-6">
+    {{--    <div class="card mb-6">--}}
 
-        <div class="card-content">
-            <div class="chart-area">
-                <div class="h-full">
-                    <div class="chartjs-size-monitor">
-                        <div class="chartjs-size-monitor-expand">
-                            <div></div>
-                        </div>
-                        <div class="chartjs-size-monitor-shrink">
-                            <div></div>
-                        </div>
-                    </div>
-                    <canvas id="column-chart" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>
-                </div>
-            </div>
-        </div>
-    </div>
+    {{--        <div class="card-content">--}}
+    {{--            <div class="chart-area">--}}
+    {{--                <div class="h-full">--}}
+    {{--                    <div class="chartjs-size-monitor">--}}
+    {{--                        <div class="chartjs-size-monitor-expand">--}}
+    {{--                            <div></div>--}}
+    {{--                        </div>--}}
+    {{--                        <div class="chartjs-size-monitor-shrink">--}}
+    {{--                            <div></div>--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                    <canvas id="column-chart" width="2992" height="1000" class="chartjs-render-monitor block" style="height: 400px; width: 1197px;"></canvas>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
+    {{--    </div>--}}
 
 
 
