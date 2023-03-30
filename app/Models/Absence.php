@@ -21,7 +21,7 @@ class Absence extends Model
         $emp = Employee::where("social_number",$request->employee_number)->first();
 $request->validate([
     'employee_number' =>"required|exists:employees,social_number",
-    "date"=>["date","before_or_equal:today",
+    "date"=>["required","date","before_or_equal:today",
         new notSunday(),"unique:absences,date"
         ,new inaceptAbsenceInLeave($emp),
         "after:{$emp->getHiringDate()}"],
