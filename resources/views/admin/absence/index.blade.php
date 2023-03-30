@@ -187,10 +187,12 @@
 
 @section("script")
     <script>
-        const table = document.getElementById('scroll-content');
-
-        // Set the scroll position to the height of the table
-        table.scrollLeft = table.scrollWidth;
+        // const table = document.getElementById('scroll-content');
+        //
+        // // Set the scroll position to the height of the table
+        // table.scrollLeft = table.scrollWidth;
+        const columns = $('.bg-sky-200')
+        columns[0].scrollIntoView({ behavior: "smooth", block: "center" })
 
     </script>
 @endsection
