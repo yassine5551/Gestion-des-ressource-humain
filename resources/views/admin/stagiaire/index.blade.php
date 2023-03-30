@@ -47,8 +47,9 @@
                     <table class="table-auto w-full">
                         <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
-                            <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-left">Name</div>
+                            <th>#</th>
+                            <th class="p-2 whitespace-nowrap uppercase">
+                                <div class="font-semibold  text-left">Nom complet</div>
                             </th>
 
                             <th class="p-2 whitespace-nowrap">
@@ -64,24 +65,39 @@
                                 <div class="font-semibold text-center">Project</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Supprimer</div>
+                                <div class="font-semibold text-center"></div>
                             </th>
                         </tr>
                         </thead>
                         <tbody class="text-sm divide-y divide-gray-100">
-                        @foreach($stagiaires as $stagiaire)
+                        @foreach($stagiaires as $key=>$stagiaire)
 
 
                             <tr>
-                                <td class="p-2 whitespace-nowrap">
+                                <td>
+                                    {{$key+1}}
+                                </td>
+                                <td data-label="NOM COMPLET" class="p-2 whitespace-nowrap">
                                     <div class="flex items-center">
                                         <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src={{"https://avatars.dicebear.com/v2/initials/{$stagiaire->getFirstName()[0]}-{$stagiaire->getLastName()[0]}.svg"}}></div>
                                         <div class="font-medium text-gray-800">{{$stagiaire->getFirstName()}} {{$stagiaire->getLastName()}}</div>
                                     </div>
                                 </td>
 
-                                <td class="p-2 whitespace-nowrap">
-                                    <div class="text-lg text-center">{{$stagiaire->getStatus()}}</div>
+                                <td data-label="STATUS" class="p-2 whitespace-nowrap">
+                                    <div class="text-lg text-center">
+                                        @if($stagiaire->getStatus())
+                                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-green-500 text-white">
+  Terminé
+</span>
+
+                                        @else
+                                            <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-blue-500 text-white">
+  En cours
+</span>
+
+                                        @endif
+                                    </div>
                                 </td>
 
                                 <td class="p-2 whitespace-nowrap">
@@ -101,12 +117,19 @@
 
                                         <div class="flex items-center text-center w-full">
 
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-center m-auto">
+                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-center m-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
-                                        </button></div>
+                                        </button>
 
+                                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center m-1">
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 20 20" stroke="currentColor">
+                                                    <path d="M10 3v9a1 1 0 0 0 2 0V3a1 1 0 1 0-2 0zM4 10a1 1 0 0 0-1 1v4a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-4a1 1 0 1 0-2 0v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4a1 1 0 0 0-1-1z" stroke-width="1" />
+                                                </svg>
+                                            </button>
+
+                                        </div>
 
                                     </form>
                                 </td>

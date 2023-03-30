@@ -35,7 +35,6 @@ class AdminStagiaireController extends Controller
             "email"=>$request->input("email"),
             "project_id"=>$request->input("project_id"),
             "date_debut"=>$request->input("date_debut"),
-            "date_fin"=>$request->input("date_fin"),
             "status"=>false,
             "adress"=>$request->input("adress"),
             "phone"=>$request->input("phone"),

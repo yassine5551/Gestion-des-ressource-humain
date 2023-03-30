@@ -16,7 +16,6 @@ class Stagiaire extends Model
         "email",
         "project_id",
         "date_debut",
-        "date_fin",
         "status",
         "adress",
         "phone",
@@ -35,7 +34,7 @@ class Stagiaire extends Model
             "email"=>["required","email"],
             "project_id"=>["required","exists:projects,id"],
             "date_debut"=>["required","date"],
-            "date_fin"=>["required","date","after:date_debut"],
+            "date_fin"=>["date","after:date_debut"],
             "adress"=>["required"],
             "phone"=>["required"],
             "born_date"=>["required","before:today"],
@@ -45,7 +44,7 @@ class Stagiaire extends Model
     }
     public function project()
     {
-        return $this->hasOne(Project::class);
+        return $this->belongsTo(Project::class);
     }
     public function getFirstName()
     {
@@ -74,15 +73,6 @@ class Stagiaire extends Model
     public function setEmail($email){
         $this->attributes["email"] = $email;
 
-    }
-
-    public function getProject()
-    {
-        return $this->attributes["project"];
-    }
-    public function setProject($value)
-    {
-        $this->attributes["project"] = $value;
     }
 
 
