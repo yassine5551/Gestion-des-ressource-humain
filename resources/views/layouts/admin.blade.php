@@ -44,7 +44,7 @@
         </div>
     </nav>
 
-    <aside class="aside is-placed-left is-expanded">
+    <aside class="aside is-placed-left is-expanded overflow-x-scroll">
         <div class="aside-tools">
             <div>
                 Vala <b class="font-black">Administration</b>
@@ -106,6 +106,16 @@
                         <span class="menu-item-label">Ajouter Stagiaire</span>
                     </a>
                 </li>
+
+                <p class="menu-label">Projects</p>
+                <ul class="menu-list">
+                    <li class="">
+                        <a href="{{route("admin.stagiaire.index")}}">
+                            <span class="icon"><i class="mdi mdi-table"></i></span>
+                            <span class="menu-item-label">Project</span>
+                        </a>
+                    </li>
+
                 <li class="--set-active-profile-html">
                     <a href="profile.html">
                         <span class="icon"><i class="mdi mdi-account-circle"></i></span>
