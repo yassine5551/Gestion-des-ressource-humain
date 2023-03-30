@@ -13,9 +13,9 @@ class inaceptAbsenceInLeave implements Rule
      *
      * @return void
      */
-    public function __construct($social_number)
+    public function __construct($emp)
     {
-        $this->employee = Employee::where("social_number",$social_number)->first();
+        $this->employee =$emp;
     }
 
     /**

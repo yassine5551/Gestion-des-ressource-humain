@@ -18,12 +18,17 @@ class Absence extends Model
     }
 
     public static function   Validate(Request $request){
+        $emp = Employee::where("social_number",$request->employee_number)->first();
 $request->validate([
     'employee_number' =>"required|exists:employees,social_number",
-    "date"=>["date","before_or_equal:today",new notSunday(),"unique:absences,date",new inaceptAbsenceInLeave($request->employee_number)],
+    "date"=>["date","before_or_equal:today",
+        new notSunday(),"unique:absences,date"
+        ,new inaceptAbsenceInLeave($emp),
+        "after:{$emp->getHiringDate()}"],
     "raison"=>"required"
 ],[
-    "unique"=>"absence already daclared for this date"
+    "unique"=>"absence already daclared for this date",
+    "after"=>"we cannot declare an absence before hiring date"
 ]);
     }
 }
