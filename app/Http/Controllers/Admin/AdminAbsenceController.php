@@ -56,6 +56,6 @@ class AdminAbsenceController extends Controller
             "raison"=>$request->raison,
             "description"=>$request->description
         ]);
-        return back();
+        return back()->with("success_msg","l'absence est ajouter avec success");
     }
 }

@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class valide_leave_period implements Rule
+class notSunday implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,6 +25,8 @@ class valide_leave_period implements Rule
      */
     public function passes($attribute, $value)
     {
+        $date = new \DateTime($value);
+        return $date->format("w") != 0;
 
     }
 
@@ -35,6 +37,6 @@ class valide_leave_period implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'we cannot declare an absence at sunday.';
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Rules\notSunday;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -18,7 +19,7 @@ class Absence extends Model
     public static function   Validate(Request $request){
 $request->validate([
     'employee_number' =>"required|exists:employees,social_number",
-    "date"=>"date|before_or_equal:today",
+    "date"=>["date","before_or_equal:today",new notSunday()],
     "raison"=>"required"
 ]);
     }
