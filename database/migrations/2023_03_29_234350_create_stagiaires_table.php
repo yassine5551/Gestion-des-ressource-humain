@@ -20,8 +20,8 @@ return new class extends Migration
             $table->string("project");
             $table->date("date_debut");
             $table->date("date_fin");
-            $table->boolean("status");
-            $table->text("adress");
+            $table->boolean("status")->default(false);
+            $table->text("adress")->nullable();
             $table->string("phone");
             $table->date("born_date");
             $table->timestamps();
