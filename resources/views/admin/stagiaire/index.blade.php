@@ -37,10 +37,10 @@
         </header>
     </div>
 
-    <div class="card-content" id="content">
+    <div class="" id="content">
 
 
-        <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
+        <div class=" bg-white shadow-lg rounded-sm border border-gray-200">
 
             <div class="p-3">
                 <div class="overflow-x-auto" id="container">
@@ -111,19 +111,20 @@
                                     <div class="text-lg text-center">{{$stagiaire->project->getName()}}</div>
                                 </td>
                                 <td class="p-2 whitespace-nowrap ">
-                                    <form method="post" action="{{route("admin.stagiaire.delete",$stagiaire->getId())}}" >
+                                    <form id="del_stg" method="post" action="{{route("admin.stagiaire.delete",$stagiaire->getId())}}" >
                                         @csrf
                                         @method('delete')
+                                    </form>
 
                                         <div class="flex items-center text-center w-full">
 
-                                        <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-center m-1">
+                                        <button onclick="document.getElementById('del_stg').submit()" type="button" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-full text-center m-1">
                                         <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                                         </svg>
                                         </button>
 
-                                            <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center m-1">
+                                            <button  data-data-attribute="{{$stagiaire->getStatus()}}" type="submit" class="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center m-1">
                                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 20 20" stroke="currentColor">
                                                     <path d="M10 3v9a1 1 0 0 0 2 0V3a1 1 0 1 0-2 0zM4 10a1 1 0 0 0-1 1v4a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-4a1 1 0 1 0-2 0v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4a1 1 0 0 0-1-1z" stroke-width="1" />
                                                 </svg>
@@ -131,7 +132,6 @@
 
                                         </div>
 
-                                    </form>
                                 </td>
                             </tr>
                         @endforeach
@@ -147,3 +147,15 @@
 
 
     </div>
+@endsection
+@section("script")
+    <script>
+        let btnsdownload  = document.getElementsByClassName("btn-download")
+        for (item of btnsdownload){
+            if(item.dataset.dataAttribute==0){
+                item.setAttribute('disabled',true)
+                item.style.backgroundColor = "gray"
+            }
+        }
+    </script>
+@endsection

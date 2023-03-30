@@ -24,8 +24,9 @@
                 Ajouter un congee
             </button>
         </div>
+        <div class="relative">
             <!-- Main modal -->
-            <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute  h-modal md:h-full left-0 right-0 md:inset-0 z-50 justify-center items-center">
+            <div id="default-modal" data-modal-show="false" aria-hidden="true" class=" hidden  absolute h-modal md:h-full   left-0 right-0 md:inset-0 z-50 justify-center items-center scale-90">
                 <div class="relative w-full max-w-2xl px-4 h-full md:h-auto">
                     <!-- Modal content -->
                     <form id="add_leave" method="post" action="{{route("admin.leave.store")}}">
@@ -59,6 +60,7 @@
                         </form>
                     </div>
                 </div>
+        </div>
             </div>
         </div>
     </section>
