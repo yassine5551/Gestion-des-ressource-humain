@@ -96,7 +96,9 @@ public function leave()
 }
  public function inHoliday()
  {
-     $leave = Leave::where('social_number',$this->getSocialNumber())->first();
+     $leave = Leave::where('social_number',$this->getSocialNumber())
+         ->where("start_at",'<=',now())
+         ->where("end_at",">=",now())->exists();
      if($leave)
      {
          return true;

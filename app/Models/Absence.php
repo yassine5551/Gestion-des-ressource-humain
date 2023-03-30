@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Rules\inaceptAbsenceInLeave;
 use App\Rules\notSunday;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -19,8 +20,10 @@ class Absence extends Model
     public static function   Validate(Request $request){
 $request->validate([
     'employee_number' =>"required|exists:employees,social_number",
-    "date"=>["date","before_or_equal:today",new notSunday()],
+    "date"=>["date","before_or_equal:today",new notSunday(),"unique:absences,date",new inaceptAbsenceInLeave($request->employee_number)],
     "raison"=>"required"
+],[
+    "unique"=>"absence already daclared for this date"
 ]);
     }
 }
