@@ -15,6 +15,7 @@
             </button>
         </div>
     </section>
+
     @if(session('success_msg'))
         <div class="fixed bottom-0 right-0 m-4 z-50">
             <div id="success-alert" class="bg-green-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
@@ -125,13 +126,13 @@
         </div>
     </div>
 
-    <section  class="m-2 overflow-x-auto" style="width: 98%;height: 380px;border: 2px black solid">
+    <section id="scroll-content" class="m-2 overflow-x-auto" style="width: 98%;border-radius: 10px;box-shadow:2px 2px 10px orange; max-height: 550px;border: 2px black solid">
         <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
-            <th class="border border-gray-400 px-4 py-2">Employee</th>
+            <th class="sticky left-0 z-10 bg-gray-500 text-white px-6 py-4">Employee</th>
             @for($i=1;$i<=$daysInCurrentMonth;$i++)
-            <th class="border border-gray-400 px-4 py-2">{{$i}}</th>
+            <th class="bg-gray-500 text-white px-6 py-4">{{$i}}</th>
             @endfor
 
         </tr>
@@ -139,14 +140,18 @@
         <tbody class="text-xs font-semibold uppercase text-gray-400 bg-gray-50" >
         @foreach($employees as $employee)
             <tr>
-            <td class="border border-gray-400 px-4 py-2">{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</td>
+            <td class="sticky left-0 z-10 bg-gray-500 text-white px-6 py-4">{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</td>
                 @for($i=1;$i<=$daysInCurrentMonth;$i++)
                     <th class="{{$i==\Carbon\Carbon::today()->day?"bg-sky-200":""}} {{$i>\Carbon\Carbon::today()->day?"bg-sky-400":""}}
                         {{($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)||\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")? "bg-gray-300":""}}
                         border border-gray-400 px-4 py-2">
                         @if(\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")
                         @elseif($employee->hasLeaveInThisDay($current_year."-".$current_month."-".$i))
-                            <span style="width: 250px!important;" class="bg-red-100 text-red-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded ">C</span>
+                            <div class="flex items-center">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+                                    <path d="M10 3a1 1 0 0 0-1 1v4H7a1 1 0 1 0 0 2h2v6a1 1 0 1 0 2 0v-6h2a1 1 0 1 0 0-2h-2V4a1 1 0 0 0-1-1z" />
+                                </svg>
+                            </div>
 
                         @else
                         @if($createDate(now()->format("Y-m-d"))<$createDate($current_year."-".$current_month."-".$i))
@@ -180,4 +185,12 @@
 
 @endsection
 
+@section("script")
+    <script>
+        const table = document.getElementById('scroll-content');
 
+        // Set the scroll position to the height of the table
+        table.scrollLeft = table.scrollWidth;
+
+    </script>
+@endsection

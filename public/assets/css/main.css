@@ -1226,7 +1226,7 @@ table {
     border-bottom-width: 0;
 }
 @media (min-width: 1024px) {
-    tbody tr:hover td {
+    .resp tbody tr:hover td {
         --tw-bg-opacity: 1;
         background-color: rgba(243, 244, 246, var(--tw-bg-opacity));
     }
