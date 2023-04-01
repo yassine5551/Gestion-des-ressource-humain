@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Admin One Tailwind CSS Admin Dashboard</title>
+    <title>@yield("title")</title>
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="{{asset("./assets/css/main.css?v=1628755089081")}}">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
@@ -78,6 +78,12 @@
                     <a href="{{route("admin.leave.index")}}">
                         <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
                         <span class="menu-item-label">Congees</span>
+                    </a>
+                </li>
+                <li class="">
+                    <a href="{{route("admin.departement.index")}}">
+                        <span class="icon"><i  class="mdi mdi-briefcase"></i></span>
+                        <span class="menu-item-label">Departement</span>
                     </a>
                 </li>
                 <li class="">

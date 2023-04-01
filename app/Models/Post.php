@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class Post extends Model
 {
     use HasFactory;
-    protected $fillable = ["name"];
+    protected $fillable = ["departement_id","name"];
     public function getName()
     {
         return $this->attributes["name"];
@@ -22,9 +22,14 @@ class Post extends Model
     {
         return $this->hasMany(Employee::class,);
     }
+    public function departement()
+    {
+        return $this->belongsTo(Departement::class);
+    }
     public static function validate(Request  $request)
     {
         $request->validate([
+            "departement_id"=>"required|exists:departements,id",
             "name" =>'required'
         ]);
     }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Resources\PostResource;
+use App\Models\Departement;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -19,8 +20,9 @@ class AdminPostController extends Controller
     {
         $title = "Admin - Posts";
         $posts = Post::all();
+        $departements = Departement::all();
 
-        return view("admin.post.index",compact("title","posts"));
+        return view("admin.post.index",compact("title","posts","departements"));
 
     }
 
@@ -41,6 +43,7 @@ class AdminPostController extends Controller
     {
         Post::validate($request);
         Post::create([
+            "departement_id"=>$request->input("departement_id"),
             'name' => $request->input('name'),
         ]);
         return back()->with("success_msg","le post est ajoute avec success");

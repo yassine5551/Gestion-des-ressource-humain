@@ -62,4 +62,9 @@ Route::controller(App\Http\Controllers\Admin\AdminProjectController::class)->gro
     Route::post("admin/project/create","store")->name("admin.project.store");
 
 });
+Route::controller(App\Http\Controllers\Admin\AdminDepartementController::class)->group(function () {
+    Route::get('/admin/departements/',"index")->name("admin.departement.index");
+    Route::post("admin/departement/create","store")->name("admin.departement.store");
+
+});
 

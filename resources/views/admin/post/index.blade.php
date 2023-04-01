@@ -86,7 +86,16 @@
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="Entrer le nom ici">
                     </div>
-
+                    <div class="mb-4">
+                        <label class="block text-gray-700 font-bold mb-2" for="social_number">
+                            Choisie le departement
+                        </label>
+                        <select name="departement_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="departement_id" >
+                            @foreach($departements as $departement)
+                                <option value="{{$departement->getId()}}">{{$departement->getName()}} </option>
+                            @endforeach
+                        </select>
+                    </div>
 
                     <!-- Form actions -->
                     <div class="flex justify-end">
