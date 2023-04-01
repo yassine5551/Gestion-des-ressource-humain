@@ -47,7 +47,7 @@
         </div>
     @endif
     <div
-        class="fixed z-10 inset-0 m-6 overflow-y-auto hidden"
+        class="fixed z-50 inset-0 m-6 overflow-y-auto hidden"
         aria-labelledby="modal-title"
         role="dialog"
         aria-modal="true"
@@ -126,7 +126,7 @@
         </div>
     </div>
 
-    <section id="scroll-content" class="m-2 overflow-x-auto" style="width: 98%;border-radius: 10px;box-shadow:2px 2px 10px orange; max-height: 550px;border: 2px black solid">
+    <section id="scroll-content" class="m-2 overflow-x-auto" style="width: 98%;border-radius: 10px;box-shadow:2px 2px 10px orange; max-height: 450px;border: 2px black solid">
         <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
@@ -134,7 +134,7 @@
             @for($i=1;$i<=$daysInCurrentMonth;$i++)
             <th class="bg-gray-500 text-white px-6 py-4">{{$i}}</th>
             @endfor
-
+{{--  --}}
         </tr>
         </thead>
         <tbody class="text-xs font-semibold uppercase text-gray-400 bg-gray-50" >
