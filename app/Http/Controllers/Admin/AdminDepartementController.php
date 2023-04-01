@@ -8,6 +8,11 @@ use Illuminate\Http\Request;
 
 class AdminDepartementController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(["auth","admin"]);
+        
+    }
     //
     public function index()
     {

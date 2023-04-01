@@ -123,8 +123,41 @@
             </div>
         </div>
     </div>
+    <div class="flex mx-2">
 
+        <div class="w-1/2 md:w-1/3">
+            <label for="filter" class="block text-gray-700 font-bold mb-2">Select Years:</label>
+        <div class="relative">
+          <select id="filter_year" name="filter" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+            @foreach ($years as $yr)
+            <option {{$date->format('Y')==$yr?"selected":""}} value="{{$yr}}">{{$yr}}</option>
+                
+            @endforeach
+        </select>
+        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+            <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9 11l3-3 3 3M9 16l3-3 3 3M9 6l3 3 3-3"></path></svg>
+        </div>
+    </div>
+      </div>
+      <div class="w-1/2  md:w-1/3">
+          <label for="filter" class="block text-gray-700 font-bold mb-2">Select by Month:</label>
+          <div class="relative">
+              <select id="filter_month" name="filter" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
+                  @foreach ($months as $key=>$month)
+                  <option {{$date->format('m')==$key+1?"selected":""}} value={{$month}}>{{$month}}</option>
+                  @endforeach
+
+                </select>
+                <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                    <svg class="fill-current h-4 w-4" viewBox="0 0 20 20"><path d="M9 11l3-3 3 3M9 16l3-3 3 3M9 6l3 3 3-3"></path></svg>
+                </div>
+            </div>
+        </div>
+    </div>
+        
+      
     <section id="scroll-content" class="m-2 overflow-x-auto" style="width: 98%;border-radius: 10px;box-shadow:2px 2px 10px orange; max-height: 450px;border: 2px black solid">
+       
         <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
@@ -139,7 +172,7 @@
             <tr>
             <td class="sticky left-0 z-10 bg-gray-500 text-white px-6 py-4">{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</td>
                 @for($i=1;$i<=$daysInCurrentMonth;$i++)
-                    <th class="{{$i==\Carbon\Carbon::today()->day?"bg-sky-200":""}} {{($i>\Carbon\Carbon::today()->day&&\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')!="Sunday")?"bg-sky-400":""}}
+                    <th class="{{($i==\Carbon\Carbon::today()->day)&&\Carbon\Carbon::today()== $date?"bg-sky-200":""}} {{($i>\Carbon\Carbon::today()->day&&\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')!="Sunday")?"bg-sky-400":""}}
                         {{($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)||\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")? "bg-gray-300 border-y-0":""}}
                         border border-gray-400 px-4 py-2">
                         @if(\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")
@@ -184,8 +217,25 @@
 
 @section("script")
     <script>
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+        let current_date = new Date()
         const columns = $('.bg-sky-200')
+        if(columns[0])
         columns[0].scrollIntoView({ behavior: "smooth", block: "center" })
-
+        let Filter_year = $("#filter_year");
+        let Filter_month = $("#filter_month");
+        $(Filter_month).change(e=>{
+            if(months[current_date.getMonth()==Filter_month.val()&&current_date.getYear()==Filter_year.val()])
+            window.location.href = `http://localhost:8000/admin/absence`
+else
+            window.location.href = `http://localhost:8000/admin/absence?year=${Filter_year.val()}&month=${Filter_month.val()}`
+        })
+        $(Filter_year).change(e=>{
+            if(months[current_date.getMonth()==Filter_month.val()&&current_date.getYear()==Filter_year.val()])
+            window.location.href = `http://localhost:8000/admin/absence`
+else
+            window.location.href = `http://localhost:8000/admin/absence?year=${Filter_year.val()}&month=${Filter_month.val()}`
+        })
     </script>
+
 @endsection

@@ -163,12 +163,23 @@
     close.addEventListener('click', event => {
         modal.classList.add('hidden');
     });
-    document.getElementById("close-alert").addEventListener("click", function() {
-        document.getElementById("success-alert").style.display = "none";
+    let closeBtn = document.getElementById("close-alert");
+    let success_alert = document.getElementById("success-alert")
+    let fail_alert = document.getElementById("fail-alert")
+    if(closeBtn){
+if(success_alert){
+
+    closeBtn.addEventListener("click", function() {
+        success_alert.style.display = "none";
     });
-    document.getElementById("close-alert").addEventListener("click", function() {
-        document.getElementById("fail-alert").style.display = "none";
+}
+else{
+
+    closeBtn.addEventListener("click", function() {
+        fail_alert.style.display = "none";
     });
+}
+    }
 
 </script>
 @yield("script")

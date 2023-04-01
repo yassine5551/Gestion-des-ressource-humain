@@ -21,23 +21,43 @@ class AdminAbsenceController extends Controller
         "Formation professionnelle ou universitaire",
         "Congé de maternité ou de paternité",
         "Grèves ou manifestations",
-        "Obligations juridiques ou administratives"
+        "Obligations juridiques ou administratives",
+        "other"
     ];
     public function __construct()
     {
         $this->middleware(["auth",'admin']);
     }
     //
-    public function index()
+    public function index(Request $request)
     {
+        $months = [];
+        for ($i = 1; $i <= 12; $i++) {
+    $months[] = Carbon::create(null, $i, 1)->format('F');
+}
+
         $title = "Admin - Absence";
-        $daysInCurrentMonth = Carbon::now()->daysInMonth;
+        $date = Carbon::today();
+        if($request->query("year")&&$request->query("month"))
+        {
+            $year = $request->query("year");
+            $month = $request->query("month");
+            $date = \Carbon\Carbon::createFromFormat("Y-F-d",$year."-".$month."-"."01");
+        }
+        $daysInCurrentMonth = $date->daysInMonth;
         $employees = Employee::all();
-        $current_month = Carbon::today()->month;
-        $current_year = Carbon::today()->year;
+        $current_month = $date->month;
+        $current_year = $date->year;
         $raisons = self::$raisons;
+        $CompanyBornYear = 2019;
+        $years = [];
+        for($item=Carbon::now()->format("Y")-$CompanyBornYear;$item>=0;$item--)
+        {
+            $years[] = Carbon::now()->format("Y")-$item;
+
+        }
         $createDate = fn($date)=>\Carbon\Carbon::createFromFormat("Y-m-d",$date);
-        return view("admin.absence.index",compact("title","employees","daysInCurrentMonth","current_month","raisons","current_year","createDate"));
+        return view("admin.absence.index",compact("title","employees","daysInCurrentMonth","current_month","raisons","current_year","createDate","months","years","date"));
     }
     public function create()
     {
