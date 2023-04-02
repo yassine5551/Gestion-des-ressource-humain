@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string("last_name");
             $table->string('email')->unique();
             $table->date("date_debut");
-            $table->date("date_fin")->nullable();
+            $table->date("date_fin");
             $table->boolean("status")->default(false);
             $table->text("adress")->nullable();
             $table->string("phone");
