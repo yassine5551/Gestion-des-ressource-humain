@@ -8,10 +8,10 @@
                 <li>Absences</li>
             </ul>
             <button
-                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full"
-                data-modal-target="#modal"
+            class="m-4 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
+            data-modal-target="#modal"
             >
-                declarer une absence
+                Déclarer une absence
             </button>
         </div>
     </section>
@@ -131,7 +131,7 @@
           <select id="filter_year" name="filter" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             @foreach ($years as $yr)
             <option {{$date->format('Y')==$yr?"selected":""}} value="{{$yr}}">{{$yr}}</option>
-                
+
             @endforeach
         </select>
         <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
@@ -154,10 +154,10 @@
             </div>
         </div>
     </div>
-        
-      
+
+
     <section id="scroll-content" class="m-2 overflow-x-auto" style="width: 98%;border-radius: 10px;box-shadow:2px 2px 10px orange; max-height: 450px;border: 2px black solid">
-       
+
         <table class="table-auto w-full">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
         <tr>
