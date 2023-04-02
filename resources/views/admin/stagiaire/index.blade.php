@@ -14,16 +14,15 @@
         </div>
     </section>
     @if(session('success_msg'))
-        <div id="toast-success" class="flex fixed top-20 right-0 items-center w-full max-w-xs p-4 mb-4 text-gray-500 bg-white rounded-lg shadow" role="alert">
-            <div class="inline-flex items-center justify-center flex-shrink-0 w-8 h-8 text-green-500 bg-green-100 rounded-lg ">
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
-                <span class="sr-only">Check icon</span>
+        <div class="fixed bottom-0 right-0 m-4 z-50">
+            <div id="success-alert" class="bg-green-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+                <span>{{session('success_msg')}}</span>
+                <button id="close-alert" class="text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                </button>
             </div>
-            <div class="ml-3 text-sm font-normal">{{session('success_msg')}}.</div>
-            <button type="button" class="ml-auto -mx-1.5 -my-1.5 bg-white text-gray-400 hover:text-gray-900 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5 hover:bg-gray-100 inline-flex h-8 w-8" data-dismiss-target="#toast-success" aria-label="Close">
-                <span class="sr-only">Close</span>
-                <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-            </button>
         </div>
     @endif
 
@@ -125,11 +124,7 @@
                                         </svg>
                                         </button>
 
-                                            <button  data-data-attribute="{{$stagiaire->getStatus()}}" type="submit" class="btn-download bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full text-center m-1">
-                                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-6" fill="none" viewBox="0 0 20 20" stroke="currentColor">
-                                                    <path d="M10 3v9a1 1 0 0 0 2 0V3a1 1 0 1 0-2 0zM4 10a1 1 0 0 0-1 1v4a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3v-4a1 1 0 1 0-2 0v4a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1v-4a1 1 0 0 0-1-1z" stroke-width="1" />
-                                                </svg>
-                                            </button>
+                                           
 
                                         </div>
 
@@ -144,13 +139,5 @@
     </div>
 @endsection
 @section("script")
-    <script>
-        let btnsdownload  = document.getElementsByClassName("btn-download")
-        for (item of btnsdownload){
-            if(item.dataset.dataAttribute==0){
-                item.setAttribute('disabled',true)
-                item.style.backgroundColor = "gray"
-            }
-        }
-    </script>
+
 @endsection
