@@ -95,26 +95,41 @@
                         </div>
                         @enderror
                     </div>
+
                 </div>
 
                 <div class="w-full lg:w-6/12 px-4">
-
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Sujet de Project
+                            Date fin
                         </label>
-                        <select name="project_id" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" >
-                            @foreach ($projects as $project )
-                                <option value="{{$project->getId()}}">{{$project->getName()}}</option>
-                            @endforeach
-                        </select>
-                        @error('project_id')
+                        <input name="date_fin" value="{{old("date_fin")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
+                        @error('date_fin')
 
                         <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
                             <span class="font-medium">{{$message}}</span>
                         </div>
                         @enderror
                     </div>
+
+            </div>
+            <div class="w-full lg:w-6/12 px-4">
+                <div class="relative w-full mb-3">
+                    <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
+                        Sujet de Project
+                    </label>
+                    <select name="project_id" id="" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" >
+                        @foreach ($projects as $project )
+                            <option value="{{$project->getId()}}">{{$project->getName()}}</option>
+                        @endforeach
+                    </select>
+                    @error('project_id')
+
+                    <div class="p-4 text-sm text-red-500 rounded-lg  bg-inherit " role="alert">
+                        <span class="font-medium">{{$message}}</span>
+                    </div>
+                    @enderror
+                </div>
             </div>
 
                 </div>
