@@ -172,7 +172,7 @@
             <tr>
             <td class="sticky left-0 z-10 bg-gray-500 text-white px-6 py-4">{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</td>
                 @for($i=1;$i<=$daysInCurrentMonth;$i++)
-                    <th class="{{($i==\Carbon\Carbon::today()->day)&&\Carbon\Carbon::today()== $date?"bg-sky-200":""}} {{($i>\Carbon\Carbon::today()->day&&\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')!="Sunday")?"bg-sky-400":""}}
+                    <th class="{{($i==now()->day)&&now()->format("Y-m-d")=== $date->format("Y-m-d")?"bg-sky-200":""}} {{($i>\Carbon\Carbon::today()->day&&\Carbon\Carbon::parse(now()->year."-".now()->month."-".$i)->format('l')!="Sunday"&&now()->format("Y-m-d")=== $date->format("Y-m-d"))?"bg-sky-400":""}}
                         {{($employee->getHiringDate()>$createDate($current_year."-".$current_month."-".$i)||\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")? "bg-gray-300 border-y-0":""}}
                         border border-gray-400 px-4 py-2">
                         @if(\Carbon\Carbon::parse($current_year."-".$current_month."-".$i)->format('l')=="Sunday")

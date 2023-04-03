@@ -42,7 +42,7 @@ class AdminAbsenceController extends Controller
         {
             $year = $request->query("year");
             $month = $request->query("month");
-            $date = \Carbon\Carbon::createFromFormat("Y-F-d",$year."-".$month."-"."01");
+            $date = \Carbon\Carbon::createFromFormat("Y-F-d",$year."-".$month."-".now()->day);
         }
         $daysInCurrentMonth = $date->daysInMonth;
         $employees = Employee::all();
