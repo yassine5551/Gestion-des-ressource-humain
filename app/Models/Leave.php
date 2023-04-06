@@ -23,10 +23,8 @@ class Leave extends Model
     public static function Validate(\Illuminate\Http\Request $request)
     {
         $request->validate([
-            "social_number"=>'required|exists:employees,social_number',
             'start_at'=>"required|date",
             "end_at"=>'required|date',
-            "status"=>"required",
             "type"=>"required"
         ]);
     }

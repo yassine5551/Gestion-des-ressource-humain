@@ -79,4 +79,6 @@ Route::controller(EmployeeController::class)->group(function (){
 
 Route::controller(EmployeeLeaveController::class)->group(function (){
     Route::get('/employee/leave' ,'index')->name('employee.leave.index');
+    Route::post('/employee/leave' ,'store')->name('employee.leave.store');
+
 });

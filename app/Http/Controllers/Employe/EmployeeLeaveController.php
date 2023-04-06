@@ -20,11 +20,12 @@ class EmployeeLeaveController extends Controller
     public function store(Request $request ){
         Leave::Validate($request);
         Leave::create(
-           [ "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
+           [
+             "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
             "status" =>"pending",
             "type"=>$request->input('type'),
             'start_at'=>$request->input('start_at'),
-            'end_at'=>$request->input('end_at'),
+            'end_at'=>$request->input('end_at')
              ]  );
 
         return back()->with("success_msg","le demand du congée est envoyer avec success }");

@@ -44,7 +44,7 @@ class Employee extends model{
         return $this->belongsTo(User::class,);
     }
 
-
+    
     public function getSalary()
     {
         return $this->attributes["salary"];
