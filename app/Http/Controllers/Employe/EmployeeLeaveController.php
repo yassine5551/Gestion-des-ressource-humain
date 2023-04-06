@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Employe;
 
-use App\Http\Controllers\Controller;
 use App\Models\Leave;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeLeaveController extends Controller
 {
@@ -17,7 +19,13 @@ class EmployeeLeaveController extends Controller
 
     public function store(Request $request ){
         Leave::Validate($request);
-        
+        Leave::create(
+           [ "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
+            "status" =>'',
+            "type",
+            'start_at',
+            'end_at'
+             ]  );
 
         
 
