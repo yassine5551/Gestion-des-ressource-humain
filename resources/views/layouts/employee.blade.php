@@ -38,10 +38,13 @@
             </div>
         </div>
 
-        <div class="-menu" id="navbar-menu">
-            <a class="navbar-item" href="#">
-                <span class="icon"><i class="mdi mdi-logout"></i></span>
-            </a>
+        <form id="log_out" method="POST" action="{{route("logout")}}">
+            @csrf
+            </form>
+            <div class="-menu" id="navbar-menu">
+                <button onclick="document.getElementById('log_out').submit()" class="navbar-item" id="logout-btn" >
+                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                </button>
         </div>
     </nav>
 

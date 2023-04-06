@@ -36,11 +36,13 @@
                 <div class="control"><input placeholder="Search everywhere..." class="input"></div>
             </div>
         </div>
-
+        <form id="log_out" method="POST" action="{{route("logout")}}">
+        @csrf
+        </form>
         <div class="-menu" id="navbar-menu">
-            <a class="navbar-item" href="#">
+            <button onclick="document.getElementById('log_out').submit()" class="navbar-item" id="logout-btn" >
                 <span class="icon"><i class="mdi mdi-logout"></i></span>
-            </a>
+            </button>
         </div>
     </nav>
 
@@ -180,7 +182,8 @@ else{
     });
 }
     }
-
+   
+    
 </script>
 @yield("script")
 
