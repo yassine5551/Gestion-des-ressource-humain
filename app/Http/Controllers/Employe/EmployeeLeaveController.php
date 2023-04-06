@@ -11,7 +11,7 @@ class EmployeeLeaveController extends Controller
     public function index(){
         $title = "Employee - Dashboard";
         $types = Leave::$type;
-
+        
         return view('employe.leave.index',compact('title', 'types'));
     }
 

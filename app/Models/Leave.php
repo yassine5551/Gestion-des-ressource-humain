@@ -18,13 +18,16 @@ class Leave extends Model
      " Congé sabbatique"];
     
     use HasFactory, SoftDeletes;
-    protected $fillable = ["social_number",'start_at','end_at'];
+    protected $fillable = ["social_number","status","type",'start_at','end_at'];
+    
     public static function Validate(\Illuminate\Http\Request $request)
     {
         $request->validate([
             "social_number"=>'required|exists:employees,social_number',
             'start_at'=>"required|date",
-            "end_at"=>'required|date'
+            "end_at"=>'required|date',
+            "status"=>"required",
+            "type"=>"required"
         ]);
     }
     public function employee()
@@ -38,6 +41,21 @@ class Leave extends Model
     public function getEndAt()
     {
         return $this->attributes["end_at"];
+    }
+
+    public function getStatus(){
+        return $this->attributes["status"];
+    }
+
+    public function setStatus($status){
+        $this->attributes["status"] = $status;
+    }
+
+    public function setType($type){
+        $this->attributes["type"] = $type;
+    }
+    public function getType(){
+        return $this->attributes["type"];
     }
     public function Days()
 
