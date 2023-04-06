@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Employe;
 
-use App\Http\Controllers\Controller;
+use App\Models\Employee;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class EmployeeController extends Controller
 {
@@ -21,6 +23,8 @@ class EmployeeController extends Controller
     public function profile(){
         $title = "Employee - Profile";
 
-        return view("employe.profile.index",compact("title"));
+        $employee =  Employee::where('user_id', Auth::id())->first();
+
+        return view("employe.profile.index",compact("title", 'employee'));
     }
 }

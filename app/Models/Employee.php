@@ -79,7 +79,7 @@ class Employee extends model{
     }
     public  function getAdress()
     {
-        return $this->attributes["phone"];
+        return $this->attributes["adress"];
     }
     public function setPhone($phone)
     {
