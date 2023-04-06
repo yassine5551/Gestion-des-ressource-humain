@@ -21,13 +21,13 @@ class EmployeeLeaveController extends Controller
         Leave::Validate($request);
         Leave::create(
            [ "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
-            "status" =>'',
-            "type",
-            'start_at',
-            'end_at'
+            "status" =>"pending",
+            "type"=>$request->input('type'),
+            'start_at'=>$request->input('start_at'),
+            'end_at'=>$request->input('end_at'),
              ]  );
 
-        
+        return back()->with("success_msg","le demand du congée est envoyer avec success }");
 
     }
 
