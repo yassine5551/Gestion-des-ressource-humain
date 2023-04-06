@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\Employe\EmployeeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Employe\EmployeeController;
+use App\Http\Controllers\Employe\EmployeeLeaveController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,4 +74,9 @@ Route::controller(App\Http\Controllers\Admin\AdminDepartementController::class)-
 Route::controller(EmployeeController::class)->group(function (){
     Route::get('/employee','index')->name("employee.index");
     Route::get('/employee/profile','profile')->name("employee.profile");
+    
+});
+
+Route::controller(EmployeeLeaveController::class)->group(function (){
+    Route::get('/employee/leave' ,'index')->name('employee.leave.index');
 });

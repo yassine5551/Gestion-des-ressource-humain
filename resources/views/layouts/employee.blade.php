@@ -71,7 +71,7 @@
                 </li>
             
                 <li class="">
-                    <a href="{{route("admin.leave.index")}}">
+                    <a href="{{route("employee.leave.index")}}">
                         <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
                         <span class="menu-item-label">Congees</span>
                     </a>

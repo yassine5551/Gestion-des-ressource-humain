@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Leave extends Model
 {
+    public static $type = ["Congé de maladie" 
+    , "Congé de maternité/paternité" ,
+     "Congé pour raisons personnelles" ,
+      " Congé de vacances" , 
+      " Congé sans solde" , 
+      " Congé de formation professionnelle" ,
+     " Congé sabbatique"];
+    
     use HasFactory, SoftDeletes;
     protected $fillable = ["social_number",'start_at','end_at'];
     public static function Validate(\Illuminate\Http\Request $request)
@@ -47,4 +55,7 @@ class Leave extends Model
         $interval = $datetime1->diff($datetime2);
         return $interval->format('%a') +1;
     }
+
+
+    
 }
