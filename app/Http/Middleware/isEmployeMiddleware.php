@@ -18,9 +18,9 @@ class isEmployeMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if(auth()->check() && Employee::where("id",Auth::id())->exists() ){
+        if(auth()->check() && Employee::where("user_id",Auth::id())->exists() ){
             return $next($request);
         }
-        return redirect()->route('login');
+        return back();
     }
 }

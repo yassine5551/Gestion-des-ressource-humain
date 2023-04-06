@@ -20,9 +20,9 @@ class IsAdminMiddeleware
     public function handle(Request $request, Closure $next)
     {
         //$user = Auth::user();
-        if(auth()->check() && Admin::where("id",Auth::id())->exists()){
+        if(auth()->check() && Admin::where("user_id",Auth::id())->exists()){
             return $next($request);
         }
-        return redirect()->route('home');
+        return back();
     }
 }
