@@ -18,4 +18,9 @@ class EmployeeController extends Controller
         return view("employe.index",compact("title"));
     }
 
+    public function profile(){
+        $title = "Employee - Profile";
+
+        return view("employe.profile.index",compact("title"));
+    }
 }
