@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string("social_number");
             $table->string('type');
+            $table->string('status');
             $table->foreign("social_number")->references("social_number")->on("employees");
             $table->date("start_at");
             $table->date("end_at");
