@@ -51,6 +51,5 @@ class LoginController extends Controller
         elseif(Auth::check() && Employee::where("user_id",Auth::id())){
             return route('employee.index');
         }
-    return route("home");
     }
 }

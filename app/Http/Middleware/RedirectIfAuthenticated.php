@@ -2,6 +2,8 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Admin;
+use App\Models\Employee;
 use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Http\Request;
@@ -23,7 +25,12 @@ class RedirectIfAuthenticated
 
         foreach ($guards as $guard) {
             if (Auth::guard($guard)->check()) {
-                return redirect(RouteServiceProvider::HOME);
+                if(Admin::where("user_id",Auth::id())->exists()){
+                    return redirect("admin");
+                }
+                elseif(Employee::where("user_id",Auth::id())->exists()){
+                    return redirect("employee");
+                }
             }
         }
 
