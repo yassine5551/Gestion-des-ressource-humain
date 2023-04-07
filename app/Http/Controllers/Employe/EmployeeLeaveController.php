@@ -28,7 +28,7 @@ class EmployeeLeaveController extends Controller
             'end_at'=>$request->input('end_at')
              ]  );
 
-        return back()->with("success_msg","le demand du congée est envoyer avec success }");
+        return back()->with("success_msg","le demand du congée est envoyer avec success attender jusque a l'administrateur repondre");
 
     }
 

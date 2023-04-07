@@ -33,7 +33,7 @@
 </div>
 @endif
 
-<section class="is-title-bar relative">
+<section class="is-title-bar relative overflow-x-auto">
     <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
         <ul>
             <li>Employee</li>
@@ -45,7 +45,7 @@
 
         data-modal-target="#modal"
         >
-            Ajouter un congee
+            demander un congee
         </button>
     </div>
     <div
@@ -130,9 +130,9 @@
 <table class='w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
     <thead class=">
         <tr class="text-white text-left">
-            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Type </th>
-            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Date Debut </th>
-            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Date Fin </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-left"> Type </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-left"> Date Debut </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-left"> Date Fin </th>
             <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> status </th>
         </tr>
     </thead>
@@ -141,13 +141,23 @@
             
         
         <tr>
-            <td class="px-6 py-4 text-center"> {{$leave->getType()}}  </td>
-            <td class="px-6 py-4">
+            <td class="px-6 py-4 text-left"> {{$leave->getType()}}  </td>
+            <td class="px-6 py-4 text-left">
                 <p class=""> {{$leave->getStartAt()}} </p>
                 {{-- <p class="text-gray-500 text-sm font-semibold tracking-wide"> Development </p> --}}
             </td>
-            <td class="px-6 py-4 text-center"> {{$leave->getEndAt()}}  </td>
-            <td class="px-6 py-4 text-center"> <span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full"> Active </span> </td>
+            <td class="px-6 py-4 text-left"> {{$leave->getEndAt()}}  </td>
+            <td class="px-6 py-4 text-center"> 
+                <div>
+                    @if($leave->status == "accept")
+                    <span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full"> demande accepter </span> <br>
+                    @elseif($leave->status == "refuser")
+                    <span class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full"> demande refuser </span> <br>
+                    @else
+                    <span class="text-red-800 text-sm w-1/3 pb-1 bg-orange-200 font-semibold px-2 rounded-full"> en cours de traitement </span>
+                    @endif
+                </div>
+            </td>
             
         </tr>
 
