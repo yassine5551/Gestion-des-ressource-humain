@@ -68,14 +68,14 @@
             <ul class="menu-list">
                 <li class="">
                     <a href="{{route("employee.profile")}}">
-                        <span class="icon"><i class="mdi mdi-table"></i></span>
+                        <span class="icon"><i class="mdi mdi-briefcase"></i></span>
                         <span class="menu-item-label">Profile</span>
                     </a>
                 </li>
             
                 <li class="">
                     <a href="{{route("employee.leave.index")}}">
-                        <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
+                        <span class="icon"><i  class="mdi mdi-briefcase" ></i></span>
                         <span class="menu-item-label">Congees</span>
                     </a>
                 </li>
