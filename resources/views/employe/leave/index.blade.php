@@ -3,36 +3,7 @@
 
 @section('content')
 
-@if(session('success_msg'))
-        <div class="fixed bottom-0 right-0 m-4 z-50">
-            <div id="success-alert" class="bg-green-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
-                <span>{{session('success_msg')}}</span>
-                <button id="close-alert" class="text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    @endif
-    @if($errors->any())
-        <div class="fixed bottom-0 right-0 m-4">
-            <div id="fail-alert" class=" relative bg-red-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
-                <div class="flex flex-col p-3 ">
 
-                @foreach($errors->all() as $err)
-                    <span>{{$err}}</span>
-                @endforeach
-                </div>
-
-                <button id="close-alert" class=" absolute top-0 right-0 text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
-                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-                    </svg>
-                </button>
-            </div>
-        </div>
-    @endif
 
 
 <section class="is-title-bar relative">
@@ -64,8 +35,8 @@
 
             <!-- Modal content -->
             <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
-                    <form id="add_leave" method="post" class="px-4 py-6" action="{{route("employee.leave.store")}}">
-                        @csrf
+                    <form id="add_leave" method="post" class="px-4 py-6" action="{{route("admin.leave.store")}}">
+@csrf
 
                     <!-- Form title -->
                     <div class="mb-6">
@@ -100,10 +71,10 @@
                         </div>
                     </div>
                     <div class="mb-4">
-                        <label class="block text-gray-700 font-bold mb-2" for="type">
+                        <label class="block text-gray-700 font-bold mb-2" for="social_number">
                             leaves
                         </label>
-                        <select name="type" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" >
+                        <select name="social_number" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="social_number" >
                             @foreach($types as $type)
                                 <option value={{$type}}>{{$type}}</option>
                             @endforeach
