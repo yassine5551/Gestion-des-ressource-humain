@@ -13,8 +13,8 @@ class EmployeeLeaveController extends Controller
     public function index(){
         $title = "Employee - Dashboard";
         $types = Leave::$type;
-
-        return view('employe.leave.index',compact('title', 'types'));
+        $leaves= Employee::where('user_id' , Auth::id())->first()->leave;
+        return view('employe.leave.index',compact('title', 'types' , 'leaves'));
     }
 
     public function store(Request $request ){
@@ -31,5 +31,7 @@ class EmployeeLeaveController extends Controller
         return back()->with("success_msg","le demand du congée est envoyer avec success }");
 
     }
+
+
 
 }

@@ -126,5 +126,35 @@
     </div>
 </section>
 
+
+<table class='w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
+    <thead class=">
+        <tr class="text-white text-left">
+            <th class="font-semibold text-sm uppercase px-6 py-4"> Type </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4"> Date Debut </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Date Fin </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> status </th>
+        </tr>
+    </thead>
+    <tbody class="divide-y divide-gray-200">
+        @foreach($leaves as $leave)
+            
+        
+        <tr>
+            <td class="px-6 py-4 text-center"> {{$leave->getType()}}  </td>
+            <td class="px-6 py-4">
+                <p class=""> {{$leave->getStartAt()}} </p>
+                {{-- <p class="text-gray-500 text-sm font-semibold tracking-wide"> Development </p> --}}
+            </td>
+            <td class="px-6 py-4 text-center"> {{$leave->getEndAt()}}  </td>
+            <td class="px-6 py-4 text-center"> <span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full"> Active </span> </td>
+            
+        </tr>
+
+      @endforeach
+    </tbody>
+</table>
+
+
 @endsection
 
