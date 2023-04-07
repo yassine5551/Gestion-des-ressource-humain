@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Leave extends Model
 {
-     static $type = ["Congé de maladie" ,
+     static $type = ["Conge de maladie" ,
      "Congé de maternité/paternité" ,
      "Congé pour raisons personnelles" ,
       " Congé de vacances" , 
