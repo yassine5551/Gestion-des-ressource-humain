@@ -85,12 +85,7 @@
                 
 
                
-{{--                <li class="--set-active-profile-html">--}}
-{{--                    <a href="profile.html">--}}
-{{--                        <span class="icon"><i class="mdi mdi-account-circle"></i></span>--}}
-{{--                        <span class="menu-item-label">Profile</span>--}}
-{{--                    </a>--}}
-{{--                </li>--}}
+
                     </ul>
             </ul>
         </div>
