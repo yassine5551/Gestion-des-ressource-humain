@@ -21,7 +21,7 @@ class EmployeeLeaveController extends Controller
         Leave::Validate($request);
         Leave::create(
            [
-             "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
+            "social_number"=>Employee::where('user_id' , Auth::id())->first()->getSocialNumber(),
             "status" =>"pending",
             "type"=>$request->input('type'),
             'start_at'=>$request->input('start_at'),
