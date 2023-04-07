@@ -9,8 +9,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Leave extends Model
 {
-    public static $type = ["Congé de maladie" 
-    , "Congé de maternité/paternité" ,
+     static $type = ["Congé de maladie" ,
+     "Congé de maternité/paternité" ,
      "Congé pour raisons personnelles" ,
       " Congé de vacances" , 
       " Congé sans solde" , 
@@ -23,6 +23,7 @@ class Leave extends Model
     public static function Validate(\Illuminate\Http\Request $request)
     {
         $request->validate([
+
             'start_at'=>"required|date",
             "end_at"=>'required|date',
             "type"=>"required"
