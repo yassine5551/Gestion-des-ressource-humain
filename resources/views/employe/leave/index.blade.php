@@ -130,8 +130,8 @@
 <table class='w-full whitespace-nowrap rounded-lg bg-white divide-y divide-gray-300 overflow-hidden'>
     <thead class=">
         <tr class="text-white text-left">
-            <th class="font-semibold text-sm uppercase px-6 py-4"> Type </th>
-            <th class="font-semibold text-sm uppercase px-6 py-4"> Date Debut </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Type </th>
+            <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Date Debut </th>
             <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> Date Fin </th>
             <th class="font-semibold text-sm uppercase px-6 py-4 text-center"> status </th>
         </tr>
