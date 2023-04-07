@@ -92,6 +92,7 @@
                             <div>
                                 @if($leave->status == "accepted")
                                 <span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full"> demande accepter </span> <br>
+
                                 @elseif($leave->status == "rejected")
                                 <span class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full"> demande refuser </span> <br>
                                 @else
@@ -101,17 +102,24 @@
                         </td>
 
                         <td data-label="le rest" class="p-2 whitespace-nowrap">
+                            <form action="{{route ('admin.leave.accept' ,$leave->getId())}}" method="POST">
+                                @csrf
+                                @method('put')
                             <button class="bg-green-500 hover:bg-green-600 text-white font-bold p-0 rounded">
 
                                     <i class="fa fa-check m-2"></i>
                                 
                                   </button>
-
+                            </form>
+                            <form action="{{route ('admin.leave.reject' ,$leave->getId())}}" method="POST">
+                                @csrf
+                                @method('put')
                                 <button class="bg-red-500 hover:bg-red-600 text-white font-bold  p-0 rounded">
 
                                         <i class="fa fa-times m-2"></i>
                                     
                                       </button>
+                                </form>
                         </td>
                     </tr>
                     @endforeach

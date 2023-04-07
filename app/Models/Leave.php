@@ -29,6 +29,10 @@ class Leave extends Model
             "type"=>"required"
         ]);
     }
+
+    public function getId(){
+        return $this->attributes['id'];
+    }
     public function employee()
     {
         return $this->belongsTo(Employee::class,"social_number");

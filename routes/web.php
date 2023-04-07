@@ -42,6 +42,9 @@ Route::controller(App\Http\Controllers\Admin\AdminLeaveController::class)->group
     Route::get("admin/leave","index")->name("admin.leave.index");
     Route::post('admin/leave',"store")->name("admin.leave.store");
     Route::get('admin/leaves',"demande")->name("admin.leave.demande");
+    Route::put('admin/leave/{id}/accepted',"accepteLeave")->name("admin.leave.accept");
+    Route::put('admin/leave/{id}/rejected',"refuseLeave")->name("admin.leave.reject");
+
 });
 Route::controller(App\Http\Controllers\Admin\AdminPostController::class)->group(function (){
     Route::get("admin/posts","index")->name("admin.post.index");
