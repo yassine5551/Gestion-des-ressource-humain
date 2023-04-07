@@ -10,10 +10,16 @@ use Illuminate\Support\Facades\Auth;
 
 class EmployeeLeaveController extends Controller
 {
-    public function index(){
+    public function __construct()
+    {
+        $this->middleware("employee");
+        
+    }
+    public function index(Request $request){
         $title = "Employee - Dashboard";
         $types = Leave::$type;
-        $leaves= Employee::where('user_id' , Auth::id())->first()->leave;
+        $user = Auth::user();
+        $leaves = Leave::where("social_number",$user->employee->getSocialNumber())->get()? Leave::where("social_number",$user->employee->getSocialNumber())->get():[];
         return view('employe.leave.index',compact('title', 'types' , 'leaves'));
     }
 

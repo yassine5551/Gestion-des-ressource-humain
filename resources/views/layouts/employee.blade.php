@@ -112,9 +112,12 @@
     const modalTrigger = document.querySelector('[data-modal-target="#modal"]');
     const modal = document.querySelector('#modal');
     const close = document.getElementById("close")
-    modalTrigger.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-    });
+    if(modalTrigger){
+
+        modalTrigger.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+    }
 
     // Close the modal when the user clicks outside of it
     close.addEventListener('click', event => {
