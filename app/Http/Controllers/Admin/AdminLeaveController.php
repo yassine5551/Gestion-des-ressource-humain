@@ -40,6 +40,22 @@ class AdminLeaveController extends Controller
 
         return view('admin.leave.request',compact('leaves' , 'title'));
     }
+    public function accepteLeave($id){
+        $leave = Leave::find($id);
+        $leave->setStatus('accepted');
+        $leave->save();
+        return back()->with("success_msg","le congée a Etait Accepte avec success }");
+
+    }
+
+    public function refuseLeave($id){
+        $leave = Leave::find($id);
+        $leave->setStatus('rejected');
+        $leave->save();
+        return back()->with("success_msg","le congée a Etait Refuser avec success }");
+    }
+
+
 }
 
 

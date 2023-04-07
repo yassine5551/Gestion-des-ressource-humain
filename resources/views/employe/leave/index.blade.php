@@ -149,9 +149,9 @@
             <td class="px-6 py-4 text-left"> {{$leave->getEndAt()}}  </td>
             <td class="px-6 py-4 text-center"> 
                 <div>
-                    @if($leave->status == "accept")
+                    @if($leave->status == "accepted")
                     <span class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full"> demande accepter </span> <br>
-                    @elseif($leave->status == "refuser")
+                    @elseif($leave->status == "rejected")
                     <span class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full"> demande refuser </span> <br>
                     @else
                     <span class="text-red-800 text-sm w-1/3 pb-1 bg-orange-200 font-semibold px-2 rounded-full"> en cours de traitement </span>
