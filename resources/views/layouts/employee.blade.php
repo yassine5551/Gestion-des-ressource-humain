@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>@yield("title")</title>
+    <title>{{$employee->user->getFirstName()}} {{$employee->user->getLastName()}}</title>
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="{{asset("./assets/css/main.css?v=1628755089081")}}">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
