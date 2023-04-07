@@ -112,42 +112,33 @@
                                         </div>
                                     </td>
 
-                                    <td data-label="les action" class="p-2 whitespace-nowrap df">
-                                        <div class="text-left flex">
-                                        <div class="m-1">
+                        <td data-label="le rest" class="p-2 whitespace-nowrap">
+                            <form action="{{route ('admin.leave.accept' ,$leave->getId())}}" method="POST">
+                                @csrf
+                                @method('put')
+                            <button class="bg-green-500 hover:bg-green-600 text-white font-bold p-0 rounded">
 
-                                            <form action="{{ route('admin.leave.accept', $leave->getId()) }}" method="POST">
-                                                @csrf
-                                                @method('put')
-                                                <button
-                                                class="bg-green-500 hover:bg-green-600 text-white font-bold p-0 rounded">
-                                                
-                                                <i class="fa fa-check m-2"></i>
-                                                
-                                            </button>
-                                        </form>
-                                    </div>
-                                        <div class="m-1">
+                                    <i class="fa fa-check m-2"></i>
+                                
+                                  </button>
+                            </form>
+                            <form action="{{route ('admin.leave.reject' ,$leave->getId())}}" method="POST">
+                                @csrf
+                                @method('put')
+                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold  p-0 rounded">
 
-                                            <form action="{{ route('admin.leave.reject', $leave->getId()) }}" method="POST">
-                                                @csrf
-                                                @method('put')
-                                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold  p-0 rounded">
-                                                    
-                                                    <i class="fa fa-times m-2"></i>
-                                                    
-                                                </button>
-                                            </form>
-                                        </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
+                                        <i class="fa fa-times m-2"></i>
+                                    
+                                      </button>
+                                </form>
+                        </td>
+                    </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
         </div>
+    </div>
 
 
 
