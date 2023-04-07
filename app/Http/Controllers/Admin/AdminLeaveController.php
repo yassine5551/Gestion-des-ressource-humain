@@ -31,4 +31,15 @@ class AdminLeaveController extends Controller
         Leave::create($request->only('social_number','start_at','end_at'));
         return back()->with("success_msg","le congée est ajoute avec success }");
     }
+
+
+    public function demande(){
+        $title = "Admin - Demande Congee";
+        $leaves = Leave::all();
+
+
+        return view('admin.leave.request',compact('leaves' , 'title'));
+    }
 }
+
+

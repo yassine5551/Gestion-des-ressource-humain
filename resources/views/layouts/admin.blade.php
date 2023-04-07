@@ -82,6 +82,14 @@
                         <span class="menu-item-label">Congees</span>
                     </a>
                 </li>
+
+                <li class="">
+                    <a href="{{route("admin.leave.demande")}}">
+                        <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
+                        <span class="menu-item-label">Les Demand du Congee</span>
+                    </a>
+                </li>
+
                 <li class="">
                     <a href="{{route("admin.departement.index")}}">
                         <span class="icon"><i  class="mdi mdi-briefcase"></i></span>
