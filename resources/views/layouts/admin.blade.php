@@ -10,6 +10,7 @@
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="{{asset("./assets/css/main.css?v=1628755089081")}}">
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <meta name="description" content="Admin One - free Tailwind dashboard">
     <script defer    src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
 
@@ -21,6 +22,8 @@
         gtag('js', new Date());
         gtag('config', 'UA-130795909-1');
     </script>
+
+    
 
 </head>
 <body>
