@@ -15,10 +15,6 @@ use App\Http\Controllers\Employe\EmployeeLeaveController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
-
 \Illuminate\Support\Facades\Auth::routes(["register"=>false]);
 Route::get("/register",[\App\Http\Controllers\Auth\RegisterController::class,"register"])->name("register");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

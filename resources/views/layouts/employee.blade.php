@@ -64,19 +64,18 @@
                     </a>
                 </li>
             </ul>
-            <p class="menu-label">Employees</p>
             <ul class="menu-list">
                 <li class="">
                     <a href="{{route("employee.profile")}}">
                         <span class="icon"><i class="mdi mdi-face-agent" ></i></span>
-                        <span class="menu-item-label">Profile</span>
+                        <span class="menu-item-label">Mon Profile</span>
                     </a>
                 </li>
             
                 <li class="">
                     <a href="{{route("employee.leave.index")}}">
                         <span class="icon"><i  class="mdi mdi-briefcase" ></i></span>
-                        <span class="menu-item-label">Congees</span>
+                        <span class="menu-item-label">Demandes de Congees</span>
                     </a>
                 </li>
                 
