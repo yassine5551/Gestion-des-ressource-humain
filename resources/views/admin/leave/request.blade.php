@@ -101,8 +101,8 @@
                             </div>
                         </td>
 
-                        <td data-label="le rest" class="p-2 whitespace-nowrap">
-                            <form action="{{route ('admin.leave.accept' ,$leave->getId())}}" method="POST">
+                        <td data-label="le rest" class="p-2 whitespace-nowrap" >
+                            <form action="{{route ('admin.leave.accept' ,$leave->getId())}}" method="POST" class="inline-block">
                                 @csrf
                                 @method('put')
                             <button class="bg-green-500 hover:bg-green-600 text-white font-bold p-0 rounded">
@@ -111,10 +111,10 @@
                                 
                                   </button>
                             </form>
-                            <form action="{{route ('admin.leave.reject' ,$leave->getId())}}" method="POST">
+                            <form action="{{route ('admin.leave.reject' ,$leave->getId())}}" method="POST" class="inline-block">
                                 @csrf
                                 @method('put')
-                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold  p-0 rounded">
+                                <button class="bg-red-500 hover:bg-red-600 text-white font-bold  p-0 rounded" >
 
                                         <i class="fa fa-times m-2"></i>
                                     
