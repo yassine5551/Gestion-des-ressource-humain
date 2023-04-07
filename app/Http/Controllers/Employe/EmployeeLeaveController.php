@@ -14,7 +14,7 @@ class EmployeeLeaveController extends Controller
         $title = "Employee - Dashboard";
         $types = Leave::$type;
         $leaves= Employee::where('user_id' , Auth::id())->first()->leave;
-        return view('employe.leave.index',compact('title', 'types' , 'leaves'));
+        // return view('employe.leave.index',compact('title', 'types' , 'leaves'));
     }
 
     public function store(Request $request ){
