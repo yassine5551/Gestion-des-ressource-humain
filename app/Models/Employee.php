@@ -112,7 +112,6 @@ public function leaves()
  {
      $absence = Absence::where("employee_number",$this->getSocialNumber())
          ->where("date",$date)
-         ->where("status","accepted")
          ->exists();
      if($absence)
      {

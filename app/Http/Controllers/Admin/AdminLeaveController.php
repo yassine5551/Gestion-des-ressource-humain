@@ -16,7 +16,7 @@ class AdminLeaveController extends Controller
     }
     public function index()
     {
-        $leaves = Leave::all();
+        $leaves = Leave::where("status","accepted")->get();
         $employees = Employee::all();
         $social_numbers =
             DB::table('users')

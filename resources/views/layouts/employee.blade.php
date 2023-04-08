@@ -9,6 +9,7 @@
     <title>@yield("title")</title>
     <!-- Tailwind is included -->
     <link rel="stylesheet" href="{{asset("./assets/css/main.css?v=1628755089081")}}">
+    
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     <meta name="description" content="Admin One - free Tailwind dashboard">
     <script defer    src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
@@ -103,7 +104,7 @@
 <!-- Scripts below are for demo only -->
 <script type="text/javascript" src={{asset("assets/js/main.min.js?v=1628755089081")}}></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"></script>
 
 
@@ -120,9 +121,12 @@
     }
 
     // Close the modal when the user clicks outside of it
-    close.addEventListener('click', event => {
-        modal.classList.add('hidden');
-    });
+    if(close){
+
+        close.addEventListener('click', event => {
+            modal.classList.add('hidden');
+        });
+    }
     let closeBtn = document.getElementById("close-alert");
     let success_alert = document.getElementById("success-alert")
     let fail_alert = document.getElementById("fail-alert")
