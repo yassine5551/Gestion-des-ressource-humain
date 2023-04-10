@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.9.95/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
     <meta name="description" content="Admin One - free Tailwind dashboard">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer    src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -168,14 +169,20 @@
     const modalTrigger = document.querySelector('[data-modal-target="#modal"]');
     const modal = document.querySelector('#modal');
     const close = document.getElementById("close")
-    modalTrigger.addEventListener('click', () => {
-        modal.classList.remove('hidden');
-    });
+    if(modalTrigger){
+
+        modalTrigger.addEventListener('click', () => {
+            modal.classList.remove('hidden');
+        });
+    }
 
     // Close the modal when the user clicks outside of it
-    close.addEventListener('click', event => {
-        modal.classList.add('hidden');
-    });
+    if(close){
+
+        close.addEventListener('click', event => {
+            modal.classList.add('hidden');
+        });
+    }
     let closeBtn = document.getElementById("close-alert");
     let success_alert = document.getElementById("success-alert")
     let fail_alert = document.getElementById("fail-alert")

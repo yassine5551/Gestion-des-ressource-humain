@@ -90,7 +90,7 @@ class Employee extends model{
     {
         return $this->belongsTo(Post::class);
     }
-public function leave()
+public function leaves()
 {
     return $this->hasMany(Leave::class,"social_number");
 }
@@ -111,7 +111,8 @@ public function leave()
  public function isAbsentInThisDay(string $date):bool
  {
      $absence = Absence::where("employee_number",$this->getSocialNumber())
-         ->where("date",$date)->first();
+         ->where("date",$date)
+         ->exists();
      if($absence)
      {
          return true;
@@ -125,7 +126,8 @@ public function leave()
             DB::table("leaves")->where("social_number",$this->attributes["social_number"])
                 ->where("start_at","<=",$date)
                 ->where("end_at",">=",$date)
-            ->first();
+                ->where("status","accepted")
+            ->exists();
         if($leave)
         {
             return  true;
