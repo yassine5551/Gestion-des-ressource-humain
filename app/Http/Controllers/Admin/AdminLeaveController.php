@@ -18,17 +18,24 @@ class AdminLeaveController extends Controller
     {
         $leaves = Leave::all();
         $employees = Employee::all();
+        $types = Leave::$type;
         $social_numbers =
             DB::table('users')
             ->rightJoin("employees","users.id",'=',"employees.user_id")
             ->select(DB::raw("employees.social_number"))
             ->get();
-        return view("admin.leave.index",compact("employees","leaves","social_numbers"));
+        return view("admin.leave.index",compact("employees","leaves","social_numbers","types"));
     }
     public function store(Request $request)
     {
         Leave::Validate($request);
-        Leave::create($request->only('social_number','start_at','end_at'));
+        Leave::create([
+        "social_number"=>$request->social_number,
+        "status"=>"accepted",
+        "type"=>$request->type,
+        'start_at'=>$request->start_at,
+        'end_at'=>$request->end_at
+    ]);
         return back()->with("success_msg","le congée est ajoute avec success }");
     }
 

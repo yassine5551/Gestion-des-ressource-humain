@@ -14,6 +14,10 @@ use App\Http\Controllers\Employe\EmployeeLeaveController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/',function(){
+    return view('auth.login');
+});
+
 
 \Illuminate\Support\Facades\Auth::routes(["register"=>false]);
 Route::get("/register",[\App\Http\Controllers\Auth\RegisterController::class,"register"])->name("register");
@@ -82,3 +86,5 @@ Route::controller(EmployeeLeaveController::class)->group(function (){
     Route::post('/employee/leave' ,'store')->name('employee.leave.store');
 
 });
+
+
