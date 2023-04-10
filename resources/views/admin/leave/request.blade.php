@@ -181,12 +181,11 @@
 
 
 
-<<<<<<< HEAD
-@endsection
-
-=======
 
 @endsection
+
+
+
 
 @section('script')
     <script>
@@ -233,4 +232,4 @@
         )
     </script>
 @endsection
->>>>>>> d1a2d22f01a76984df245e2d5fbd6d6b0221968c
+
