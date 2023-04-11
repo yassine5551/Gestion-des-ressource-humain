@@ -1,8 +1,10 @@
 <?php
 
+use App\Models\Employee;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Employe\EmployeeController;
 use App\Http\Controllers\Employe\EmployeeLeaveController;
+use App\Http\Controllers\Employe\EmployeeSettingsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +22,7 @@ Route::get('/',function(){
 
 
 \Illuminate\Support\Facades\Auth::routes(["register"=>false]);
-Route::get("/register",[\App\Http\Controllers\Auth\RegisterController::class,"register"])->name("register");
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::post("/register",[\App\Http\Controllers\Auth\RegisterController::class,"create"]);
 
 
 Route::controller(App\Http\Controllers\Admin\AdminController::class)->group(function () {
@@ -87,4 +87,9 @@ Route::controller(EmployeeLeaveController::class)->group(function (){
 
 });
 
+
+Route::controller(EmployeeSettingsController ::class)->group(function(){
+    Route::get('/employee/settings','index')->name("employe.settings.changepassword.index");
+    Route::put('/employee/settings/changePassword','store')->name('employe.settings.changepassword.store');
+});
 

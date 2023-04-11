@@ -80,6 +80,26 @@
                     </a>
                 </li>
                 
+                <li>
+                    <a class="dropdown" >
+                        <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                        <span class="menu-item-label">Paramètre</span>
+                        <span class="icon"><i class="mdi mdi-cog"></i></span>
+                    </a>
+                    <ul>
+                        <li>
+                            <a href="{{ route("employe.settings.changepassword.index")}}">
+                                <span>Changer Votre mot de passe</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#void">
+                                <span>Sub-item Two</span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                
           
                 
