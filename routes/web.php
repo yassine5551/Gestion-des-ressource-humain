@@ -16,12 +16,13 @@ use App\Http\Controllers\Employe\EmployeeSettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/',function(){
+
+Route::get('/', function () {
     return view('auth.login');
 });
 
 
-\Illuminate\Support\Facades\Auth::routes(["register"=>false]);
+\Illuminate\Support\Facades\Auth::routes(["register" => false]);
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
@@ -29,67 +30,59 @@ Route::controller(App\Http\Controllers\Admin\AdminController::class)->group(func
     Route::get('/admin', 'index')->name("admin.index");
 });
 Route::controller(App\Http\Controllers\Admin\AdminEmployeeController::class)->group(function () {
-    Route::get('/admin/employes/',"index")->name("admin.employee.index");
-    Route::get("admin/employee/create","create")->name("admin.employee.create");
-    Route::post("admin/employee/create","store")->name("admin.employee.store");
+    Route::get('/admin/employes/', "index")->name("admin.employee.index");
+    Route::get("admin/employee/create", "create")->name("admin.employee.create");
+    Route::post("admin/employee/create", "store")->name("admin.employee.store");
 });
-Route::controller(App\Http\Controllers\Admin\AdminAbsenceController::class)->group(function(){
-Route::get("admin/absence","index")->name("admin.absence.index");
-Route::post("admin/absence/create","store")->name("admin.absence.store");
+Route::controller(App\Http\Controllers\Admin\AdminAbsenceController::class)->group(function () {
+    Route::get("admin/absence", "index")->name("admin.absence.index");
+    Route::post("admin/absence/create", "store")->name("admin.absence.store");
+});
 
+Route::controller(App\Http\Controllers\Admin\AdminDocumentController::class)->group(function () {
+    Route::get('admin/employees/download', "employeeListe")->name("admin.document.employees");
 });
-
-Route::controller(App\Http\Controllers\Admin\AdminDocumentController::class)->group(function(){
-    Route::get('admin/employees/download',"employeeListe")->name("admin.document.employees");
+Route::controller(App\Http\Controllers\Admin\AdminLeaveController::class)->group(function () {
+    Route::get("admin/leave", "index")->name("admin.leave.index");
+    Route::post('admin/leave', "store")->name("admin.leave.store");
+    Route::get('admin/leaves', "demande")->name("admin.leave.demande");
+    Route::put('admin/leave/{id}/accepted', "accepteLeave")->name("admin.leave.accept");
+    Route::put('admin/leave/{id}/rejected', "refuseLeave")->name("admin.leave.reject");
 });
-Route::controller(App\Http\Controllers\Admin\AdminLeaveController::class)->group(function (){
-    Route::get("admin/leave","index")->name("admin.leave.index");
-    Route::post('admin/leave',"store")->name("admin.leave.store");
-    Route::get('admin/leaves',"demande")->name("admin.leave.demande");
-    Route::put('admin/leave/{id}/accepted',"accepteLeave")->name("admin.leave.accept");
-    Route::put('admin/leave/{id}/rejected',"refuseLeave")->name("admin.leave.reject");
-
-});
-Route::controller(App\Http\Controllers\Admin\AdminPostController::class)->group(function (){
-    Route::get("admin/posts","index")->name("admin.post.index");
-    Route::post('admin/post',"store")->name("admin.post.store");
+Route::controller(App\Http\Controllers\Admin\AdminPostController::class)->group(function () {
+    Route::get("admin/posts", "index")->name("admin.post.index");
+    Route::post('admin/post', "store")->name("admin.post.store");
 });
 
 Route::controller(App\Http\Controllers\Admin\AdminStagiaireController::class)->group(function () {
-    Route::get('/admin/stagiaires/',"index")->name("admin.stagiaire.index");
-    Route::get("admin/stagiaire/create","create")->name("admin.stagiaire.create");
-    Route::post("admin/stagiaire/create","store")->name("admin.stagiaire.store");
-    Route::delete("admin/stagiaire/{id}","delete")->name("admin.stagiaire.delete");
-
+    Route::get('/admin/stagiaires/', "index")->name("admin.stagiaire.index");
+    Route::get("admin/stagiaire/create", "create")->name("admin.stagiaire.create");
+    Route::post("admin/stagiaire/create", "store")->name("admin.stagiaire.store");
+    Route::delete("admin/stagiaire/{id}", "delete")->name("admin.stagiaire.delete");
 });
 
 Route::controller(App\Http\Controllers\Admin\AdminProjectController::class)->group(function () {
-    Route::get('/admin/projects/',"index")->name("admin.project.index");
-    Route::post("admin/project/create","store")->name("admin.project.store");
-
+    Route::get('/admin/projects/', "index")->name("admin.project.index");
+    Route::post("admin/project/create", "store")->name("admin.project.store");
 });
 Route::controller(App\Http\Controllers\Admin\AdminDepartementController::class)->group(function () {
-    Route::get('/admin/departements/',"index")->name("admin.departement.index");
-    Route::post("admin/departement/create","store")->name("admin.departement.store");
-
+    Route::get('/admin/departements/', "index")->name("admin.departement.index");
+    Route::post("admin/departement/create", "store")->name("admin.departement.store");
 });
 
 
-Route::controller(EmployeeController::class)->group(function (){
-    Route::get('/employee','index')->name("employee.index");
-    Route::get('/employee/profile','profile')->name("employee.profile");
-    
+Route::controller(EmployeeController::class)->group(function () {
+    Route::get('/employee', 'index')->name("employee.index");
+    Route::get('/employee/profile', 'profile')->name("employee.profile");
 });
 
-Route::controller(EmployeeLeaveController::class)->group(function (){
-    Route::get('/employee/leave' ,'index')->name('employee.leave.index');
-    Route::post('/employee/leave' ,'store')->name('employee.leave.store');
-
+Route::controller(EmployeeLeaveController::class)->group(function () {
+    Route::get('/employee/leave', 'index')->name('employee.leave.index');
+    Route::post('/employee/leave', 'store')->name('employee.leave.store');
 });
 
 
-Route::controller(EmployeeSettingsController ::class)->group(function(){
-    Route::get('/employee/settings','index')->name("employe.settings.changepassword.index");
-    Route::put('/employee/settings/changePassword','store')->name('employe.settings.changepassword.store');
+Route::controller(EmployeeSettingsController::class)->group(function () {
+    Route::get('/employee/settings', 'change_password_index')->name("employe.settings.changepassword_index");
+    Route::patch('/employee/settings/changePassword', 'change_password_store')->name('employe.settings.changepassword_store');
 });
-

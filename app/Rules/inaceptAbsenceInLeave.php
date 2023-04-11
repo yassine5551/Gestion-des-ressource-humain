@@ -15,7 +15,7 @@ class inaceptAbsenceInLeave implements Rule
      */
     public function __construct($emp)
     {
-        $this->employee =$emp;
+        $this->employee = $emp;
     }
 
     /**
