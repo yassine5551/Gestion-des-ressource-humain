@@ -8,7 +8,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
             <ul>
                 <li>Admin</li>
-                <li>Employees</li>
+                <li>Employés</li>
             </ul>
 
         </div>
@@ -18,7 +18,7 @@
         <header class="card-header">
             <p class="card-header-title">
                 <span class="icon"><i class="mdi mdi-account-multiple"></i></span>
-                Employees
+                Employés
             </p>
 
         </header>
@@ -29,7 +29,7 @@
             <label for="underline_select" class="sr-only">Underline select</label>
             <select id="filter_by_post" id="underline_select"
                 class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                <option value="-1" selected>Choisi le post</option>
+                <option value="-1" selected>Choisir le post</option>
                 @foreach ($posts as $post)
                     <option value="{{ $post->getId() }}">{{ $post->getName() }}</option>
                 @endforeach
@@ -60,19 +60,19 @@
                         <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                             <tr>
                                 <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Name Complete</div>
+                                    <div class="font-semibold text-left">Nom Compléte</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-left">Le POST</div>
+                                    <div class="font-semibold text-left">Postes</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-left">ETAT</div>
+                                    <div class="font-semibold text-left">Etat</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-center">Salaire</div>
                                 </th>
                                 <th class="p-2 whitespace-nowrap">
-                                    <div class="font-semibold text-center">Date D'embauch</div>
+                                    <div class="font-semibold text-center">Date D'embauche</div>
                                 </th>
                             </tr>
                         </thead>

@@ -5,7 +5,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
             <ul>
                 <li>Admin</li>
-                <li>Crier des Stagiaires</li>
+                <li>Ajouter un Stagiaire</li>
             </ul>
         </div>
     </section>
@@ -49,7 +49,7 @@
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Prenom
+                            Prénom
                         </label>
                         <input value="{{old("last_name")}}" name="last_name" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600">
                         @error('last_name')
@@ -79,13 +79,13 @@
             <hr class="mt-6 border-b-1 border-blueGray-300">
 
             <h6 class="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
-                Project Information
+                 Information du projet
             </h6>
                 <div class="flex flex-wrap">
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Date debut
+                            Date début
                         </label>
                         <input name="date_debut" value="{{old("date_debut")}}" type="date" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" >
                         @error('date_debut')
@@ -161,7 +161,7 @@
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            Telephone
+                            Télephone
                         </label>
                         <input value="{{old("phone")}}" name="phone" type="text" class=" border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" placeholder="+212 XXX XXX XXX">
                         @error('phone')
@@ -175,7 +175,7 @@
                 <div class="w-full lg:w-6/12 px-4">
                     <div class="relative w-full mb-3">
                         <label class="block uppercase text-blueGray-600 text-xs font-bold mb-2" htmlfor="grid-password">
-                            address Email
+                            Address Email
                         </label>
                         <input name="email" type="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 text-gray-600" value="{{old("email")}}" placeholder="email@example.com">
                         @error('email')

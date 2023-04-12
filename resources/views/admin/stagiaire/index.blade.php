@@ -36,6 +36,8 @@
         </header>
     </div>
 
+    <div class="card-content" id="content">
+
     <div class="" id="content">
 
 
@@ -124,7 +126,7 @@
                                         </svg>
                                         </button>
 
-                                           
+
 
                                         </div>
 
@@ -136,6 +138,7 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
 @section("script")
