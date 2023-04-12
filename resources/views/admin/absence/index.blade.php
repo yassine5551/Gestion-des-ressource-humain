@@ -82,7 +82,7 @@
                     <!-- Form inputs -->
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="employee_number">
-                            Employee
+                            Employé
                         </label>
                         <select class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="employee_number" name="employee_number">
                             @foreach($employees as $emp)
@@ -116,7 +116,7 @@
                     <!-- Form actions -->
                     <div class="flex justify-end">
                         <button class="m-4 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit">
-                            Enregister
+                            Enregistrer
                         </button>
                     </div>
                 </form>
@@ -126,7 +126,7 @@
     <div class="flex mx-2">
 
         <div class="w-1/2 md:w-1/3">
-            <label for="filter" class="block text-gray-700 font-bold mb-2">Select Years:</label>
+            <label for="filter" class="block text-gray-700 font-bold mb-2">Filtrer par année :</label>
         <div class="relative">
           <select id="filter_year" name="filter" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
             @foreach ($years as $yr)
@@ -140,7 +140,7 @@
     </div>
       </div>
       <div class="w-1/2  md:w-1/3">
-          <label for="filter" class="block text-gray-700 font-bold mb-2">Select by Month:</label>
+          <label for="filter" class="block text-gray-700 font-bold mb-2">Filtrer par mois :</label>
           <div class="relative">
               <select id="filter_month" name="filter" class="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline">
                   @foreach ($months as $key=>$month)
