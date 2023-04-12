@@ -20,9 +20,8 @@
 
 </style>
 @yield('content')
-<script src="{{ URL::to('assets/js/jquery-3.5.1.min.js') }}"></script>
+<script  src="{{ URL::to('assets/js/jquery-3.5.1.min.js') }}"></script>
 <script src="{{ URL::to('assets/js/popper.min.js') }}"></script>
-<script src="{{ URL::to('assets/js/bootstrap.min.js') }}"></script>
 <script src="{{ URL::to('assets/js/select2.min.js') }}"></script>
 <script src="{{ URL::to('assets/js/app.js') }}"></script>
 @yield('script')

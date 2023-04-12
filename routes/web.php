@@ -18,7 +18,7 @@ use App\Http\Controllers\Employe\EmployeeSettingsController;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    return view('welcome');
 });
 
 
