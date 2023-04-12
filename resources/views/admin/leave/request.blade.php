@@ -34,7 +34,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
             <ul>
                 <li>Admin</li>
-                <li>Les Demandes du Congee</li>
+                <li>Les Demandes de Congés</li>
             </ul>
         </div>
     </section>
@@ -47,7 +47,7 @@
                     <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                         <tr>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-left">Nom complet</div>
+                                <div class="font-semibold text-left">Nom compléte</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
                                 <div class="font-semibold text-left">date debut</div>
@@ -59,7 +59,7 @@
                                 <div class="font-semibold text-center">Totale des Jours</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
-                                <div class="font-semibold text-center">Type</div>
+                                <div class="font-semibold text-center">Type de Congés</div>
                             </th>
                             <th class="p-2 whitespace-nowrap">
                                 <div class="font-semibold text-center">Status</div>
@@ -99,15 +99,15 @@
                                         @if ($leave->status == 'accepted')
                                             <span
                                                 class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">
-                                                demande accepter </span> 
+                                                Demande acceptée </span>
                                         @elseif($leave->status == 'rejected')
                                             <span
                                                 class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
-                                                demande refuser </span> 
+                                                Demande refusée </span>
                                         @else
                                             <span
                                                 class="text-red-800 text-sm w-1/3 pb-1 bg-orange-200 font-semibold px-2 rounded-full">
-                                                en cours de traitement </span>
+                                                En cours de traitement </span>
                                         @endif
                                     </div>
                                 </td>
@@ -200,10 +200,10 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                            $(form).submit()       
-                        
+                            $(form).submit()
+
                     } else if (result.isDenied) {
-                        
+
                     }
                 })
             }
@@ -220,10 +220,10 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                            $(form).submit()       
-                        
+                            $(form).submit()
+
                     } else if (result.isDenied) {
-                        
+
                     }
                 })
             }

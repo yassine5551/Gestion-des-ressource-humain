@@ -35,7 +35,7 @@
         <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
             <ul>
                 <li>Admin</li>
-                <li>Congée</li>
+                <li>Congés</li>
             </ul>
 
             <button
@@ -43,7 +43,7 @@
 
             data-modal-target="#modal"
             >
-                Ajouter un congee
+                Ajouter un congé
             </button>
         </div>
         <div
@@ -93,7 +93,7 @@
 
                             <div class="mb-4 m-2 md:w-1/2">
                                 <label class="block text-gray-700 font-bold mb-2" for="name-input">
-                                    Date Debut
+                                    Date Début
                                 </label>
                                 <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="start_at" type="date" name="start_at">
                             </div>
@@ -107,7 +107,7 @@
 
                         <div class="mb-4">
                             <label class="block text-gray-700 font-bold mb-2" for="social_number">
-                                leaves
+                                Type de Congé
                             </label>
                             <select name="type" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="type" >
                                 @foreach($types as $type)
@@ -133,6 +133,8 @@
 
         </div>
     </section>
+
+    <div class="card-content" id="content">
     <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
 
         <div class="p-3">
@@ -141,10 +143,10 @@
                     <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
                     <tr>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-left">Nom complet</div>
+                            <div class="font-semibold text-left">Nom compléte</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-left">date debut</div>
+                            <div class="font-semibold text-left">date début</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
                             <div class="font-semibold text-left">date Fin</div>
@@ -153,7 +155,7 @@
                             <div class="font-semibold text-center">Totale des Jours</div>
                         </th>
                         <th class="p-2 whitespace-nowrap">
-                            <div class="font-semibold text-center">le Rest</div>
+                            <div class="font-semibold text-center">Le Reste</div>
                         </th>
                     </tr>
                     </thead>
@@ -186,6 +188,7 @@
                 </table>
             </div>
         </div>
+    </div>
     </div>
 @endsection
 @section("script")
