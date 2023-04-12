@@ -35,14 +35,14 @@
     <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
         <ul>
             <li>Admin</li>
-            <li>Posts</li>
+            <li>Postes</li>
         </ul>
 
         <button
         class="m-4 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2"
             data-modal-target="#modal"
         >
-            Ajouter un  nouveau Post
+            Ajouter un nouveau Poste
         </button>
     </div>
     <div
@@ -82,13 +82,13 @@
 
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="name">
-                            Nom De Post
+                            Nom de Poste
                         </label>
                         <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="name" name="name" type="text" placeholder="Entrer le nom ici">
                     </div>
                     <div class="mb-4">
                         <label class="block text-gray-700 font-bold mb-2" for="social_number">
-                            Choisie le departement
+                            Choisie le département
                         </label>
                         <select name="departement_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="departement_id" >
                             @foreach($departements as $departement)
@@ -100,7 +100,7 @@
                     <!-- Form actions -->
                     <div class="flex justify-end">
                         <button class="m-4 text-gray-900 bg-gradient-to-r from-red-200 via-red-300 to-yellow-200 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-red-100 dark:focus:ring-red-400 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2" type="submit">
-                            Enregister
+                            Enregistrer
                         </button>
 
                     </div>
@@ -112,6 +112,8 @@
 
     </div>
 </section>
+
+<div class="card-content" id="content">
 <div class=" mx-auto bg-white shadow-lg rounded-sm border border-gray-200">
     <div class="p-3">
         <div class="overflow-x-auto resp">
@@ -122,10 +124,10 @@
                         <div class="font-semibold text-left">#</div>
                     </th>
                     <th class="p-2 whitespace-nowrap">
-                        <div class="font-semibold text-left">Nom de post</div>
+                        <div class="font-semibold text-left">Nom de poste</div>
                     </th>
                     <th class="p-2 whitespace-nowrap">
-                        <div class="font-semibold text-left">Nombre des employer</div>
+                        <div class="font-semibold text-left">Nombre des employés</div>
                     </th>
 
                 </tr>
@@ -149,5 +151,6 @@
             </table>
         </div>
     </div>
+</div>
 </div>
 @endsection
