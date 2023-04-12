@@ -24,7 +24,7 @@
         gtag('config', 'UA-130795909-1');
     </script>
 
-    
+
 
 </head>
 <body>
@@ -66,44 +66,44 @@
                     </a>
                 </li>
             </ul>
-            <p class="menu-label">Employees</p>
+            <p class="menu-label">Employés</p>
             <ul class="menu-list">
                 <li class="">
                     <a href="{{route("admin.employee.index")}}">
                         <span class="icon"><i class="mdi mdi-table"></i></span>
-                        <span class="menu-item-label">List Employer</span>
+                        <span class="menu-item-label">Liste des Employés</span>
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route("admin.employee.create")}}">
                         <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-                        <span class="menu-item-label">Ajouter Emplyees</span>
+                        <span class="menu-item-label">Ajouter un Employé</span>
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route("admin.leave.index")}}">
                         <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
-                        <span class="menu-item-label">Congees</span>
+                        <span class="menu-item-label">Congés</span>
                     </a>
                 </li>
 
                 <li class="">
                     <a href="{{route("admin.leave.demande")}}">
                         <span class="icon"><i  class="mdi mdi-face-agent"></i></span>
-                        <span class="menu-item-label">Les Demand du Congee</span>
+                        <span class="menu-item-label">Demande de Congés</span>
                     </a>
                 </li>
 
                 <li class="">
                     <a href="{{route("admin.departement.index")}}">
                         <span class="icon"><i  class="mdi mdi-briefcase"></i></span>
-                        <span class="menu-item-label">Departement</span>
+                        <span class="menu-item-label">Département</span>
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route("admin.post.index")}}">
                         <span class="icon"><i  class="mdi mdi-briefcase"></i></span>
-                        <span class="menu-item-label">Posts</span>
+                        <span class="menu-item-label">Postes</span>
                     </a>
                 </li>
                 <li class="--set-active-profile-html">
@@ -117,17 +117,17 @@
                 <li class="">
                     <a href="{{route("admin.stagiaire.index")}}">
                         <span class="icon"><i class="mdi mdi-table"></i></span>
-                        <span class="menu-item-label">List Stagiaire</span>
+                        <span class="menu-item-label">Liste des Stagiaires</span>
                     </a>
                 </li>
                 <li class="">
                     <a href="{{route("admin.stagiaire.create")}}">
                         <span class="icon"><i class="mdi mdi-square-edit-outline"></i></span>
-                        <span class="menu-item-label">Ajouter Stagiaire</span>
+                        <span class="menu-item-label">Ajouter un Stagiaire</span>
                     </a>
                 </li>
 
-                <p class="menu-label">Projects</p>
+                <p class="menu-label">Projets</p>
                 <ul class="menu-list">
                     <li class="">
                         <a href="{{route("admin.project.index")}}">
@@ -200,8 +200,8 @@ else{
     });
 }
     }
-   
-    
+
+
 </script>
 @yield("script")
 
