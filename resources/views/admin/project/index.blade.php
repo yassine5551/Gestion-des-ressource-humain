@@ -186,13 +186,22 @@
                                 <td data-label="configurations" class="p-2 whitespace-nowrap">
                                     <div class="text-left font-medium flex">
 
-                                        <button data-project='{{ $project->getId() }}' class="icon-button btn-config">
-                                            <i class="fas fa-cog"></i>
+                                        <button data-project='{{ $project->getId() }}'
+                                            {{ \Carbon\Carbon::createFromFormat('Y-m-d', $project->getEndAt()) <= now()->format('Y-m-d') ? 'disabled' : '' }}
+                                            class="icon-button btn-config">
+                                            <i
+                                                class="fas fa-cog  {{ \Carbon\Carbon::createFromFormat('Y-m-d', $project->getEndAt()) <= now()->format('Y-m-d') ? 'text-gray-800' : '' }}"></i>
 
                                         </button>
-                                        <button class="icon-delete ">
-                                            <i class="fas fa-trash"></i>
-                                        </button>
+                                        <form action="{{ route('admin.project.delete', $project->getId()) }}"
+                                            method="post">
+                                            @csrf
+                                            @method('delete')
+
+                                            <button class="icon-delete ">
+                                                <i class="fas fa-trash"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </td>
                             </tr>
@@ -261,6 +270,30 @@
                 }
             })
 
+
+        })
+
+        $(".icon-delete").click(function(e) {
+            e.preventDefault()
+            const form = $(this).parent()
+            console.log(form)
+            Swal.fire({
+                text: "confirmer la supprission!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Oui, Supprimer Le projet!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit()
+                    Swal.fire(
+                        'Supprime!',
+                        'Votre Projet est supprime avec success',
+                        'success'
+                    )
+                }
+            })
 
         })
     </script>

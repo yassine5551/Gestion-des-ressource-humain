@@ -16,9 +16,9 @@ return new class extends Migration
     public function up()
     {
         Departement::insert([
-        ['name'=>"Engeneering"],
-        ["name"=>"web develompent"],
-        ["name"=>"syber security"]
+            ['name' => "Engeneering"],
+            ["name" => "web develompent"],
+            ["name" => "syber security"]
         ]);
     }
 

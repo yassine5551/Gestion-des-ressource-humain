@@ -65,6 +65,7 @@ Route::controller(App\Http\Controllers\Admin\AdminProjectController::class)->gro
     Route::get('/admin/projects/', "index")->name("admin.project.index");
     Route::post("admin/project/create", "store")->name("admin.project.store");
     Route::post("/admin/project/createteam", "createTeam")->name('admin.project.createTeam');
+    Route::delete("/admin/project/{id}/delete", "delete")->name("admin.project.delete");
 });
 Route::controller(App\Http\Controllers\Admin\AdminDepartementController::class)->group(function () {
     Route::get('/admin/departements/', "index")->name("admin.departement.index");

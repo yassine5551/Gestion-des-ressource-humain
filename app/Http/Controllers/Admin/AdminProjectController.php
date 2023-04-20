@@ -73,4 +73,15 @@ class AdminProjectController extends Controller
 
         return back()->with("success_msg", "l'équipe de travail est ajour avec success");;
     }
+    public function delete($id)
+    {
+        $prject =  Project::find($id);
+        $team = $prject->team;
+        foreach ($team->members as $member) {
+            $member->delete();
+        }
+        $team->delete();
+        $prject->delete();
+        return back()->with("success_msg", "le projet a été supprimé avec succès");;
+    }
 }

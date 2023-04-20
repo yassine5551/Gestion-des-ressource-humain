@@ -189,7 +189,7 @@
                                         <div class="text-left font-medium text-green-500">{{ $leave->getEndAt() }}</div>
                                     </td>
                                     <td data-label="Totale des Jours" class="p-2 whitespace-nowrap">
-                                        <div class="text-lg text-center">{{ $leave->Days() }} jours</div>
+                                        <div class="text-lg text-center">{{ $leave->Days() + 1 }} jours</div>
                                     </td>
                                     <td data-label="le rest" class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">{{ $leave->RestDays() }} jours</div>

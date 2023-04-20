@@ -112,6 +112,31 @@ class Employee extends model
     {
         return $this->hasMany(Leave::class);
     }
+    public function finishedProjects()
+    {
+        $res = DB::table("projects")
+            ->leftJoin("teams", "projects.id", "teams.project_id")
+            ->leftJoin("members", "teams.id", "members.team_id")
+            ->leftJoin("employees", "members.employee_id", "employees.id")
+            ->where("members.employee_id", $this->getId())
+            ->where("projects.end_at", "<", now())
+            ->select("projects.*")
+            ->get();
+
+        return $res;
+    }
+    public function currentProjects()
+    {
+
+        $res = [];
+        $mbrs = $this->members ?? [];
+        foreach ($mbrs as $mb) {
+            if ($mb->team->project->end_at > now()) {
+                $res[] = $mb->team->project;
+            }
+        }
+        return $res;
+    }
     public function inHoliday()
     {
         $leave = Leave::where('employee_id', $this->getId())

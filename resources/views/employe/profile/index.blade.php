@@ -82,7 +82,7 @@
                                 <div class="grid grid-cols-2">
                                     <div class="px-4 py-2 font-semibold">Email.</div>
                                     <div class="px-4 py-2">
-                                        <a class="text-blue-800"
+                                        <a class="text-blue-800 text-xs"
                                             href="mailto:jane@example.com">{{ $employee->user->getEmail() }}</a>
                                     </div>
                                 </div>
@@ -114,10 +114,13 @@
                                     <span class="tracking-wide">Projects (terminer)</span>
                                 </div>
                                 <ul class="list-inside space-y-2">
-                                    <li>
-                                        <div class="text-teal-600">Masters Degree in Oxford</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
+                                    @foreach ($employee->finishedProjects() as $project)
+                                        <li>
+                                            <div class="text-teal-600">{{ $project->name }}</div>
+                                            <div class="text-gray-500 text-xs">{{ $project->start_at }} -
+                                                {{ $project->end_at }}</div>
+                                        </li>
+                                    @endforeach
 
                                 </ul>
                             </div>
@@ -136,14 +139,14 @@
                                     <span class="tracking-wide">Projects (en court)</span>
                                 </div>
                                 <ul class="list-inside space-y-2">
-                                    <li>
-                                        <div class="text-teal-600">Masters Degree in Oxford</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
-                                    <li>
-                                        <div class="text-teal-600">Bachelors Degreen in LPU</div>
-                                        <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                    </li>
+                                    @foreach ($employee->currentProjects() as $project)
+                                        <li>
+                                            <div class="text-teal-600">{{ $project->name }}</div>
+                                            <div class="text-gray-500 text-xs">{{ $project->start_at }} -
+                                                {{ $project->end_at }}</div>
+                                        </li>
+                                    @endforeach
+
                                 </ul>
                             </div>
                         </div>
