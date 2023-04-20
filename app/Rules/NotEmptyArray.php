@@ -4,7 +4,7 @@ namespace App\Rules;
 
 use Illuminate\Contracts\Validation\Rule;
 
-class notSunday implements Rule
+class NotEmptyArray implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,8 +25,7 @@ class notSunday implements Rule
      */
     public function passes($attribute, $value)
     {
-        $date = new \DateTime($value);
-        return $date->format("w") != 0;
+        return $value !== array(null);
     }
 
     /**
@@ -36,6 +35,6 @@ class notSunday implements Rule
      */
     public function message()
     {
-        return 'we cannot declare an absence at sunday.';
+        return 'The validation error message.';
     }
 }

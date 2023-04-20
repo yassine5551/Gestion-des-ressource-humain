@@ -15,9 +15,11 @@ return new class extends Migration
     {
         Schema::create('members', function (Blueprint $table) {
             $table->id();
-            $table->string("employee_id");
-            $table->foreign("employee_id")->references("social_number")->on("employees");
-            $table->foreignId("team_id");
+            $table->unsignedBigInteger("employee_id");
+            $table->foreign("employee_id")->references("id")->on("employees");
+            $table->unsignedBigInteger("team_id");
+            $table->foreign("team_id")->references("id")->on("teams");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

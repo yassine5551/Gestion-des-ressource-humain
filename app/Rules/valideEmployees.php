@@ -2,9 +2,10 @@
 
 namespace App\Rules;
 
+use App\Models\Employee;
 use Illuminate\Contracts\Validation\Rule;
 
-class notSunday implements Rule
+class valideEmployees implements Rule
 {
     /**
      * Create a new rule instance.
@@ -25,8 +26,12 @@ class notSunday implements Rule
      */
     public function passes($attribute, $value)
     {
-        $date = new \DateTime($value);
-        return $date->format("w") != 0;
+        foreach ($value as $id) {
+            if (!Employee::where("id", $id)->exists()) {
+                return false;
+            }
+        }
+        return true;
     }
 
     /**
@@ -36,6 +41,6 @@ class notSunday implements Rule
      */
     public function message()
     {
-        return 'we cannot declare an absence at sunday.';
+        return 'incorrect employee.';
     }
 }

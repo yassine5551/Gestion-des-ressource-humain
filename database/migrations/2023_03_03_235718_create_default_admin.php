@@ -16,10 +16,10 @@ return new class extends Migration
     {
         $admin = new \App\Models\Admin();
         \App\Models\User::create([
-            'first_name'=>"admin",
-            'last_name'=>"admin",
-            'email'=>"admin@mail.com",
-            'password'=>Hash::make("adminadmin"),
+            'first_name' => "admin",
+            'last_name' => "admin",
+            'email' => "admin@mail.com",
+            'password' => Hash::make("adminadmin"),
         ])->admin()->save($admin);
     }
 
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        \App\Models\User::where("email","admin@mail.com")->delete();
+        \App\Models\User::where("email", "admin@mail.com")->delete();
     }
 };

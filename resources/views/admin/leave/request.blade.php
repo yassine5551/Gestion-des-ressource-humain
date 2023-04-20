@@ -114,60 +114,55 @@
 
                                 <td data-label="le rest" class="p-2 whitespace-nowrap">
                                     <div class="flex justify-center">
-                                        @if($leave->status == 'rejected')
-                                        <div class="m-1">
-                                            <form action="{{ route('admin.leave.accept', $leave->getId()) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('put')
-                                                <button
-                                                style="width: 30px"
-                                                    class="bg-green-500 btn-accepted-leave hover:bg-green-600 text-white font-bold  rounded">
-                                                    <i class="fa fa-check m-2"></i>
+                                        @if ($leave->status == 'rejected')
+                                            <div class="m-1">
+                                                <form action="{{ route('admin.leave.accept', $leave->getId()) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button style="width: 30px"
+                                                        class="bg-green-500 btn-accepted-leave hover:bg-green-600 text-white font-bold  rounded">
+                                                        <i class="fa fa-check m-2"></i>
                                                     </button>
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                         @elseif($leave->status == 'accepted')
-                                        <div class="m-1">
+                                            <div class="m-1">
 
-                                            <form action="{{ route('admin.leave.reject', $leave->getId()) }}"
-                                                method="POST"
-                                                >
-                                                @csrf
-                                                @method('put')
-                                                <button style="width: 30px" type="button"
-                                                    class="bg-red-500 btn-rejected-leave hover:bg-red-600 text-white font-bold rounded">
-                                                    <i class="fa fa-times m-2"></i>
+                                                <form action="{{ route('admin.leave.reject', $leave->getId()) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button style="width: 30px" type="button"
+                                                        class="bg-red-500 btn-rejected-leave hover:bg-red-600 text-white font-bold rounded">
+                                                        <i class="fa fa-times m-2"></i>
                                                     </button>
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                         @else
-                                        <div class="m-1">
-                                            <form action="{{ route('admin.leave.accept', $leave->getId()) }}"
-                                                method="POST">
-                                                @csrf
-                                                @method('put')
-                                                <button
-                                                style="width: 30px"
-                                                    class="bg-green-500 btn-accepted-leave hover:bg-green-600 text-white font-bold p-0 rounded">
-                                                    <i class="fa fa-check m-2"></i>
+                                            <div class="m-1">
+                                                <form action="{{ route('admin.leave.accept', $leave->getId()) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button style="width: 30px"
+                                                        class="bg-green-500 btn-accepted-leave hover:bg-green-600 text-white font-bold p-0 rounded">
+                                                        <i class="fa fa-check m-2"></i>
                                                     </button>
-                                            </form>
-                                        </div>
-                                        <div class="m-1">
+                                                </form>
+                                            </div>
+                                            <div class="m-1">
 
-                                            <form action="{{ route('admin.leave.reject', $leave->getId()) }}"
-                                                method="POST"
-                                                >
-                                                @csrf
-                                                @method('put')
-                                                <button type="button"
-                                                style="width: 30px"
-                                                    class="bg-red-500 btn-rejected-leave hover:bg-red-600 text-white font-bold  p-0 rounded">
-                                                    <i class="fa fa-times m-2"></i>
+                                                <form action="{{ route('admin.leave.reject', $leave->getId()) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('put')
+                                                    <button type="button" style="width: 30px"
+                                                        class="bg-red-500 btn-rejected-leave hover:bg-red-600 text-white font-bold  p-0 rounded">
+                                                        <i class="fa fa-times m-2"></i>
                                                     </button>
-                                            </form>
-                                        </div>
+                                                </form>
+                                            </div>
                                         @endif
                                     </div>
                                 </td>
@@ -189,9 +184,9 @@
 
 @section('script')
     <script>
-        $(".btn-rejected-leave").click(function(e)  {
-            e.preventDefault()
-            const form = $(this).parent()
+        $(".btn-rejected-leave").click(function(e) {
+                e.preventDefault()
+                const form = $(this).parent()
                 Swal.fire({
                     title: 'tu peut pas le droit de rechanger le status ?',
                     showDenyButton: true,
@@ -200,7 +195,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                            $(form).submit()
+                        $(form).submit()
 
                     } else if (result.isDenied) {
 
@@ -209,9 +204,9 @@
             }
 
         )
-        $(".btn-accepted-leave").click(function(e)  {
-            e.preventDefault()
-            const form = $(this).parent()
+        $(".btn-accepted-leave").click(function(e) {
+                e.preventDefault()
+                const form = $(this).parent()
                 Swal.fire({
                     title: 'tu peut pas le droit de rechanger le status ?',
                     showDenyButton: true,
@@ -220,7 +215,7 @@
                 }).then((result) => {
                     /* Read more about isConfirmed, isDenied below */
                     if (result.isConfirmed) {
-                            $(form).submit()
+                        $(form).submit()
 
                     } else if (result.isDenied) {
 
@@ -232,4 +227,3 @@
         )
     </script>
 @endsection
-

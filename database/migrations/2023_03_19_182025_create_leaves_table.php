@@ -15,10 +15,10 @@ return new class extends Migration
     {
         Schema::create('leaves', function (Blueprint $table) {
             $table->id();
-            $table->string("social_number");
+            $table->unsignedBigInteger("employee_id");
             $table->string('type');
             $table->string('status');
-            $table->foreign("social_number")->references("social_number")->on("employees");
+            $table->foreign("employee_id")->references("id")->on("employees");
             $table->date("start_at");
             $table->date("end_at");
             $table->softDeletes();

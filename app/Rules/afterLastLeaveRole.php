@@ -2,18 +2,20 @@
 
 namespace App\Rules;
 
+use App\Models\Employee;
+use App\Models\Leave;
 use Illuminate\Contracts\Validation\Rule;
 
-class notSunday implements Rule
+class afterLastLeaveRole implements Rule
 {
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($employee_id)
     {
-        //
+        $this->last_leave = Leave::where("employee_id", $employee_id)->orderBy("end_at")->first();
     }
 
     /**
@@ -25,8 +27,7 @@ class notSunday implements Rule
      */
     public function passes($attribute, $value)
     {
-        $date = new \DateTime($value);
-        return $date->format("w") != 0;
+        return $this->last_leave ? $value >= $this->last_leave->getEndAt() : true;
     }
 
     /**
@@ -36,6 +37,6 @@ class notSunday implements Rule
      */
     public function message()
     {
-        return 'we cannot declare an absence at sunday.';
+        return 'you cannot start an leave while ather leave doesnt ended.';
     }
 }

@@ -9,33 +9,36 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Leave extends Model
 {
-     static $type = ["Congé de maladie" ,
-     "Congé de maternité/paternité" ,
-     "Congé pour raisons personnelles" ,
-      " Congé de vacances" , 
-      " Congé sans solde" , 
-      " Congé de formation professionnelle" ,
-     " Congé sabbatique"];
-    
+    static $type = [
+        "Congé de maladie",
+        "Congé de maternité/paternité",
+        "Congé pour raisons personnelles",
+        " Congé de vacances",
+        " Congé sans solde",
+        " Congé de formation professionnelle",
+        " Congé sabbatique"
+    ];
+
     use HasFactory, SoftDeletes;
-    protected $fillable = ["social_number","status","type",'start_at','end_at'];
-    
+    protected $fillable = ["employee_id", "status", "type", 'start_at', 'end_at'];
+
     public static function Validate(\Illuminate\Http\Request $request)
     {
         $request->validate([
 
-            'start_at'=>"required|date",
-            "end_at"=>'required|date',
-            "type"=>"required"
+            'start_at' => "required|date",
+            "end_at" => 'required|date',
+            "type" => "required"
         ]);
     }
 
-    public function getId(){
+    public function getId()
+    {
         return $this->attributes['id'];
     }
     public function employee()
     {
-        return $this->belongsTo(Employee::class,"social_number");
+        return $this->belongsTo(Employee::class);
     }
     public function getStartAt()
     {
@@ -46,18 +49,22 @@ class Leave extends Model
         return $this->attributes["end_at"];
     }
 
-    public function getStatus(){
+    public function getStatus()
+    {
         return $this->attributes["status"];
     }
 
-    public function setStatus($status){
+    public function setStatus($status)
+    {
         $this->attributes["status"] = $status;
     }
 
-    public function setType($type){
+    public function setType($type)
+    {
         $this->attributes["type"] = $type;
     }
-    public function getType(){
+    public function getType()
+    {
         return $this->attributes["type"];
     }
     public function Days()
@@ -74,9 +81,6 @@ class Leave extends Model
         $datetime1 = new \DateTime(now());
         $datetime2 = new \DateTime($this->attributes["end_at"]);
         $interval = $datetime1->diff($datetime2);
-        return $interval->format('%a') +1;
+        return $interval->format('%a') + 1;
     }
-
-
-    
 }

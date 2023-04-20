@@ -45,7 +45,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function getId(){
+    public function getId()
+    {
         return $this->attributes['id'];
     }
     public function getFirstName()
@@ -68,9 +69,9 @@ class User extends Authenticatable
     {
         return $this->attributes["email"];
     }
-    public function setEmail($email){
+    public function setEmail($email)
+    {
         $this->attributes["email"] = $email;
-
     }
     public function setPassword($password)
     {
@@ -82,15 +83,14 @@ class User extends Authenticatable
     }
     public function employee()
     {
-        return $this->hasOne(Employee::class,);
+        return $this->hasOne(Employee::class);
     }
     public static function validate(Request $request)
     {
         $request->validate([
-            "email"=>["required","unique:users,email"],
-            "first_name"=>["required"],
-            "last_name"=>["required"]
+            "email" => ["required", "unique:users,email"],
+            "first_name" => ["required"],
+            "last_name" => ["required"]
         ]);
     }
-
 }

@@ -12,11 +12,10 @@ class IsTruePassword implements Rule
      *
      * @return void
      */
-    
+
     public function __construct($hashedPassword)
     {
-        $this->hashedPassword = $hashedPassword ;
-        
+        $this->hashedPassword = $hashedPassword;
     }
 
     /**
@@ -28,7 +27,7 @@ class IsTruePassword implements Rule
      */
     public function passes($attribute, $value)
     {
-        return Hash::check($value,$this->hashedPassword);
+        return Hash::check($value, $this->hashedPassword);
     }
 
     /**

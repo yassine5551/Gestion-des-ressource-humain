@@ -17,6 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string("name");
             $table->text("description")->nullable();
+            $table->date('start_at');
+            $table->date("end_at");
+            $table->softDeletes();
             $table->timestamps();
         });
     }

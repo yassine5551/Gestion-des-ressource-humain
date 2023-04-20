@@ -23,14 +23,42 @@
 @tailwind components;
 @tailwind utilities;
 
-.canvasjs-chart-credit{
+.canvasjs-chart-credit {
     display: none;
 }
+.icon-button {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    color: darkblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon-delete i {
+    margin-right: 5px;
+}
+.icon-delete {
+    display: flex;
+    margin-left: 10px;
+    align-items: center;
+    padding: 5px;
+    border: none;
+    color: red;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.icon-button i {
+    margin-right: 5px;
+}
+
 table {
     border-collapse: collapse;
 }
 
-th, td {
+th,
+td {
     text-align: left;
 }
 

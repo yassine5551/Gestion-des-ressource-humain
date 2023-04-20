@@ -11,20 +11,21 @@ class EmployeeController extends Controller
 {
     public function __construct()
     {
-        $this->middleware(["auth",'employee']);
+        $this->middleware(["auth", 'employee']);
     }
     public function index()
     {
         $title = "Employee - Dashboard";
-       
-        return view("employe.index",compact("title"));
+
+        return view("employe.index", compact("title"));
     }
 
-    public function profile(){
+    public function profile()
+    {
         $title = "Employee - Profile";
 
         $employee =  Employee::where('user_id', Auth::id())->first();
 
-        return view("employe.profile.index",compact("title", 'employee'));
+        return view("employe.profile.index", compact("title", 'employee'));
     }
 }
