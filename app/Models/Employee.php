@@ -141,6 +141,7 @@ class Employee extends model
     {
         $leave = Leave::where('employee_id', $this->getId())
             ->where("start_at", '<=', now())
+            ->where("status", "accepted")
             ->where("end_at", ">=", now())->exists();
         if ($leave) {
             return true;
