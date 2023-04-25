@@ -13,33 +13,30 @@ class FilterController extends Controller
 {
     public function filter_by_post($id)
     {
-        if($id != -1)
-        {
-//            $employers = DB::table("users")
-//                ->rightJoin("employees","users.id","=","employees.user_id")
-//                ->rightJoin("posts","employees.post_id","=","posts.id")
-//                ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
-//                ->where("employees.post_id",$id)
-//                ->groupBy('employees.social_number','posts.name','users.first_name','users.last_name',"employees.salary","employees.hiring_date")
-//                ->select("employees.social_number","posts.name as post_name"
-//                   ,"users.first_name","users.last_name","employees.salary","employees.hiring_date",
-//                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
-//                ->get();
-            $employers = EmployeeResource::collection(Employee::where("post_id",$id)->get());
-        }
-        else{
-//            $employers = DB::table("users")
-//            ->rightJoin("employees","users.id","=","employees.user_id")
-//            ->rightJoin("posts","employees.post_id","=","posts.id")
-//            ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
-//            ->groupBy('employees.social_number','posts.name','users.first_name','users.last_name',"employees.salary","employees.hiring_date")
-//            ->select("employees.social_number","posts.name as post_name",
-//               "users.first_name","users.last_name","employees.salary","employees.hiring_date",
-//                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
-//                ->get();
+        if ($id != -1) {
+            //            $employers = DB::table("users")
+            //                ->rightJoin("employees","users.id","=","employees.user_id")
+            //                ->rightJoin("posts","employees.post_id","=","posts.id")
+            //                ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
+            //                ->where("employees.post_id",$id)
+            //                ->groupBy('employees.social_number','posts.name','users.first_name','users.last_name',"employees.salary","employees.hiring_date")
+            //                ->select("employees.social_number","posts.name as post_name"
+            //                   ,"users.first_name","users.last_name","employees.salary","employees.hiring_date",
+            //                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
+            //                ->get();
+            $employers = EmployeeResource::collection(Employee::where("post_id", $id)->get());
+        } else {
+            //            $employers = DB::table("users")
+            //            ->rightJoin("employees","users.id","=","employees.user_id")
+            //            ->rightJoin("posts","employees.post_id","=","posts.id")
+            //            ->leftJoin("leaves","employees.social_number","=","leaves.social_number")
+            //            ->groupBy('employees.social_number','posts.name','users.first_name','users.last_name',"employees.salary","employees.hiring_date")
+            //            ->select("employees.social_number","posts.name as post_name",
+            //               "users.first_name","users.last_name","employees.salary","employees.hiring_date",
+            //                    DB::raw('if(count(leaves.social_number)>0,true,false) as inHoliday'))
+            //                ->get();
             $employers = EmployeeResource::collection(Employee::all());
-
         }
-        return response()->json(["employers"=>$employers]);
-        }
+        return response()->json(["employers" => $employers]);
+    }
 }

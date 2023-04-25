@@ -16,6 +16,7 @@ class EmployeeResource extends JsonResource
     {
         return [
             "cin" => $this->getCin(),
+            "id" => $this->id,
             "post_name" => $this->post->getName(),
             "user_id" => $this->user->id,
             "first_name" => $this->user->first_name,

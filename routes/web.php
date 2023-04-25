@@ -33,6 +33,7 @@ Route::controller(App\Http\Controllers\Admin\AdminEmployeeController::class)->gr
     Route::get('/admin/employes/', "index")->name("admin.employee.index");
     Route::get("admin/employee/create", "create")->name("admin.employee.create");
     Route::post("admin/employee/create", "store")->name("admin.employee.store");
+    Route::delete("admin/employee/{id}/delete", "delete")->name("admin.employee.delete");
 });
 Route::controller(App\Http\Controllers\Admin\AdminAbsenceController::class)->group(function () {
     Route::get("admin/absence", "index")->name("admin.absence.index");

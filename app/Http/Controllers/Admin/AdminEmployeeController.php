@@ -60,4 +60,9 @@ class AdminEmployeeController extends Controller
         ]);
         return back()->with("success_msg", "l'employee ajoute avec success");
     }
+    public function delete($id)
+    {
+        Employee::find($id)->delete();
+        return back()->with("success_msg", "l'employee est supprimé avec success");
+    }
 }

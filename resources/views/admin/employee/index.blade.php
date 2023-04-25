@@ -3,7 +3,44 @@
 @section('content')
 
 
+    @if (session('success_msg'))
+        <div class="fixed bottom-0 right-0 m-4 z-50">
+            <div id="success-alert"
+                class="bg-green-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+                <span>{{ session('success_msg') }}</span>
+                <button id="close-alert"
+                    class="text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    @endif
+    @if ($errors->any())
+        <div class="fixed bottom-0 right-0 m-4 ">
+            <div id="fail-alert"
+                class=" relative bg-red-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+                <div class="flex flex-col p-3 ">
 
+                    @foreach ($errors->all() as $err)
+                        <span>{{ $err }}</span>
+                    @endforeach
+                </div>
+
+                <button id="close-alert"
+                    class=" absolute top-0 right-0 text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                    <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    @endif
     <section class="is-title-bar">
         <div class="flex flex-col md:flex-row items-center justify-between  md:space-y-0">
             <ul>
@@ -94,9 +131,9 @@
                                     <td data-label="etat" class="p-2 whitespace-nowrap">
                                         <div class="text-center font-medium text-green-500">
                                             @if ($employer->inHoliday())
-                                            <span
-                                            class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
-                                            Congée </span>
+                                                <span
+                                                    class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
+                                                    Congée </span>
                                             @else
                                                 <span
                                                     class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">
@@ -109,6 +146,24 @@
                                     </td>
                                     <td data-label="DATE D'EMBAUCH" class="p-2 whitespace-nowrap">
                                         <div class="text-lg text-center">{{ $employer->getHiringDate() }}</div>
+                                    </td>
+                                    <td data-label="actions" class="p-2 whitespace-nowrap ">
+                                        <div class="flex items-center text-center">
+
+                                            <form id="del_stg" method="post"
+                                                action="{{ route('admin.employee.delete', $employer->getId()) }}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class="btn-delete-emp" type="submit">
+                                                    <i class="fa fa-trash text-red-500 text-xl"></i>
+                                                </button>
+
+                                            </form>
+
+
+
+                                        </div>
+
                                     </td>
                                 </tr>
                             @endforeach
@@ -155,7 +210,6 @@
 
             $(postField).change(() => {
                 $.get(`http://localhost:8000/api/employers/post/${postField.val()}`, (data, status) => {
-                    console.log(data)
                     const table = $(`<table class="table-auto w-full">`);
                     // language=HTML
                     const thead = $(`<thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
@@ -180,8 +234,12 @@
                     table.append(thead)
                     let tbody = $("<tbody>")
                     data.employers.forEach(item => {
+                        let id = item.id
+                        let url = "{{ route('admin.employee.delete', ':id') }}";
+                        url = url.replace(':id', id);
+
                         let tr = $(`
- <tr>
+                                        <tr>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="flex items-center">
                                                 <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg"></div>
@@ -193,12 +251,11 @@
                                         </td>
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-center font-medium text-green-500">
-${item.inHoliday?` <span
-                                            class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
-                                            Congée </span>`:` <span
-                                                    class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">
-                                                    Disponible </span>`}
-
+                            ${item.inHoliday?` <span
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Congée </span>`:` <span
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Disponible </span>`}
 
 
 
@@ -212,6 +269,26 @@ ${item.inHoliday?` <span
                                         <td class="p-2 whitespace-nowrap">
                                             <div class="text-lg text-center">${item.hiring_date}</div>
                                         </td>
+                                        <td data-label="actions" class="p-2 whitespace-nowrap ">
+                                        <div class="flex items-center text-center">
+
+                                            <form id="del_stg" method="post"
+                                                action="${url}">
+                                                @csrf
+                                                @method('delete')
+                                                <button class='btn-delete-emp' type="submit">
+                                                    <i class="fa fa-trash text-red-500 text-xl"></i>
+                                                </button>
+
+                                            </form>
+
+
+
+
+
+                                        </div>
+
+                                    </td>
                                     </tr>
 `)
 

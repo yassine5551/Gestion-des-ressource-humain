@@ -164,7 +164,7 @@ class Employee extends model
     public function hasLeaveInThisDay(string $date)
     {
         $leave =
-            DB::table("leaves")->where("id", $this->getId())
+            DB::table("leaves")->where("employee_id", $this->getId())
             ->where("start_at", "<=", $date)
             ->where("end_at", ">=", $date)
             ->where("status", "accepted")

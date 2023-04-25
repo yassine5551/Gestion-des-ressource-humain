@@ -199,8 +199,8 @@
                                 @if (\Carbon\Carbon::parse($current_year . '-' . $current_month . '-' . $i)->format('l') == 'Sunday')
                                 @elseif($employee->hasLeaveInThisDay($current_year . '-' . $current_month . '-' . $i))
                                     <div class="flex items-center">
-                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20"
-                                            fill="currentColor">
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2 text-gray-800"
+                                            viewBox="0 0 20 20" fill="currentColor">
                                             <path
                                                 d="M10 3a1 1 0 0 0-1 1v4H7a1 1 0 1 0 0 2h2v6a1 1 0 1 0 2 0v-6h2a1 1 0 1 0 0-2h-2V4a1 1 0 0 0-1-1z" />
                                         </svg>

@@ -23,7 +23,8 @@ return new class extends Migration
             $table->boolean("status")->default(false);
             $table->text("adress")->nullable();
             $table->string("phone");
-            $table->string("link")->nullable();
+            $table->unsignedBigInteger("project_id");
+            $table->foreign("project_id")->references("id")->on("projects");
             $table->date("born_date");
             $table->timestamps();
         });
