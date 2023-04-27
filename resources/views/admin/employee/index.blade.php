@@ -111,6 +111,7 @@
                                 <th class="p-2 whitespace-nowrap">
                                     <div class="font-semibold text-center">Date D'embauche</div>
                                 </th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody class="text-sm divide-y divide-gray-100">
