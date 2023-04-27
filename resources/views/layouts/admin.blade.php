@@ -36,26 +36,6 @@
 <body>
 
     <div id="app">
-
-        <nav id="navbar-main" class="navbar is-fixed-top">
-            <div class="navbar-brand">
-                <a class="navbar-item mobile-aside-button">
-                    <span class="icon"><i class="mdi mdi-forwardburger mdi-24px"></i></span>
-                </a>
-                <div class="navbar-item">
-                    <div class="control"><input placeholder="Search everywhere..." class="input"></div>
-                </div>
-            </div>
-            <form id="log_out" method="POST" action="{{ route('logout') }}">
-                @csrf
-            </form>
-            <div class="-menu" id="navbar-menu">
-                <button onclick="document.getElementById('log_out').submit()" class="navbar-item" id="logout-btn">
-                    <span class="icon"><i class="mdi mdi-logout"></i></span>
-                </button>
-            </div>
-        </nav>
-
         <aside class="aside is-placed-left is-expanded overflow-x-scroll">
             <div class="aside-tools">
                 <div>
@@ -139,6 +119,18 @@
                                 <a href="{{ route('admin.project.index') }}">
                                     <span class="icon"><i class="mdi mdi-table"></i></span>
                                     <span class="menu-item-label">Project</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <ul class="menu-list">
+                            <li class="">
+                                <form id="log_out" method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                </form>
+
+                                <a href="#" onclick="document.getElementById('log_out').submit()">
+                                    <span class="icon"><i class="mdi mdi-logout"></i></span>
+                                    <span class="menu-item-label">logout</span>
                                 </a>
                             </li>
                         </ul>
