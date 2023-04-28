@@ -43,6 +43,12 @@
   section {
     padding: 60px 0;
     overflow: hidden;
+    z-index: -1;
+  }
+  header{
+    background-color: white;
+    z-index: -1;
+
   }
 
   .section-header {
