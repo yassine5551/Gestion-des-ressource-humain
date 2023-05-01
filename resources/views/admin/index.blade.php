@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-     
+
     </div>
 
         {{-- <div class="bg-gradient-to-b from-red-200 to-red-100 border-b-4 border-red-500 rounded-lg shadow-xl p-5">
@@ -83,12 +83,12 @@
                 </div>
             </div>
         </div> --}}
-   
+
         <hr class="my-4">
-       
+
         <canvas id="myChart"></canvas>
         <hr class="my-4">
-        <div class="">
+        <div class="p-4">
             <h3 class="text-sky-800 font-bold m-2 ">les absence de ce mois</h3>
         <table class="table scroll " style="border-radius: 10px;max-height:500px">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
@@ -108,14 +108,14 @@
                         {{$absence->employee->user->getLastName()}}</div></td>
                     <td class="p-2 whitespace-nowrap">
                         <div class="text-left">{{$absence->date}}</div></td>
-                  
-                    
+
+
                 </tr>
                 @endforeach
             </tbody>
         </table>
         </div>
-        <div class=" " >
+        <div class="p-4" >
             <h3 class="text-sky-800 font-bold m-2 ">les Congees de ce mois</h3>
         <table class="table scroll " style="border-radius: 10px;max-height:500px">
             <thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
@@ -148,21 +148,21 @@
                           </svg>
                         @endif
                     </td>
-                  
-                    
+
+
                 </tr>
                 @endforeach
             </tbody>
         </table>
         </div>
-      
-
-   
 
 
 
 
-   
+
+
+
+
 @endsection
 
 @section('script')
@@ -177,14 +177,14 @@
     for (let i=0;i<=lbls2.length;i++){
         bgs.push(`rgba(255, 99, ${i}, 0.2)`)
     }
-    
+
     var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
     type: 'bar',
     data: {
         labels: lbls2,
         datasets: [{
-            label: 'Number of sightings',
+            label: 'Nombre des employés',
             data: datachart.map(item=>item.count),
             backgroundColor:bgs,
             borderColor: [
@@ -225,7 +225,6 @@ var myChart = new Chart(ctx, {
 
 
 
- 
 
 
-  
+
