@@ -34,7 +34,7 @@
     <header id="header" class="header fixed-top">
         <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center">
+            <a href="/" class="logo d-flex align-items-center">
                 <img src="assets/imgs/logo.png" alt="">
                 <span>Vala Administration</span>
             </a>
@@ -128,15 +128,16 @@
 
 
 
-                    <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                    <div class="col-lg-4 col-md-12 footer-contact items-end  ">
+                        <div class=" text-end  text-md-start flex w-1/2 ">
                         <h4>Contact-nous</h4>
                         <p>
                             2ème étage N°6, Immeuble Safwa, <br>
                             Boulevard, Avenue Hassan 1er، <br>
-                            Agadir 80000<br><br>
+                            Agadir 80000<br>
                             <strong>Phone:</strong> 05282-13045<br>
                         </p>
-
+                    </div>
                     </div>
 
                 </div>

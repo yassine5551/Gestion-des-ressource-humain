@@ -62,7 +62,7 @@
             </div>
             <div class="menu is-menu-main">
                 <p class="menu-label">General</p>
-                
+
                 <ul class="menu-list">
                     <li class="">
                         <a href="{{ route('employee.index') }}">
@@ -90,11 +90,7 @@
                                     <span>Changer Votre mot de passe</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="#void">
-                                    <span>Sub-item Two</span>
-                                </a>
-                            </li>
+                            
                         </ul>
                     </li>
                     <ul class="menu-list">

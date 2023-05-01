@@ -52,8 +52,10 @@
 
         <aside class="aside is-placed-left is-expanded overflow-x-scroll">
             <div class="aside-tools">
-                <div>
+                <div><a href="/">
                     Vala <b class="font-black">Administration</b>
+                    </a>
+
                 </div>
             </div>
             <div class="menu is-menu-main">
