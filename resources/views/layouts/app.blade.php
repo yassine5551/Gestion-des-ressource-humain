@@ -10,6 +10,11 @@
     <link rel="stylesheet" href="{{ URL::to('assets/css/line-awesome.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/select2.min.css') }}">
     <link rel="stylesheet" href="{{ URL::to('assets/css/style.css') }}">
+
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="assets/css/landing.css" rel="stylesheet">
+
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 </head>
 <body class="account-page error-page" body style="background-color: #f2f2f2;">

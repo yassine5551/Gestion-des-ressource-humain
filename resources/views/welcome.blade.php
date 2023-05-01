@@ -51,7 +51,7 @@
                                 @csrf
                             </form>
                             <a class="getstarted scrollto" onclick="document.getElementById('log_out').submit()"
-                                href="#">LogOut</a>
+                                href="#">Log Out</a>
                         </li>
                     @endguest
                 </ul>

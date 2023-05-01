@@ -24,7 +24,7 @@
                             <div class="form-group">
                                 <div class="row">
                                     <div class="col">
-                                        <label>Mot De Passe</label>
+                                        <label>Mot de passe</label>
                                     </div>
                                 </div>
                                 <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Enter votre mot de passe">
@@ -39,13 +39,14 @@
                                     <div class="col">
                                         <label></label>
                                     </div>
-                              
+
                                 </div>
                             </div>
                             <div class="form-group text-center">
-                                <button class="btn btn-primary account-btn" type="submit" >CONNEXION</button>
+                                <button class="btn btn-primary"
+                                    type="submit" >CONNEXION</button>
                             </div>
-                          
+
                         </form>
                     </div>
                 </div>
