@@ -71,7 +71,7 @@ class AdminProjectController extends Controller
             $member->save();
         }
 
-        return back()->with("success_msg", "l'équipe de travail est ajour avec success");;
+        return back()->with("success_msg", "l'équipe de travail est ajouté avec success");;
     }
     public function delete($id)
     {
@@ -82,6 +82,6 @@ class AdminProjectController extends Controller
         }
         $team->delete();
         $prject->delete();
-        return back()->with("success_msg", "le projet a été supprimé avec succès");;
+        return back()->with("success_msg", "le projet a été supprimer avec succès");;
     }
 }

@@ -36,7 +36,7 @@ class AdminLeaveController extends Controller
             'start_at' => $request->start_at,
             'end_at' => $request->end_at
         ]);
-        return back()->with("success_msg", "le congée est ajoute avec success }");
+        return back()->with("success_msg", "le congé est ajouté avec success }");
     }
 
 
@@ -53,7 +53,7 @@ class AdminLeaveController extends Controller
         $leave = Leave::find($id);
         $leave->setStatus('accepted');
         $leave->save();
-        return back()->with("success_msg", "le congée a Etait Accepte avec success ");
+        return back()->with("success_msg", "le congé a été accepter avec success ");
     }
 
     public function refuseLeave($id)
@@ -61,6 +61,6 @@ class AdminLeaveController extends Controller
         $leave = Leave::find($id);
         $leave->setStatus('rejected');
         $leave->save();
-        return back()->with("success_msg", "le congée a Etait Refuser avec success ");
+        return back()->with("success_msg", "le congé a été refuser avec success ");
     }
 }

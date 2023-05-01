@@ -26,6 +26,6 @@ class AdminDepartementController extends Controller
         Departement::create([
             "name" => $request->input("name")
         ]);
-        return back()->with("success_msg", "le departement est ajoute avec success");
+        return back()->with("success_msg", "le departement est ajouté avec success");
     }
 }

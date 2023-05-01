@@ -46,7 +46,7 @@ class AdminPostController extends Controller
             "departement_id"=>$request->input("departement_id"),
             'name' => $request->input('name'),
         ]);
-        return back()->with("success_msg","le post est ajoute avec success");
+        return back()->with("success_msg","le post est ajouté avec success");
     }
 
     /**

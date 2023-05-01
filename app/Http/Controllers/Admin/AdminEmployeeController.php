@@ -58,11 +58,11 @@ class AdminEmployeeController extends Controller
             "born_date" => $request->input("born_date"),
             "hiring_date" => $request->input("hiring_date")
         ]);
-        return back()->with("success_msg", "l'employee ajoute avec success");
+        return back()->with("success_msg", "l'employé est ajouté avec success");
     }
     public function delete($id)
     {
         Employee::find($id)->delete();
-        return back()->with("success_msg", "l'employee est supprimé avec success");
+        return back()->with("success_msg", "l'employé est supprimé avec success");
     }
 }
