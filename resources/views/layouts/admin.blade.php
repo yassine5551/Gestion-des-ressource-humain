@@ -72,7 +72,7 @@
                 <ul class="menu-list">
                     <li class="">
                         <a href="{{ route('admin.employee.index') }}">
-                            <span class="icon"><i class="mdi mdi-table"></i></span>
+                            <span class="icon"><i class="mdi mdi-table-large"></i></span>
                             <span class="menu-item-label">Liste des Employés</span>
                         </a>
                     </li>
@@ -134,7 +134,7 @@
                             <li class="">
                                 <a href="{{ route('admin.project.index') }}">
                                     <span class="icon"><i class="mdi mdi-table"></i></span>
-                                    <span class="menu-item-label">Project</span>
+                                    <span class="menu-item-label">Projet</span>
                                 </a>
                             </li>
                         </ul>
