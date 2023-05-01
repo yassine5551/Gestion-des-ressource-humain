@@ -27,7 +27,7 @@ class Leave extends Model
         $request->validate([
 
             'start_at' => "required|date|after_or_equal:today",
-            "end_at" => 'required|date|after:start_at',
+            "end_at" => 'required|date|after_or_equal:start_at',
             "type" => "required"
         ]);
     }
