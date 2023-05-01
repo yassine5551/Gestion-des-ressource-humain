@@ -42,8 +42,6 @@
             <nav id="navbar" class="navbar">
                 <ul>
                     <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-                    <li><a class="nav-link scrollto" href="#about">A propos</a></li>
-                    <li><a class="nav-link scrollto" href="#contact">Contactez-nous</a></li>
                     @guest
                         <li><a class="getstarted scrollto" href="{{ route('login') }}">Se connecter</a></li>
                     @else
@@ -80,12 +78,12 @@
                             <a href="{{route("login")}}"
                                 class="btn-get-started scrollto d-inline-flex align-items-center justify-content-center align-self-center">
                             @guest
-                    
+
                                 <span>Se connecter</span>
                                 @else
                                 <span>acceder a tableau de board</span>
                                 @endguest
-                                
+
                                 <i class="bi bi-arrow-right"></i>
                             </a>
                         </div>
@@ -109,7 +107,7 @@
         <div class="footer-top">
             <div class="container">
                 <div class="row gy-4">
-                    <div class="col-lg-5 col-md-12 footer-info">
+                    <div class="col-lg-8 col-md-12 footer-info">
                         <a href="index.html" class="logo d-flex align-items-center">
                             <img src="assets/img/logo.png" alt="">
                             <span>Vala</span>
@@ -126,15 +124,7 @@
 
                     </div>
 
-                    <div class="col-lg-2 col-6 footer-links">
-                        <h4>Entreprise </h4>
-                        <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Home</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">A propos</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">Se connecter</a></li>
 
-                        </ul>
-                    </div>
 
 
 
