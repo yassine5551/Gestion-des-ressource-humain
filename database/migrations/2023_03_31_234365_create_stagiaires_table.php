@@ -24,7 +24,7 @@ return new class extends Migration
             $table->text("adress")->nullable();
             $table->string("phone");
             $table->unsignedBigInteger("project_id");
-            $table->foreign("project_id")->references("id")->on("projects");
+            $table->foreign("project_id")->references("id")->on("projects")->cascadeOnDelete();
             $table->date("born_date");
             $table->timestamps();
         });

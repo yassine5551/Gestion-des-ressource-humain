@@ -62,17 +62,10 @@
             </div>
             <div class="menu is-menu-main">
                 <p class="menu-label">General</p>
+                
                 <ul class="menu-list">
                     <li class="">
-                        <a href="{{ route('admin.index') }}">
-                            <span class="icon"><i class="mdi mdi-desktop-mac"></i></span>
-                            <span class="menu-item-label">Dashboard</span>
-                        </a>
-                    </li>
-                </ul>
-                <ul class="menu-list">
-                    <li class="">
-                        <a href="{{ route('employee.profile') }}">
+                        <a href="{{ route('employee.index') }}">
                             <span class="icon"><i class="mdi mdi-face-agent"></i></span>
                             <span class="menu-item-label">Mon Profile</span>
                         </a>
@@ -87,7 +80,7 @@
 
                     <li>
                         <a class="dropdown">
-                            <span class="icon"><i class="mdi mdi-view-list"></i></span>
+                            <span class="icon"><i class="mdi mdi-image-filter-vintage"></i></span>
                             <span class="menu-item-label">Paramètre</span>
                             <span class="icon"><i class="mdi mdi-cog"></i></span>
                         </a>
@@ -104,6 +97,18 @@
                             </li>
                         </ul>
                     </li>
+                    <ul class="menu-list">
+                        <li class="">
+                            <form id="log_out" method="POST" action="{{ route('logout') }}">
+                                @csrf
+                            </form>
+
+                            <a href="#" onclick="document.getElementById('log_out').submit()">
+                                <span class="icon"><i class="mdi mdi-logout"></i></span>
+                                <span class="menu-item-label">logout</span>
+                            </a>
+                        </li>
+                    </ul>
 
 
 

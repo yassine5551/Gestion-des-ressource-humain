@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger("employee_id");
             $table->string('type');
             $table->string('status');
-            $table->foreign("employee_id")->references("id")->on("employees");
+            $table->foreign("employee_id")->references("id")->on("employees")->cascadeOnDelete();
             $table->date("start_at");
             $table->date("end_at");
             $table->softDeletes();

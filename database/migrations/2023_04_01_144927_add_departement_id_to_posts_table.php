@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->foreignId('departement_id')->after("id");
+            $table->unsignedBigInteger("departement_id")->after("id");
+            $table->foreign('departement_id')->references("id")->on("departements")->cascadeOnDelete();
         });
     }
 

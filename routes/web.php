@@ -75,8 +75,7 @@ Route::controller(App\Http\Controllers\Admin\AdminDepartementController::class)-
 
 
 Route::controller(EmployeeController::class)->group(function () {
-    Route::get('/employee', 'index')->name("employee.index");
-    Route::get('/employee/profile', 'profile')->name("employee.profile");
+    Route::get('/employee', 'profile')->name("employee.index");
 });
 
 Route::controller(EmployeeLeaveController::class)->group(function () {

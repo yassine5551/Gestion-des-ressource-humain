@@ -16,6 +16,7 @@
     <meta name="description" content="Admin One - free Tailwind dashboard">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script defer src="https://unpkg.com/flowbite@1.4.4/dist/flowbite.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-130795909-1"></script>

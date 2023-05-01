@@ -24,12 +24,11 @@ class Absence extends Model
             'employee_id' => "required|exists:employees,id",
             "date" => [
                 "required", "date", "before_or_equal:today",
-                new notSunday(), "unique:absences,date", new inaceptAbsenceInLeave($emp),
+                new notSunday(), new inaceptAbsenceInLeave($emp),
                 "after:{$emp->getHiringDate()}"
             ],
             "raison" => "required"
         ], [
-            "unique" => "absence already daclared for this date",
             "after" => "we cannot declare an absence before hiring date"
         ]);
     }
