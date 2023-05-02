@@ -16,7 +16,6 @@ use App\Http\Controllers\Employe\EmployeeSettingsController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
@@ -88,3 +87,7 @@ Route::controller(EmployeeSettingsController::class)->group(function () {
     Route::get('/employee/settings', 'change_password_index')->name("employe.settings.changepassword_index");
     Route::patch('/employee/settings/changePassword', 'change_password_store')->name('employe.settings.changepassword_store');
 });
+
+Route::fallback(function() {
+    return view('404'); // la vue 404.blade.php
+ });
