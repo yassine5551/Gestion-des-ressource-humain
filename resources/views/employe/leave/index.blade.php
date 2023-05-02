@@ -1,4 +1,5 @@
 @extends('layouts.employee')
+@section('title', $title)
 
 
 @section('content')

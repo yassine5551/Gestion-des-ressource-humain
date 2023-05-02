@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title', $title)
 @section('content')
 
     @if (session('success_msg'))
@@ -254,7 +254,7 @@
                 <tbody class="text-sm divide-y divide-gray-100">
                     ${generateCheckBoxes(project_id)}
                     </tbody>
-                    </table>  
+                    </table>
                     <input type='hidden' name='project_id' value='${project_id}'>
     <input type='hidden' name='_token' value=${csrf}>
 

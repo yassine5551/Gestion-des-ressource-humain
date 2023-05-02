@@ -20,7 +20,7 @@ class EmployeeSettingsController extends Controller
 
     public function change_password_index()
     {
-        $title = "Employee - Dashboard";
+        $title = "Employee - Changer votre mot de passe";
 
 
         return view('employe.settings.changepassword', compact('title'));

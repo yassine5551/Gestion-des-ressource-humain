@@ -16,7 +16,7 @@ class EmployeeLeaveController extends Controller
     }
     public function index(Request $request)
     {
-        $title = "Employee - Dashboard";
+        $title = "Employee - Demandes de congees";
         $types = Leave::$type;
         $user = Auth::user();
         $leaves = Leave::where("employee_id", $user->employee->getId())->get() ?? [];

@@ -18,13 +18,14 @@ class AdminLeaveController extends Controller
     {
         $leaves = Leave::where("status", "accepted")->get();
         $employees = Employee::all();
+        $title = "Admin - Congees";
         $types = Leave::$type;
         $ids =
             DB::table('users')
             ->rightJoin("employees", "users.id", '=', "employees.user_id")
             ->select(DB::raw("employees.id"))
             ->get();
-        return view("admin.leave.index", compact("employees", "leaves", "ids", "types"));
+        return view("admin.leave.index", compact("employees","title", "leaves", "ids", "types"));
     }
     public function store(Request $request)
     {

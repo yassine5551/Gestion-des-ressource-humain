@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-
+@section('title', $title)
 @section('content')
     @if (session('success_msg'))
         <div class="fixed bottom-0 right-0 m-4 z-50">

@@ -1,4 +1,5 @@
 @extends('layouts.admin')
+@section('title', $title)
 
 @section('content')
     @if(session('success_msg'))

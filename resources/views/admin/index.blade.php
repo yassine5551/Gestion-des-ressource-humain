@@ -187,31 +187,17 @@ var myChart = new Chart(ctx, {
             label: 'Nombre des employés',
             data: datachart.map(item=>item.count),
             backgroundColor:bgs,
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-                'rgba(255, 206, 86, 1)',
-                'rgba(75, 192, 192, 1)'
-            ],
-            borderWidth: 1
         }]
     },
     options: {
         indexAxis: 'y',
         responsive: true,
-        scales: {
-            x: {
-                beginAtZero: true
-            }
-        },
+
         plugins: {
             legend: {
                 position: 'top',
             },
-            title: {
-                display: true,
-                text: 'Animal Sightings'
-            }
+
         }
     },
 });

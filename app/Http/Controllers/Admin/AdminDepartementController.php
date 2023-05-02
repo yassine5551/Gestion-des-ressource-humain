@@ -16,7 +16,7 @@ class AdminDepartementController extends Controller
     public function index()
     {
         $departements = Departement::all();
-        $title =  "Admin - Employes";
+        $title =  "Admin - Departement";
         return view("admin.departement.index", compact("departements", "title"));
     }
 
