@@ -61,27 +61,6 @@
         </header>
     </div>
 
-    <div class="flex justify-center">
-        <div class="w-1/2">
-            <label for="underline_select" class="sr-only">Underline select</label>
-            <select id="filter_by_post" id="underline_select"
-                class="block py-2.5 px-0 w-full text-sm text-gray-500 bg-transparent border-0 border-b-2 border-gray-200 appearance-none dark:text-gray-400 dark:border-gray-700 focus:outline-none focus:ring-0 focus:border-gray-200 peer">
-                <option value="-1" selected>Choisir le post</option>
-                @foreach ($posts as $post)
-                    <option value="{{ $post->getId() }}">{{ $post->getName() }}</option>
-                @endforeach
-            </select>
-        </div>
-        <div class="w-1/3">
-
-        </div>
-        {{--                <div class="w-1/3"> --}}
-        {{--                    <button id="download_list" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded inline-flex items-center"> --}}
-        {{--                        <svg class="fill-current w-4 h-4 mr-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z"/></svg> --}}
-        {{--                        <span>Download</span> --}}
-        {{--                    </button> --}}
-        {{--                </div> --}}
-    </div>
 
 
 
@@ -155,7 +134,7 @@
                                                 action="{{ route('admin.employee.delete', $employer->getId()) }}">
                                                 @csrf
                                                 @method('delete')
-                                                <button class="btn-delete-emp" type="submit">
+                                                <button class="icon-delete ">
                                                     <i class="fa fa-trash text-red-500 text-xl"></i>
                                                 </button>
 
@@ -206,105 +185,7 @@
 
     @section('script')
         <script>
-            let postField = $("#filter_by_post");
-            let content = $('#container')
-
-            $(postField).change(() => {
-                $.get(`http://localhost:8000/api/employers/post/${postField.val()}`, (data, status) => {
-                    const table = $(`<table class="table-auto w-full">`);
-                    // language=HTML
-                    const thead = $(`<thead class="text-xs font-semibold uppercase text-gray-400 bg-gray-50">
-                                <tr>
-                                    <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Name</div>
-                                    </th>
-                                    <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Post</div>
-                                    </th>
-                                    <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-left">Status</div>
-                                    </th>
-                                    <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-center">Salaire</div>
-                                    </th>
-                                    <th class="p-2 whitespace-nowrap">
-                                        <div class="font-semibold text-center">Date D'embauch</div>
-                                    </th>
-                                </tr>
-                                </thead>`)
-                    table.append(thead)
-                    let tbody = $("<tbody>")
-                    data.employers.forEach(item => {
-                        let id = item.id
-                        let url = "{{ route('admin.employee.delete', ':id') }}";
-                        url = url.replace(':id', id);
-
-                        let tr = $(`
-                                        <tr>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="flex items-center">
-                                                <div class="w-10 h-10 flex-shrink-0 mr-2 sm:mr-3"><img class="rounded-full" src="https://avatars.dicebear.com/v2/initials/${item.first_name[0]}-${item.last_name[0]}.svg"></div>
-                                                <div class="font-medium text-gray-800">${item.first_name} ${item.last_name}</div>
-                                            </div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-left">${item.post_name}</div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-center font-medium text-green-500">
-                            ${item.inHoliday?` <span
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            class="text-white text-sm w-1/3 pb-1 bg-red-600 font-semibold px-2 rounded-full">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            Congée </span>`:` <span
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    class="text-white text-sm w-1/3 pb-1 bg-green-600 font-semibold px-2 rounded-full">
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    Disponible </span>`}
-
-
-
-
-
-                </div>
-            </td>
-            <td class="p-2 whitespace-nowrap">
-                <div class="text-lg text-center">${item.salary} </div>
-                                        </td>
-                                        <td class="p-2 whitespace-nowrap">
-                                            <div class="text-lg text-center">${item.hiring_date}</div>
-                                        </td>
-                                        <td data-label="actions" class="p-2 whitespace-nowrap ">
-                                        <div class="flex items-center text-center">
-
-                                            <form id="del_stg" method="post"
-                                                action="${url}">
-                                                @csrf
-                                                @method('delete')
-                                                <button class='btn-delete-emp' type="submit">
-                                                    <i class="fa fa-trash text-red-500 text-xl"></i>
-                                                </button>
-
-                                            </form>
-
-
-
-
-
-                                        </div>
-
-                                    </td>
-                                    </tr>
-`)
-
-
-                        tbody.append(tr)
-                    })
-
-                    table.append(tbody)
-                    content.html(table)
-                })
-            })
-            const downloadButton = $("#download_list")
-            downloadButton.click((e) => {
-                window.location.replace("employees/download")
-            })
+  
             const table = document.getElementById('myTable');
             const prevBtn = document.getElementById('prev');
             const nextBtn = document.getElementById('next');
@@ -354,6 +235,29 @@
                     displayRows();
                 }
             });
+            $(".icon-delete").click(function(e) {
+            e.preventDefault()
+            const form = $(this).parent()
+            console.log(form)
+            Swal.fire({
+                text: "confirmer la supprission!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Oui, Supprimer Le projet!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    form.submit()
+                    Swal.fire(
+                        'Supprime!',
+                        'Votre Projet est supprime avec success',
+                        'success'
+                    )
+                }
+            })
+
+        })
         </script>
 
     @endsection
