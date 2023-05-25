@@ -56,7 +56,7 @@ class AdminProjectController extends Controller
             "employee_ids" => ["required"],
             "project_id" => ["required", "exists:projects,id"]
         ]);
-        if(Project::where("end_at","<",today())){
+        if(Project::where("id",$request->project_id)->where("end_at","<",now())->exists()){
             return back()->with("error_msg", "le projet et termimer");;
 
         }else{
