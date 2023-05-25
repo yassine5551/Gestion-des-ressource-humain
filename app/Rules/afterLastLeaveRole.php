@@ -37,6 +37,6 @@ class afterLastLeaveRole implements Rule
      */
     public function message()
     {
-        return 'you cannot start an leave while ather leave doesnt ended.';
+        return "vous ne pouvez pas commencer un congé tant qu'un autre congé n'est pas terminé .";
     }
 }

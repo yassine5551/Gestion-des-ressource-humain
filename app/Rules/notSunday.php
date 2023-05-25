@@ -36,6 +36,6 @@ class notSunday implements Rule
      */
     public function message()
     {
-        return 'we cannot declare an absence at sunday.';
+        return 'nous ne pouvons pas déclarer une absence le dimanche.';
     }
 }

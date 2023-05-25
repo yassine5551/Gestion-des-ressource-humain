@@ -41,6 +41,6 @@ class valideEmployees implements Rule
      */
     public function message()
     {
-        return 'incorrect employee.';
+        return 'incorrect employeé.';
     }
 }

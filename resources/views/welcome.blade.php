@@ -41,7 +41,7 @@
 
             <nav id="navbar" class="navbar">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
+                    <li><a class="nav-link scrollto active" href="/">Home</a></li>
                     @guest
                         <li><a class="getstarted scrollto" href="{{ route('login') }}">Se connecter</a></li>
                     @else
@@ -51,7 +51,7 @@
                                 @csrf
                             </form>
                             <a class="getstarted scrollto" onclick="document.getElementById('log_out').submit()"
-                                href="#">Log Out</a>
+                                href="#">Se déconnecté</a>
                         </li>
                     @endguest
                 </ul>

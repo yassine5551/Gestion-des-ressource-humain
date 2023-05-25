@@ -38,6 +38,6 @@ class inaceptAbsenceInLeave implements Rule
      */
     public function message()
     {
-        return 'we cannot declare an absence at leave period.';
+        return 'on ne peut pas déclarer une absence en période de congé.';
     }
 }
