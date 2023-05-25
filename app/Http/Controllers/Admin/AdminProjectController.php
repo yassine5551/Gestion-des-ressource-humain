@@ -56,14 +56,19 @@ class AdminProjectController extends Controller
             "employee_ids" => ["required"],
             "project_id" => ["required", "exists:projects,id"]
         ]);
-        $team = Project::find($request->input("project_id"))->team;
-        $members = $team->members ?? [];
-        foreach ($members as $mb) {
-            $mb->delete();
-        }
-        if (!$team) {
+        if(Project::where("end_at","<",today())){
+            return back()->with("error_msg", "le projet et termimer");;
 
-            $team = new Team();
+        }else{
+
+            $team = Project::find($request->input("project_id"))->team;
+            $members = $team->members ?? [];
+            foreach ($members as $mb) {
+                $mb->delete();
+            }
+            if (!$team) {
+                
+                $team = new Team();
             $team->project_id = $request->input('project_id');
             $team->save();
         }
@@ -74,8 +79,9 @@ class AdminProjectController extends Controller
             $member->team_id = $team->id;
             $member->save();
         }
-
+        
         return back()->with("success_msg", "l'équipe de travail est ajouté avec success");;
+    }
     }
     public function delete($id)
     {

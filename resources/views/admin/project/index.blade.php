@@ -18,6 +18,22 @@
             </div>
         </div>
     @endif
+    @if (session('error_msg'))
+    <div class="fixed bottom-0 right-0 m-4 z-50">
+        <div id="danger-alert"
+            class="bg-red-500 text-white font-bold rounded-lg px-4 py-3 shadow-md flex items-center justify-between">
+            <span>{{ session('error_msg') }}</span>
+            <button id="close-alert"
+                class="text-white hover:text-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-400 rounded-full">
+                <svg class="h-6 w-6" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12">
+                    </path>
+                </svg>
+            </button>
+        </div>
+    </div>
+@endif
     @if ($errors->any())
         <div class="fixed bottom-0 right-0 m-4">
             <div id="fail-alert"
