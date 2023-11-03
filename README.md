@@ -1,6 +1,7 @@
 <h3>About The Project :</h3>
 <p>un projet du gestion des ressources humans pour facilite la gestion des employees et stagaires ect ... .</p>
-<p> <strong>Framework : Laravel   javascript   HTML5   CSS3   TailwandCss   PHP</strong> </p>
+<p> <strong>Framework : Laravel   </strong> </p>
+<p><strong> langage : javascript   HTML5   CSS3   TailwandCss   PHP</strong> </p>
 
 <h3>Projects Pages :</h3>
 
